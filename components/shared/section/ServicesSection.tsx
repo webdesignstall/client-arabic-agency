@@ -38,6 +38,7 @@ const tabs = [
       'Process and workforce automation consulting;',
       'Process and workforce automation consulting;'
     ]
+
   },
   {
     id: 'tab2',
