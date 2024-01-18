@@ -8,7 +8,7 @@ export default function ServicesSection() {
       <div>
         <div>
           <div className='w-full'>
-            <h1 className='text-center text-6xl font-bold py-6'>
+            <h1 className='text-6xl font-bold py-12'>
               Our AI Development Services
             </h1>
           </div>
@@ -28,7 +28,7 @@ const tabs = [
   {
     id: 'tab1',
     label: 'Tab 1',
-    content: <p>When it comes to marketing, AI can recognize factors that humans cannot see. Capitalize on quicker and smarter decision-making, higher ROI in promotion, accurately calculated and assessed KPIs, and the fully unleashed potential of client data.</p>,
+    content: <p className='leading-relaxed'>Andersen will be your trusted partner in crafting and executing a strategic roadmap for success in the digital landscape of tomorrow. Capitalize on the unlimited horizons revealed by investments in smart self-learning algorithms.</p>,
   },
   {
     id: 'tab2',
