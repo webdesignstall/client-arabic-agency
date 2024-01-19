@@ -6,6 +6,8 @@ type Tab = {
   id: string;
   label: string;
   content: React.ReactNode;
+  header: string,
+  list: any,
 };
 
 interface TabsProps {
@@ -42,8 +44,20 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
             key={tab.id}
             className={`${activeTab === tab.id ? '' : 'hidden'}`}
           >
-            {tab.content}
+            <div>
+              <p className='pb-6'>{tab.content}</p>
+              <ul className='bg-gray-100 p-8 space-y-3'>
+               {
+                Array.from(tab.list).map((item:any, i)=>(
+                  <li className='list-disc' key={i}>
+                    {item}
+                  </li>
+                ))
+               }
+              </ul>
+            </div>
           </div>
+          
         ))}
       </div>
     </div>
