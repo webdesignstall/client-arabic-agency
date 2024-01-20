@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-0 z-30'
+    className='absolute right-0 top-12 z-30'
     onClick={onClick}
   >
     <ChevronRight className='text-black' size={40} strokeWidth={1} />
@@ -20,7 +20,7 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-0  z-30'
+    className='absolute left-0 top-12  z-30'
     onClick={onClick}
   >
    <ChevronLeft className='text-black' size={40} strokeWidth={1} />
@@ -55,12 +55,12 @@ const Carousel: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className=''>
-          <Slider className='m-auto flex' {...settings}>
+        <div className='mt-8'>
+          <Slider className='px-20' {...settings}>
             {
-              [1,2,3,4,5,6,7,8,9,10,11].map((item)=>(
-                <div className=''>
-                  <h3>{item}</h3>
+              [1,2,3,4,5,6,7,8,9,10].map((item, i)=>(
+                <div key={i} className='border p-12'>
+                  <h3 className='flex justify-center items-center'>{item}</h3>
                 </div>
               ))
             }
