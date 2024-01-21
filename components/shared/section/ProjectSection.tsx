@@ -1,4 +1,5 @@
 import SectionContainer from '@/components/SectionContainer'
+import Link from 'next/link'
 import React from 'react'
 
 export default function ProjectSection() {
