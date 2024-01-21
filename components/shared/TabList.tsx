@@ -23,8 +23,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   };
 
   return (
-    <div className="grid grid-cols-3">
-      <div className="flex-none">
+    <div className="grid grid-cols-5 pt-8">
+      <div className="col-span-2 flex-none">
         <ul className="">
           {tabs.map((tab) => (
             <li
@@ -39,18 +39,19 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           ))}
         </ul>
       </div>
-      <div className="flex-grow col-span-2 px-8">
+      <div className="flex-grow col-span-3 pl-16">
         {tabs.map((tab) => (
           <div
             key={tab.id}
             className={`${activeTab === tab.id ? '' : 'hidden'}`}
           >
             <div>
-              <p className='pb-6'>{tab.content}</p>
-              <ul className='bg-gray-100 p-8 space-y-3'>
+              <p className='pb-6 text-lg'>{tab.content}</p>
+              <ul className='bg-gray-200 p-10 space-y-3'>
+                <li>{tab.header}</li>
                {
                 Array.from(tab.list).map((item:any, i)=>(
-                  <li className='list-disc' key={i}>
+                  <li className='list-disc px-3' key={i}>
                     {item}
                   </li>
                 ))

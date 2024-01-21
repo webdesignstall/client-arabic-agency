@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-28 z-30'
+    className='absolute right-0 top-28 z-30 cursor-pointer'
     onClick={onClick}
   >
     <ChevronRight className='text-black' size={40} strokeWidth={1} />
@@ -20,10 +20,10 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-28  z-30'
+    className='absolute left-0 top-28  z-30 cursor-pointer'
     onClick={onClick}
   >
-   <ChevronLeft className='text-black' size={40} strokeWidth={1} />
+    <ChevronLeft className='text-black' size={40} strokeWidth={1} />
   </div>
 );
 
@@ -45,23 +45,70 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <SectionContainer>
-      <div>
+      <div id='testimonials'>
         <div>
-          <div>
-            <h1 className='text-5xl font-semibold'>Testimonials</h1>
+          <div className='py-2'>
+            <h1 className='text-6xl font-semibold'>Testimonials</h1>
           </div>
           <div>
-            <p className='pt-6 text-xl font-semibold'>
-            SMB, enterprise, and startup customers return to our software company because they’re satisfied with our work. Here is what they say about Andersen.
+            <p className='pt-6 text-xl font-medium'>
+              SMB, enterprise, and startup customers return to our software company because they’re satisfied with our work. Here is what they say about Andersen.
             </p>
           </div>
         </div>
         <div className='mt-8'>
-          <Slider className='px-20' {...settings}>
+          <Slider className='px-12' {...settings}>
             {
-              [1,2,3,4,5,6,7,8,9,10].map((item, i)=>(
-                <div key={i} className='border h-72'>
-                  <h3 className='flex justify-center items-center w-full h-full text-4xl font-semibold'>{item}</h3>
+              items.map((item, i) => (
+                <div key={i} className='flex'>
+                  <div className='w-1/2 inline-block'>
+                    <div>
+                      <div>
+                        <h3 className='text-2xl font-semibold'>
+                          {item.header}
+                        </h3>
+                        <p className='py-6 text-gray-600'>
+                          {item.desc}
+                        </p>
+                        <div className='flex'>
+                          <div>
+                            <img width={60} src={item.avater} alt="" />
+                          </div>
+                          <div className='px-6'>
+                            <p className=' font-semibold'>
+                              {item.name}
+                            </p>
+                            <p className='text-gray-600'>Manager</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='w-1/2 inline-block'>
+                    <div className='absolute top-0 mr-8 w-[30rem]'>
+                      <div className='p-12 bg-gray-100 ml-10'>
+                        <div>
+                          <div>
+                            <img width={100} src={item.companyLogo} alt="" />
+                          </div>
+                          <div>
+                            <p className='text-gray-600 text-md pt-4'>Project</p>
+                            <p className='text-xl font-semibold py-3'>
+                              {
+                                item.projectName
+                              }
+                            </p>
+                          </div>
+                          <div>
+                            <p className='font-semibold'>Country</p>
+                            <p className='text-gray-600'>
+                              {item.country}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))
             }
@@ -75,3 +122,44 @@ const TestimonialsSection: React.FC = () => {
 
 
 export default TestimonialsSection;
+
+
+const items = [
+  {
+    header: '"We very much appreciate our collaboration with Andersen"',
+    desc: 'They’re very professional, well organized, and a pleasure to work with. Solid engineering skills and vast experience in the investment area were the key factors to select Andersen as our software development provider. We’ve already done several projects together. Their quality compares favorably with other providers. The team is proactive, and they reach out when they need guidance to keep the project moving forward. Their project management is outstanding.',
+    name: 'Savraj Singh Dhillon',
+    avater: 'https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/testimonials/60x60/christof-bitschnau-60x60.png',
+    companyLogo: 'https://content.andersenlab.com/review/company-logos/1702050106.svg',
+    projectName: 'Cloud-based web development for a medical AI company.',
+    country: 'Germany'
+  },
+  {
+    header: '"We very much appreciate our collaboration with Andersen"',
+    desc: 'They’re very professional, well organized, and a pleasure to work with. Solid engineering skills and vast experience in the investment area were the key factors to select Andersen as our software development provider. We’ve already done several projects together. Their quality compares favorably with other providers. The team is proactive, and they reach out when they need guidance to keep the project moving forward. Their project management is outstanding.',
+    name: 'Savraj Singh Dhillon',
+    avater: 'https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/testimonials/60x60/christof-bitschnau-60x60.png',
+    companyLogo: 'https://content.andersenlab.com/review/company-logos/1702050106.svg',
+    projectName: 'Cloud-based web development for a medical AI company.',
+    country: 'Germany'
+  },
+  {
+    header: '"We very much appreciate our collaboration with Andersen"',
+    desc: 'They’re very professional, well organized, and a pleasure to work with. Solid engineering skills and vast experience in the investment area were the key factors to select Andersen as our software development provider. We’ve already done several projects together. Their quality compares favorably with other providers. The team is proactive, and they reach out when they need guidance to keep the project moving forward. Their project management is outstanding.',
+    name: 'Savraj Singh Dhillon',
+    avater: 'https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/testimonials/60x60/christof-bitschnau-60x60.png',
+    companyLogo: 'https://content.andersenlab.com/review/company-logos/1702050106.svg',
+    projectName: 'Cloud-based web development for a medical AI company.',
+    country: 'Germany'
+  },
+  {
+    header: '"We very much appreciate our collaboration with Andersen"',
+    desc: 'They’re very professional, well organized, and a pleasure to work with. Solid engineering skills and vast experience in the investment area were the key factors to select Andersen as our software development provider. We’ve already done several projects together. Their quality compares favorably with other providers. The team is proactive, and they reach out when they need guidance to keep the project moving forward. Their project management is outstanding.',
+    name: 'Savraj Singh Dhillon',
+    avater: 'https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/testimonials/60x60/christof-bitschnau-60x60.png',
+    companyLogo: 'https://content.andersenlab.com/review/company-logos/1702050106.svg',
+    projectName: 'Cloud-based web development for a medical AI company.',
+    country: 'Germany'
+  },
+
+]

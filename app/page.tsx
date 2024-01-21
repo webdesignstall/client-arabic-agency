@@ -28,9 +28,9 @@ export default function page() {
           <TestimonialsSection />
           <InterviewSection />
           <AboutSection />
-          <ExpertiseSection />
+          {/* <ExpertiseSection /> */}
           <AdvantagesSection />
-          <OrderSection />
+          {/* <OrderSection /> */}
         </main>
       </div>
     </WidthContainer>
