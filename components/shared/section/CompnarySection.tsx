@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-12 z-30'
+    className='absolute right-0 top-16 z-30 cursor-pointer'
     onClick={onClick}
   >
     <ChevronRight className='text-black' size={40} strokeWidth={1} />
@@ -20,10 +20,10 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-12  z-30'
+    className='absolute left-0 top-16  z-30 cursor-pointer'
     onClick={onClick}
   >
-   <ChevronLeft className='text-black' size={40} strokeWidth={1} />
+    <ChevronLeft className='text-black' size={40} strokeWidth={1} />
   </div>
 );
 
@@ -44,23 +44,28 @@ const Carousel: React.FC = () => {
 
   return (
     <SectionContainer>
-      <div>
+      <div id='technologies'>
         <div>
-          <div>
-            <h1 className='text-5xl font-semibold'>AI technologies with Andersen</h1>
+          <div className='py-2'>
+            <h1 className='text-6xl font-semibold'>AI technologies with Andersen</h1>
           </div>
           <div>
-            <p className='pt-6'>
+            <p className='pt-6 text-xl font-medium'>
               Engage Andersen's AI engineers for your software initiatives. Delegate the design of AI-driven IT solutions serving as the central business logic for complex systems. These systems will then be able to automate resolution processes for intricate tasks, including grouping, classification, regression, and clustering. The niches we work in include Natural Language Processing, Computer Vision, AI planning, and more.
             </p>
           </div>
         </div>
         <div className='mt-8'>
-          <Slider className='px-20' {...settings}>
+          <Slider className='px-12 cu' {...settings}>
             {
-              [1,2,3,4,5,6,7,8,9,10].map((item, i)=>(
-                <div key={i} className='border p-12'>
-                  <h3 className='flex justify-center items-center'>{item}</h3>
+              items.map((item, i) => (
+                <div key={i} className='p-12'>
+                  <div>
+                    <img className='w-[100px] h-[50px]' src={item.icon} alt="" />
+                  </div>
+                  <div className='pt-6 text-center'>
+                    <p>{item.title}</p>
+                  </div>
                 </div>
               ))
             }
@@ -74,3 +79,43 @@ const Carousel: React.FC = () => {
 
 
 export default Carousel;
+
+
+const items = [
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/tensorflow.svg',
+    title: 'Tensorflow'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/pytorch.svg',
+    title: 'pytorch'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/keras.svg',
+    title: 'keras'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/scipy.svg',
+    title: 'scipy'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/theano.svg',
+    title: 'theano'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/theano.svg',
+    title: 'theano'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/scikit-learn.svg',
+    title: 'scikit'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/nltk.svg',
+    title: 'nltk'
+  },
+  {
+    icon: 'https://static.andersenlab.com/andersenlab/new-andersensite/icons/technologies/openCV.svg',
+    title: 'openCV'
+  },
+]

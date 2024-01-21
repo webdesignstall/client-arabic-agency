@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable}`}>
+      <head>
+        <title>Aqlea Tech</title>
+      </head>
       <body
         className={cn(
           "min-h-screen font-sans antialiased bg-[#020d1c]",

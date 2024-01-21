@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-28 z-30'
+    className='absolute right-0 top-36  cursor-pointer  z-30'
     onClick={onClick}
   >
     <ChevronRight className='text-white' size={40} strokeWidth={1} />
@@ -20,10 +20,10 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-28  z-30'
+    className='absolute left-0 top-36 cursor-pointer  z-30'
     onClick={onClick}
   >
-   <ChevronLeft className='text-white' size={40} strokeWidth={1} />
+    <ChevronLeft className='text-white' size={40} strokeWidth={1} />
   </div>
 );
 
@@ -43,32 +43,77 @@ const InterviewSection: React.FC = () => {
 
 
   return (
-      <div className=' lg:max-w-7xl m-auto py-16 my-6 px-20'>
+    <div className='lg:max-w-7xl m-auto py-16 my-6 px-20'>
+      <div>
         <div>
-          <div>
-            <h1 className='text-6xl font-bold leading-relaxed text-white'>Check out Andersen's video interviews</h1>
-          </div>
-          <div>
-            <p className='pt-6 text-white text-xl font-semibold'>
-            Andersen regularly provides a great opportunity to learn something new by interviewing the world's leading experts and opinion leaders from various scientific and business domains.
-            </p>
-          </div>
+          <h1 className='text-6xl font-bold text-white'>Check out Andersen's video interviews</h1>
         </div>
-        <div className='mt-8'>
-          <Slider className='px-20' {...settings}>
-            {
-              [1,2,3,4,5,6,7,8,9,10].map((item, i)=>(
-                <div key={i} className='border h-72'>
-                  <h3 className='flex justify-center items-center'>{item}</h3>
-                </div>
-              ))
-            }
-          </Slider>
+        <div>
+          <p className='pt-6 text-white text-xl font-medium'>
+            Andersen regularly provides a great opportunity to learn something new by interviewing the world's leading experts and opinion leaders from various scientific and business domains.
+          </p>
         </div>
       </div>
+      <div className='mt-8'>
+        <Slider className='px-12' {...settings}>
+          {
+            items.map((item, i) => (
+              <div key={i} className='h-[32rem] rounded-36 cur'>
+                <div className='mx-3'>
+                  <div>
+                    <img className='w-full' src="https://cdn-useast1.kapwing.com/static/-y_-Convert-Image-to-Video-(1).webp" alt="" />
+                  </div>
+                  <div className='p-6 bg-[#25303e]'>
+                    <div>
+                      <h3 className='text-2xl font-semibold py-3 text-white'>{item.header}</h3>
+                      <p className='text-gray-400 text-md'>{item.desc}</p>
+                      <p className='pt-4 text-white'>{item.date}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </Slider>
+      </div>
+    </div>
   );
 };
 
 
 
 export default InterviewSection;
+
+
+const items = [
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+  {
+    header: 'Wearable technologies and generative AI in healthcare',
+    desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
+    date: 'Sep 11, 2023'
+  },
+]

@@ -5,20 +5,23 @@ import React from 'react'
 export default function ProjectSection() {
   return (
     <SectionContainer>
-      <div>
+      <div id='project'>
         <div className=''>
           <div className='w-full'>
-            <h1 className='text-6xl font-bold py-6'>
+            <h1 className='text-6xl font-bold py-4'>
               Our Project
             </h1>
-            <p className='text-lg pt-6'>
+            <p className='text-xl pt-2 font-medium'>
               By providing a full range of AI Services, Andersen helps you create best-in-class software solutions that perfectly fit your needs. The results of our work are reflected in our case studies.
             </p>
           </div>
-          <div className='grid grid-cols-2 gap-12 my-8'>
+          <div className='grid grid-cols-2 gap-12 pt-16'>
             <div>
               <div className='overflow-hidden h-[330px]'>
-                <img className='hover:scale-110 duration-300 cursor-pointer' src="https://plus.unsplash.com/premium_photo-1703775145710-3882623295b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                <img className='hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/universkin/preview-image/desktop.webp" alt="" />
+              </div>
+              <div className='brightness-50 shrink-0 pt-6'>
+                <img className='w-12' src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/customers/universkin-white.svg" alt="" />
               </div>
               <p className='text-2xl font-semibold py-3'>
                 A Data-Driven Medical Solution for a Skin-Care Provider
@@ -26,24 +29,27 @@ export default function ProjectSection() {
             </div>
             <div>
               <div className='overflow-hidden h-[330px]'>
-                <img className='hover:scale-110 duration-300 cursor-pointer' src="https://plus.unsplash.com/premium_photo-1703775145710-3882623295b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                <img className='hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/quantics/preview-shots/medium.webp" alt="" />
+              </div>
+              <div className='brightness-50 shrink-0 pt-6'>
+                <img className='w-24' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/quantics/logo/ouantic-logo-color.svg" alt="" />
               </div>
               <p className='text-2xl font-semibold py-3'>
                 A Data-Driven Medical Solution for a Skin-Care Provider
               </p>
             </div>
           </div>
-          <div className='grid grid-cols-5'>
+          <div className='grid grid-cols-6 pt-20'>
             <div className='flex justify-center col-span-2 flex-col pr-4'>
-              <div className='py-4 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
-                PARABE//UM
+              <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
+                <img className='w-44' src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/cases/parabellum/parabellum-logo-color.svg" alt="" />
               </div>
               <div className='text-3xl font-semibold'>
                 A Marketing Analytics Platform
               </div>
             </div>
-            <div className='overflow-hidden col-span-3'>
-              <img className='m-right hover:scale-110 duration-300 cursor-pointer' src="https://plus.unsplash.com/premium_photo-1703775145710-3882623295b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+            <div className='overflow-hidden col-span-4'>
+              <img className='m-right hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp" alt="" />
             </div>
           </div>
         </div>
