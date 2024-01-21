@@ -1,6 +1,7 @@
 // components/Tabs.tsx
 "use client"
 import React, { useState } from 'react';
+import WithOurTeam from './deteils/WithOurTeam';
 
 type Tab = {
   id: string;
@@ -28,7 +29,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           {tabs.map((tab) => (
             <li
               key={tab.id}
-              className={`cursor-pointer w-full block text-2xl py-4 px-8 hover:bg-gray-100 duration-300 ${
+              className={`cursor-pointer w-full block text-xl py-4 px-8 hover:bg-gray-100 duration-300 ${
                 activeTab === tab.id ? 'bg-gray-200 font-medium' : ''
               }`}
               onClick={() => handleTabClick(tab.id)}
@@ -59,6 +60,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           </div>
           
         ))}
+        <WithOurTeam/>
       </div>
     </div>
   );
