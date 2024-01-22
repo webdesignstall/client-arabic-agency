@@ -14,14 +14,14 @@ const AboutProjectImags: React.FC<AboutImages> = ({aboutImages})=> {
     return (
         <div className="mt-5">
             <div style={{width: '80%', margin: 'auto'}}>
-                <img src={image?.photo} alt="" className="h-[500px] w-full"/>
+                <img src={image?.photo} alt="" className="h-[300px] md:h-[500px] w-full"/>
                 <h1 className="my-3 text-center text-[#B2B2B2] text-xl">{image?.title}</h1>
             </div>
             <div>
                 <div className="flex gap-3 justify-center mt-3">
                     {
                         aboutImages.map(img => <div onClick={(()=>setImages(img))} key={img.id} className="border p-2 rounded ">
-                            <img src={img.photo} alt="" className="w-[100px] h-[100px]"/>
+                            <img src={img.photo} alt="" className="w-[100px] h-[60px] md:h-[100px]"/>
                         </div>)
                     }
                 </div>
