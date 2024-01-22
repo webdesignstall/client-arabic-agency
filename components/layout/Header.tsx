@@ -8,11 +8,14 @@ import { AlignRight } from 'lucide-react';
 import styles from '@/app/Header.module.css';
 import MainLogo from '@/assets/img/mainLogo.jpg'
 import Image from 'next/image';
+import {useLocalization} from "@/context/LocalizeProvider";
+
 
 export default function Header() {
 
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [visible, setVisible] = React.useState(true);
+
     const [isScrolled, setIsScrolled] = React.useState(false);
 
 
@@ -21,30 +24,25 @@ export default function Header() {
           const top = window.scrollY > 0;
           setIsScrolled(top);
         };
-    
+
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
-    
+
         // Clean up the event listener on component unmount
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
       }, []);
 
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY;
-        const scrollingUp = currentScrollPos < prevScrollPos;
+    const { locale, switchLocale } = useLocalization();
 
-        setVisible(scrollingUp || currentScrollPos < 10); // Show the header if scrolling up or at the top
-        setPrevScrollPos(currentScrollPos);
+
+
+
+
+    const handleLocaleSwitch = (newLocale: string) => {
+        switchLocale(newLocale);
     };
-
-    React.useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [prevScrollPos]);
 
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white ${styles.header} ${visible ? `${styles.visible}` : ''}`}>
@@ -126,6 +124,11 @@ export default function Header() {
                         <div className='flex items-center pl-3'>
                             <button className='bg-purple-700 text-white px-5 py-2 hover:bg-purple-600 text-md font-bold'>Get Pricing</button>
                         </div>
+
+                        <div>
+                            <button onClick={() => handleLocaleSwitch('ar')}>Arabic</button>
+                            <button onClick={() => handleLocaleSwitch('en')}>English</button>
+                        </div>
                     </div>
                     <div className='lg:hidden flex'>
                         <div>
@@ -134,6 +137,8 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
             <div className={`bg-[#2b2a29bd] backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100': 'opacity-0'}`}>
@@ -150,5 +155,6 @@ export default function Header() {
                 </div>
             </div>
         </div>
+
     )
 }
