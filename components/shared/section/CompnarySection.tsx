@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-16 z-30 cursor-pointer'
+    className='absolute right-0 top-16 z-30 cursor-pointer hidden lg:flex'
     onClick={onClick}
   >
     <ChevronRight className='text-black' size={40} strokeWidth={1} />
@@ -20,7 +20,7 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-16  z-30 cursor-pointer'
+    className='absolute left-0 top-16  z-30 cursor-pointer hidden lg:flex'
     onClick={onClick}
   >
     <ChevronLeft className='text-black' size={40} strokeWidth={1} />
@@ -28,7 +28,7 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
 );
 
 
-const Carousel: React.FC = () => {
+const CompnarySection: React.FC = () => {
 
   const settings: any = {
     dots: true,
@@ -38,6 +38,16 @@ const Carousel: React.FC = () => {
     slidesToScroll: 5,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+        }
+      },
+    ]
 
   };
 
@@ -47,16 +57,16 @@ const Carousel: React.FC = () => {
       <div id='technologies'>
         <div>
           <div className='py-2'>
-            <h1 className='text-6xl font-semibold'>AI technologies with Andersen</h1>
+            <h1 className='lg:text-6xl text-3xl font-semibold'>AI technologies with Andersen</h1>
           </div>
           <div>
-            <p className='pt-6 text-xl font-medium'>
+            <p className='pt-6 lg:text-xl text-lg font-medium '>
               Engage Andersen's AI engineers for your software initiatives. Delegate the design of AI-driven IT solutions serving as the central business logic for complex systems. These systems will then be able to automate resolution processes for intricate tasks, including grouping, classification, regression, and clustering. The niches we work in include Natural Language Processing, Computer Vision, AI planning, and more.
             </p>
           </div>
         </div>
         <div className='mt-8'>
-          <Slider className='px-12 cu' {...settings}>
+          <Slider className='lg:px-12' {...settings}>
             {
               items.map((item, i) => (
                 <div key={i} className='p-12'>
@@ -78,7 +88,7 @@ const Carousel: React.FC = () => {
 
 
 
-export default Carousel;
+export default CompnarySection;
 
 
 const items = [

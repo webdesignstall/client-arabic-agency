@@ -20,7 +20,7 @@ export default function page() {
       <div>
         <HeroSection />
         <main>
-          <RatingSection/>
+          <RatingSection />
           <ScopeSection />
           <ServicesSection />
           <ProjectSection />

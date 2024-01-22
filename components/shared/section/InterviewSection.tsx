@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-36  cursor-pointer  z-30'
+    className='absolute right-0 top-36  cursor-pointer  z-30 hidden lg:flex'
     onClick={onClick}
   >
     <ChevronRight className='text-white' size={40} strokeWidth={1} />
@@ -20,7 +20,7 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-36 cursor-pointer  z-30'
+    className='absolute left-0 top-36 cursor-pointer  z-30 hidden lg:flex'
     onClick={onClick}
   >
     <ChevronLeft className='text-white' size={40} strokeWidth={1} />
@@ -38,24 +38,34 @@ const InterviewSection: React.FC = () => {
     slidesToScroll: 3,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+    ]
 
   };
 
 
   return (
-    <div className='lg:max-w-7xl m-auto py-16 my-6 px-20'>
+    <div className='lg:max-w-7xl m-auto lg:py-16 my-6 lg:px-20 py-12 px-4'>
       <div>
         <div>
-          <h1 className='text-6xl font-bold text-white'>Check out Andersen's video interviews</h1>
+          <h1 className='lg:text-6xl text-3xl font-bold  text-white'>Check out Andersen's video interviews</h1>
         </div>
         <div>
-          <p className='pt-6 text-white text-xl font-medium'>
+          <p className='pt-6 text-white lg:text-xl text-lg font-medium'>
             Andersen regularly provides a great opportunity to learn something new by interviewing the world's leading experts and opinion leaders from various scientific and business domains.
           </p>
         </div>
       </div>
       <div className='mt-8'>
-        <Slider className='px-12' {...settings}>
+        <Slider className='lg: hidden lg:flexpx-12' {...settings}>
           {
             items.map((item, i) => (
               <div key={i} className='h-[32rem] rounded-36 cur'>

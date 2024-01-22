@@ -23,7 +23,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   };
 
   return (
-    <div className="grid grid-cols-5 pt-8">
+    <div className="grid lg:grid-cols-5 grid-cols-1 pt-8">
       <div className="col-span-2 flex-none">
         <ul className="">
           {tabs.map((tab) => (
