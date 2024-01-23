@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, {useEffect, useState} from 'react'
 import WidthContainer from '@/components/WidthContainer'
 import TabList from '@/components/shared/TabList'
 import RatingSection from '@/components/shared/section/RatingSection';
@@ -13,14 +14,27 @@ import AboutSection from '@/components/shared/section/AboutSection';
 import ExpertiseSection from '@/components/shared/section/ExpertiseSection';
 import AdvantagesSection from '@/components/shared/section/AdvantagesSection';
 import OrderSection from '@/components/shared/section/OrderSection';
+import {appWithTranslation} from "next-i18next";
+import axios from "axios";
 
-export default function page() {
+const page = () => {
+
+  const [homeData, setHomeData] = useState([]);
+
+  useEffect(()=>{
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/hero-sections?populate=*`);
+      setHomeData(data?.data[0]?.attributes)
+    })()
+
+  }, [])
+
   return (
     <WidthContainer>
       <div>
-        <HeroSection />
+        <HeroSection homeData={homeData} />
         <main>
-          <RatingSection />
+          <RatingSection homeData={homeData}/>
           <ScopeSection />
           <ServicesSection />
           <ProjectSection />
@@ -30,10 +44,12 @@ export default function page() {
           <AboutSection />
           {/* <ExpertiseSection /> */}
           <AdvantagesSection />
-          {/* <OrderSection /> */}
+           <OrderSection />
         </main>
       </div>
     </WidthContainer>
   )
 }
+
+export default page;
 

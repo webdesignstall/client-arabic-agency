@@ -3,6 +3,7 @@ import '@/app/globals.css'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import {LocalizationProvider} from "@/context/LocalizeProvider";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,9 +28,12 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        <Header />
-        <div>{children}</div>
-        <Footer />
+      <LocalizationProvider>
+          <Header />
+          <div>{children}</div>
+          <Footer />
+      </LocalizationProvider>
+
       </body>
     </html>
   )
