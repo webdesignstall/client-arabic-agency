@@ -10,12 +10,10 @@ import MainLogo from '@/assets/img/mainLogo.jpg'
 import Image from 'next/image';
 import { useLocalization } from "@/context/LocalizeProvider";
 
-
 export default function Header() {
 
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [visible, setVisible] = React.useState(true);
-
     const [isScrolled, setIsScrolled] = React.useState(false);
 
 
@@ -34,9 +32,22 @@ export default function Header() {
         };
     }, []);
 
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY;
+        const scrollingUp = currentScrollPos < prevScrollPos;
+
+        setVisible(scrollingUp || currentScrollPos < 10); // Show the header if scrolling up or at the top
+        setPrevScrollPos(currentScrollPos);
+    };
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [prevScrollPos]);
+
     const { locale, switchLocale } = useLocalization();
-
-
 
 
     const handleLocaleSwitch = (newLocale: string) => {
@@ -136,11 +147,9 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-            <div className={`bg-[#2b2a29bd] hidden lg:block backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`bg-[#2b2a29bd] backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
                 <div className='max-w-7xl m-auto'>
                     <div>
                         <ul className='flex'>
@@ -154,6 +163,5 @@ export default function Header() {
                 </div>
             </div>
         </div>
-
     )
 }
