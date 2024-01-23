@@ -5,16 +5,25 @@ import { Button } from '../ui/button'
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { AlignRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import styles from '@/app/Header.module.css';
 import MainLogo from '@/assets/img/mainLogo.jpg'
 import Image from 'next/image';
 import { useLocalization } from "@/context/LocalizeProvider";
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Header() {
 
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [visible, setVisible] = React.useState(true);
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [navber, setnavber] = React.useState(false)
 
 
     React.useEffect(() => {
@@ -143,13 +152,41 @@ export default function Header() {
                     <div className='lg:hidden flex'>
                         <div>
                             <div className='p-1'>
-                                <button className='p-4'><AlignRight size={25} /></button>
+                                <button onClick={() => setnavber(!navber)} className='p-4 duration-300 transition-all transform '>
+                                    {
+                                        navber ? <X size={30} /> : <AlignRight size={30} />
+                                    }
+                                </button>
                             </div>
+                            {
+                                navber && <div className='absolute left-0 top-18 z-50 w-full h-screen bg-white'>
+                                    <div>
+                                        <Accordion className='mt-8' type="single" collapsible>
+                                            {
+                                                [1, 2, 3, 4].map((item, i) => (
+                                                    <AccordionItem key={i} className='py-4' value={`"item-${i + 1}"`}>
+                                                        <AccordionTrigger className='text-xl font-semibold px-6'>Stack Tech</AccordionTrigger>
+                                                        <AccordionContent className='bg-gray-50'>
+                                                            <ul className='px-8'>
+                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
+                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
+                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
+                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
+                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
+                                                            </ul>
+                                                        </AccordionContent>
+                                                    </AccordionItem>
+                                                ))
+                                            }
+                                        </Accordion>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={`bg-[#2b2a29bd] backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`bg-[#2b2a29bd] backdrop-blur-3xl hidden lg:flex  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
                 <div className='max-w-7xl m-auto'>
                     <div>
                         <ul className='flex'>
