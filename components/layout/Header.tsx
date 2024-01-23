@@ -8,7 +8,7 @@ import { AlignRight } from 'lucide-react';
 import styles from '@/app/Header.module.css';
 import MainLogo from '@/assets/img/mainLogo.jpg'
 import Image from 'next/image';
-import {useLocalization} from "@/context/LocalizeProvider";
+import { useLocalization } from "@/context/LocalizeProvider";
 
 
 export default function Header() {
@@ -21,8 +21,8 @@ export default function Header() {
 
     React.useEffect(() => {
         const handleScroll = () => {
-          const top = window.scrollY > 0;
-          setIsScrolled(top);
+            const top = window.scrollY > 0;
+            setIsScrolled(top);
         };
 
         // Add scroll event listener
@@ -30,12 +30,11 @@ export default function Header() {
 
         // Clean up the event listener on component unmount
         return () => {
-          window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+    }, []);
 
     const { locale, switchLocale } = useLocalization();
-
 
 
 
@@ -141,7 +140,7 @@ export default function Header() {
 
                 </div>
             </div>
-            <div className={`bg-[#2b2a29bd] hidden lg:block backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100': 'opacity-0'}`}>
+            <div className={`bg-[#2b2a29bd] hidden lg:block backdrop-blur-3xl  text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100' : 'opacity-0'}`}>
                 <div className='max-w-7xl m-auto'>
                     <div>
                         <ul className='flex'>
