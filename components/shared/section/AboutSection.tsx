@@ -7,14 +7,14 @@ export default function AboutSection() {
       <div>
         <div>
           <div>
-            <h1 className='text-6xl font-semibold py-2'>Something to think about</h1>
+            <h1 className='lg:text-6xl text-3xl font-semibold py-2'>Something to think about</h1>
           </div>
           <div className='pt-4'>
             <p className='text-xl font-medium'>Andersen keeps a close eye on the AI domain to shape the future of tech. Here is what we have to say.</p>
           </div>
         </div>
         <div>
-          <div className='grid grid-cols-5'>
+          <div className='grid lg:grid-cols-5'>
             <div className='col-span-3'>
               <div className='py-6'>
                 <p className='text-gray-700'>Featured</p>

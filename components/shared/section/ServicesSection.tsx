@@ -8,7 +8,7 @@ export default function ServicesSection() {
       <div id='services'>
         <div>
           <div className='w-full'>
-            <h1 className='text-6xl font-bold py-6'>
+            <h1 className='lg:text-6xl text-3xl font-bold py-6'>
               Our AI Development Services
             </h1>
           </div>

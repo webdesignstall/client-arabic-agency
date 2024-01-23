@@ -12,7 +12,7 @@ export default function ScopeSection() {
             </h1>
           </div>
           <div className='pt-10'>
-            <div className='flex-wrap justify-center grid grid-cols-3'>
+            <div className='lg:grid grid-cols-3'>
               {
                 ['Generate Ai', 'Nuture language processing', 'Advance data analice', 'computer version', 'Space recognation', 'Robotics'].map((item, index) => (
                   <div key={index} className='scrop h-44 m-3 bg-gray-50 hover:shadow-xl duration-300 cursor-pointer relative before:absolute before:bottom-0 before:border-b-4 before:w-0 before:border-purple-700 before:hover:w-full before:duration-300 hover:bg-white before:left-0'>
