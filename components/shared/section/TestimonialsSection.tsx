@@ -11,7 +11,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute right-0 top-28 z-30 cursor-pointer'
+    className='absolute right-0 top-28 z-30 cursor-pointer hidden lg:flex'
     onClick={onClick}
   >
     <ChevronRight className='text-black' size={40} strokeWidth={1} />
@@ -20,7 +20,7 @@ const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
 
 const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
-    className='absolute left-0 top-28  z-30 cursor-pointer'
+    className='absolute left-0 top-28  z-30 cursor-pointer hidden lg:flex'
     onClick={onClick}
   >
     <ChevronLeft className='text-black' size={40} strokeWidth={1} />
@@ -57,11 +57,11 @@ const TestimonialsSection: React.FC = () => {
           </div>
         </div>
         <div className='mt-8'>
-          <Slider className='px-12' {...settings}>
+          <Slider className='lg:px-12' {...settings}>
             {
               items.map((item, i) => (
                 <div key={i} className='flex'>
-                  <div className='w-1/2 inline-block'>
+                  <div className='lg:w-1/2 inline-block'>
                     <div>
                       <div>
                         <h3 className='text-2xl font-semibold'>
@@ -84,7 +84,7 @@ const TestimonialsSection: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='w-1/2 inline-block'>
+                  <div className='lg:w-1/2 inline-block'>
                     <div className='absolute top-0 mr-8 w-[30rem]'>
                       <div className='p-12 bg-gray-100 ml-10'>
                         <div>

@@ -8,14 +8,14 @@ export default function ProjectSection() {
       <div id='project'>
         <div className=''>
           <div className='w-full'>
-            <h1 className='text-6xl font-bold py-4'>
+            <h1 className='lg:text-6xl font-bold py-4 text-3xl'>
               Our Project
             </h1>
             <p className='text-xl pt-2 font-medium'>
               By providing a full range of AI Services, Andersen helps you create best-in-class software solutions that perfectly fit your needs. The results of our work are reflected in our case studies.
             </p>
           </div>
-          <div className='grid grid-cols-2 gap-12 pt-16'>
+          <div className='grid lg:grid-cols-2 gap-12 pt-16'>
             <div>
               <Link href={'/project-cases/1'}>
               <div className='overflow-hidden h-[330px]'>
@@ -48,7 +48,7 @@ export default function ProjectSection() {
 
             </div>
           </div>
-          <div className='grid grid-cols-6 pt-20'>
+          <div className='grid lg:grid-cols-6 pt-20'>
             <div className='flex justify-center col-span-2 flex-col pr-4'>
 
               <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
