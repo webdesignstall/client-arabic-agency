@@ -54,7 +54,12 @@ const InterviewSection: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className='mt-8'>
+      <div>
+        <div className='flex items-center gap-3 mt-12 mb-8'>
+          <button className='py-2 px-5 bg-gray-500 text-white hover:text-black hover:bg-[#23beec] rounded'>All</button>
+          <button className='py-2 px-5 bg-gray-500 text-white hover:text-black hover:bg-[#23beec] rounded'>Financial Services</button>
+          <button className='py-2 px-5 bg-gray-500 text-white hover:text-black hover:bg-[#23beec] rounded'>Healthcare</button>
+        </div>
         <Slider className='px-12' {...settings}>
           {
             items.map((item, i) => (

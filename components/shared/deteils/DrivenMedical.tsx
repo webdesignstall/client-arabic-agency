@@ -1,12 +1,22 @@
 import DeteilsSectionContainer from "@/components/DeteilsSectionContainer";
+import ModalCall from "../slider-button/ModalCall";
+import Link from "next/link";
 
 export default function DrivenMedical()  {
     return (
     <DeteilsSectionContainer>
-    <div className="md:grid grid-cols-12 justify-between mt-16 pt-10 md:mt-20 items-end">
+      <div className="flex justify-between items-center mt-10">
+        <Link href="/" className="flex gap-3 items-center hover:text-[#23beec]">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr-66pXYMF_TjwcBWkHm-ERItMCEiePt2CRQ&usqp=CAU" className="w-7 h-5" alt="" />
+          <button>Back to previous page</button>
+          </Link>
+        <ModalCall/>
+      </div>
+    <div className="md:grid grid-cols-12 justify-between mt-6 pt-10 md:mt-7 items-end">
       <div className="col-span-7 flex flex-col justify-center md:justify-start mb-5 md:mb-0">
+      {/* <img className="w-20 h-10" data-src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/customers/universkin-white.svg" alt="A Data-Driven Medical Solution for a Skin-Care Provider" src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/customers/universkin-white.svg"/> */}
         <h1 className="text-2xl text-center md:text-start md:text-3xl lg:text-5xl font-medium">A Data-Driven Medical Solution for a Skin-Care Provider</h1>
-        <button className="px-4 py-2 rounded-xl text-lg mt-10 bg-[#EBEBEB] w-fit">Healthcare</button>
+        <button className="px-4 py-2 rounded-xl text-white text-lg mt-10 bg-[#23beec] w-fit">Healthcare</button>
       </div>
       <div className="col-span-5 bg-[#FAFAFA] p-5 rounded">
         <div>

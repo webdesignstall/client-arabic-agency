@@ -9,6 +9,7 @@ import styles from '@/app/Header.module.css';
 import MainLogo from '@/assets/img/mainLogo.jpg'
 import Image from 'next/image';
 import {useLocalization} from "@/context/LocalizeProvider";
+import ModalCall from '../shared/slider-button/ModalCall';
 
 
 export default function Header() {
@@ -106,7 +107,7 @@ export default function Header() {
 
                         </div>
                         <div className='flex items-center pl-3'>
-                            <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold'>Testimonials</button>
+                            <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded'>Testimonials</button>
                         </div>
                     </div>
                     <div className='lg:hidden flex'>
@@ -128,9 +129,9 @@ export default function Header() {
                             <li><a className='text-gray-200 hover:text-white duration-300 p-4' href="#technologies">Technologies</a></li>
                             <li><a className='text-gray-200 hover:text-white duration-300 p-4' href="#testimonials">Testimonials</a></li>
                         </ul>
-                        <div className='flex items-center gap-3'>
-                        <svg className="BookingButton-module--phoneIcon--8bae7 Icon-module--icon--c95f8 w-4 " fill="none" viewBox="0 0 16 27"><path fill="#ffdb00" d="M13.68 0H2.32A1.965 1.965 0 00.355 1.967v23.068C.355 26.12 1.233 27 2.32 27h11.36c1.085 0 1.965-.88 1.965-1.965V1.967C15.645.882 14.765 0 13.68 0zM8 25.059a1.254 1.254 0 110-2.509 1.254 1.254 0 010 2.509zm6.173-4.299H1.828V3.32h12.345V20.76z"></path></svg>
-                        <button className='hover:text-[#23beec]'>Book a call</button>
+                        <div className=''>
+                            <ModalCall/>
+                            
                         </div>
                     </div>
                 </div>

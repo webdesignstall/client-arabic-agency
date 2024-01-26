@@ -51,7 +51,10 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
                 <li>{tab.header}</li>
                {
                 Array.from(tab.list).map((item:any, i)=>(
-                  <li className='list-disc px-3' key={i}>
+                  <li className='flex gap-2 items-center px-3' key={i}>
+                    <svg xmlns='http://www.w3.org/2000/svg' className='w-5 h-3' fill='none' viewBox='0 0 9 8'>
+                      <path stroke='#556170' d='m.5 4 3 2.5L8 1'/>
+                    </svg>
                     {item}
                   </li>
                 ))
@@ -61,7 +64,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
           </div>
           
         ))}
-        <WithOurTeam/>
+        {/* <WithOurTeam/> */}
       </div>
     </div>
   );
