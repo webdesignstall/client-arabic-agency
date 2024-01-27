@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, Key, SetStateAction, useState } from "react";
 
 type Tab = {
   id: string;
@@ -13,17 +13,17 @@ type Tab = {
   };
 }
 interface TabsProps {
-  aboutData: Tab[];
+  aboutData: any;
 }
   
 const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
-    const [childrenData, setChildrenData] = useState(aboutData.find(c => c.id === "1"))
+    const [childrenData, setChildrenData] = useState(aboutData.find((c: { id: string; }) => c.id === "1"))
     const [images, setImages] = useState<string | undefined>("");
     const hendelOpenData = (id:string)=>{
       // @ts-ignore
       setChildrenData("")
       if(id){
-          const fintData = aboutData.find(c => c.id === id)
+          const fintData = aboutData.find((c: { id: string; }) => c.id === id)
           setChildrenData(fintData);
       }
     }
@@ -32,8 +32,8 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
         <div>
             <div className="flex gap-5 ">
             {
-                aboutData.map(title => <div key={title.id}>
-                <button onClick={()=>hendelOpenData(title.id)} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${childrenData?.id===title.id? 'border-[#23beec]':'border-white'}`}>{title.label}</button>
+                aboutData.map((title: { id: string; label: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }) => <div key={title.id}>
+                <button onClick={()=>hendelOpenData(title?.id)} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${childrenData?.id===title.id? 'border-[#23beec]':'border-white'}`}>{title.label}</button>
                 </div>)
             }
             </div>
@@ -58,7 +58,7 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
                 <img src={images?images: childrenData?.client?.location} alt="" className="h-[400px] w-full"/>
                 <div className="flex gap-2 mt-3 justify-center flex-wrap">
                     {
-                        allImages?.map((img, index)=>
+                        allImages?.map((img:string , index: Key | null | undefined)=>
                         <div onClick={()=>setImages(img)} key={index} className="border rounded p-1 bg-[#FAFAFA]">
                             <img src={img} alt="" className="w-[30px] h-[20px] md:w-[130px] md:h-[50px] rounded"/>
                         </div>

@@ -138,30 +138,6 @@ export default function Header() {
                                     }
                                 </button>
                             </div>
-                            {
-                                navber && <div className='absolute left-0 top-18 z-50 w-full h-screen bg-white'>
-                                    <div>
-                                        <Accordion className='mt-8' type="single" collapsible>
-                                            {
-                                                [1, 2, 3, 4].map((item, i) => (
-                                                    <AccordionItem key={i} className='py-4' value={`"item-${i + 1}"`}>
-                                                        <AccordionTrigger className='text-xl font-semibold px-6'>Stack Tech</AccordionTrigger>
-                                                        <AccordionContent className='bg-gray-50'>
-                                                            <ul className='px-8'>
-                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
-                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
-                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
-                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
-                                                                <li className='border-b py-5 text-xl border-gray-200'>Accoudion</li>
-                                                            </ul>
-                                                        </AccordionContent>
-                                                    </AccordionItem>
-                                                ))
-                                            }
-                                        </Accordion>
-                                    </div>
-                                </div>
-                            }
                         </div>
                     </div>
                 </div>
@@ -178,7 +154,6 @@ export default function Header() {
                         </ul>
                         <div className=''>
                             <ModalCall/>
-                            
                         </div>
                     </div>
                 </div>
