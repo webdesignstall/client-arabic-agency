@@ -8,7 +8,7 @@ import { ChevronLeft } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
-
+import {translate} from "@/utility/translate";
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-36  cursor-pointer  z-30 hidden lg:flex'
@@ -27,8 +27,8 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   </div>
 );
 
-
-const InterviewSection: React.FC = () => {
+// @ts-ignore
+const InterviewSection: React.FC<any> = ({homeData}) => {
 
   const settings: any = {
     dots: true,
@@ -56,11 +56,13 @@ const InterviewSection: React.FC = () => {
     <div className='lg:max-w-7xl m-auto lg:py-16 my-6 lg:px-20 py-12 px-4'>
       <div>
         <div>
-          <h1 className='lg:text-6xl text-3xl font-bold  text-white'>Check out Andersen's video interviews</h1>
+          <h1 className='lg:text-6xl text-3xl font-bold  text-white'> 
+          {translate(homeData, 'videoInterviewsSectionTitle')}
+          </h1>
         </div>
         <div>
-          <p className='pt-6 text-white lg:text-xl text-lg font-medium'>
-            Andersen regularly provides a great opportunity to learn something new by interviewing the world's leading experts and opinion leaders from various scientific and business domains.
+          <p className='pt-6 text-white lg:text-xl text-lg font-medium'>  
+          {translate(homeData, 'videoInterviewsSectionDescription')}
           </p>
         </div>
       </div>

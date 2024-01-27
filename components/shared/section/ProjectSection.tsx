@@ -1,18 +1,21 @@
 import SectionContainer from '@/components/SectionContainer'
 import Link from 'next/link'
-import React from 'react'
+import {translate} from "@/utility/translate";
 
-export default function ProjectSection() {
+
+// @ts-ignore
+
+export default function ProjectSection({homeData}) {
   return (
     <SectionContainer>
       <div id='project'>
         <div className=''>
           <div className='w-full'>
             <h1 className='lg:text-6xl font-bold py-4 text-3xl'>
-              Our Project
+            {translate(homeData, 'projectSectionTittle')}
             </h1>
             <p className='text-xl pt-2 font-medium'>
-              By providing a full range of AI Services, Andersen helps you create best-in-class software solutions that perfectly fit your needs. The results of our work are reflected in our case studies.
+              {translate(homeData, 'projectSectionDescription')}
             </p>
           </div>
           <div className='grid lg:grid-cols-2 gap-12 pt-16'>

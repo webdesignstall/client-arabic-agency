@@ -8,8 +8,11 @@ import { ChevronLeft } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
+import {translate} from "@/utility/translate";
 
-const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
+
+
+const SampleNextArrow: React.FC<any> = ({ className, style, onClick, }) => (
   <div
     className='absolute right-0 top-28 z-30 cursor-pointer hidden lg:flex'
     onClick={onClick}
@@ -27,8 +30,8 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   </div>
 );
 
-
-const TestimonialsSection: React.FC = () => {
+// @ts-ignore
+const TestimonialsSection: React.FC<any> = ({homeData}) => {
 
   const settings: any = {
     dots: true,
@@ -48,12 +51,14 @@ const TestimonialsSection: React.FC = () => {
       <div id='testimonials'>
         <div>
           <div className='py-2'>
-            <h1 className='text-6xl font-semibold'>Testimonials</h1>
+            <h1 className='text-6xl font-semibold'>
+            {translate(homeData, 'testimonialsSectionTitle')}
+            </h1>
           </div>
           <div>
             <p className='pt-6 text-xl font-medium'>
-              SMB, enterprise, and startup customers return to our software company because they’re satisfied with our work. Here is what they say about Andersen.
-            </p>
+             {translate(homeData, 'testimonialsSectionDescription')}
+             </p>
           </div>
         </div>
         <div className='mt-8'>

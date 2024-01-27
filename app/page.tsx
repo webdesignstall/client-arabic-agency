@@ -22,28 +22,28 @@ const page = () => {
 
   useEffect(()=>{
     ( async ()=>{
-      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/hero-sections?populate=*`);
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-pages?populate=*`);
       setHomeData(data?.data[0]?.attributes)
     })()
 
   }, [])
-
+console.log(homeData);
   return (
     <WidthContainer>
       <div>
         <HeroSection homeData={homeData} />
         <main>
           <RatingSection homeData={homeData}/>
-          <ScopeSection />
-          <ServicesSection />
-          <ProjectSection />
-          <CompnarySection />
-          <TestimonialsSection />
-          <InterviewSection />
-          <AboutSection />
+          <ScopeSection homeData={homeData}/>
+          <ServicesSection homeData={homeData}/>
+          <ProjectSection homeData={homeData}/>
+          <CompnarySection homeData={homeData}/>
+          <TestimonialsSection homeData={homeData}/>
+          <InterviewSection homeData={homeData}/>
+          <AboutSection  homeData={homeData}/>
           {/* <ExpertiseSection /> */}
-          <AdvantagesSection />
-           <OrderSection />
+          <AdvantagesSection homeData={homeData}/>
+           <OrderSection homeData={homeData}/>
         </main>
       </div>
     </WidthContainer>

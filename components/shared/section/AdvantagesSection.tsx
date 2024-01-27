@@ -1,13 +1,16 @@
 import SectionContainer from '@/components/SectionContainer'
-import React from 'react'
-
-export default function AdvantagesSection() {
+import {translate} from "@/utility/translate";
+// @ts-ignore
+export default function AdvantagesSection({homeData}) {
   return (
     <SectionContainer>
       <div>
         <div>
           <div>
-            <h1 className='lg:text-6xl text-3xl font-semibold py-10'>Andersen's advantages</h1>
+            <h1 className='lg:text-6xl text-3xl font-semibold py-10'>
+              
+            {translate(homeData, 'advantagesSectionTitle')}
+            </h1>
           </div>
           <div>
             <div className='grid lg:grid-cols-2 gap-12'>

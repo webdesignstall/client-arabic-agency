@@ -1,14 +1,18 @@
 import SectionContainer from '@/components/SectionContainer'
-import React from 'react'
+import { translate } from '@/utility/translate';
 
-export default function ScopeSection() {
+// @ts-ignore
+
+export default function ScopeSection({homeData}) {
   return (
     <SectionContainer>
       <div id='scope'>
         <div>
           <div>
             <h1 className='text-2xl lg:text-6xl font-bold py-6'>
-              Andersen's AI Development scope
+            {
+              translate(homeData, 'developmentScopeSectionTitle')
+            }
             </h1>
           </div>
           <div className='pt-10'>
