@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import { translate } from '@/utility/translate';
+import ModalCall from '../slider-button/ModalCall';
 
 // @ts-ignore
 export default function HeroSection({homeData}) {
@@ -33,8 +34,7 @@ export default function HeroSection({homeData}) {
                 </div>
               </div>
               <div className='absolute top-24 right-20 flex items-center gap-3'>
-                <svg className="BookingButton-module--phoneIcon--8bae7 Icon-module--icon--c95f8 w-4 text-[#23beec]" fill="none" viewBox="0 0 16 27"><path fill="#ffdb00" d="M13.68 0H2.32A1.965 1.965 0 00.355 1.967v23.068C.355 26.12 1.233 27 2.32 27h11.36c1.085 0 1.965-.88 1.965-1.965V1.967C15.645.882 14.765 0 13.68 0zM8 25.059a1.254 1.254 0 110-2.509 1.254 1.254 0 010 2.509zm6.173-4.299H1.828V3.32h12.345V20.76z"></path></svg>
-                <button className='text-[#23beec]'>Book a call</button>
+                <ModalCall/>
             </div>
             </div>
           </div>
