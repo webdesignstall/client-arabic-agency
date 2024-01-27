@@ -27,14 +27,13 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
           setChildrenData(fintData);
       }
     }
-    console.log(childrenData);
    const allImages = childrenData?.client.images;
     return (
         <div>
             <div className="flex gap-5 ">
             {
                 aboutData.map(title => <div key={title.id}>
-                <button onClick={()=>hendelOpenData(title.id)} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${childrenData?.id===title.id? 'border-orange-400':'border-white'}`}>{title.label}</button>
+                <button onClick={()=>hendelOpenData(title.id)} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${childrenData?.id===title.id? 'border-[#23beec]':'border-white'}`}>{title.label}</button>
                 </div>)
             }
             </div>
@@ -61,11 +60,12 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
                     {
                         allImages?.map((img, index)=>
                         <div onClick={()=>setImages(img)} key={index} className="border rounded p-1 bg-[#FAFAFA]">
-                            <img src={img} alt="" className="w-[30px] h-[30px] md:w-[130px] md:h-[100px] rounded"/>
+                            <img src={img} alt="" className="w-[30px] h-[20px] md:w-[130px] md:h-[50px] rounded"/>
                         </div>
                         )
-                    }
+                      }
                 </div>
+
               </div>
             </>
         }

@@ -65,7 +65,8 @@ const InterviewSection: React.FC = () => {
         </div>
       </div>
       <div className='mt-8'>
-        <Slider className='lg: hidden lg:flexpx-12' {...settings}>
+        
+        <Slider className='px-12' {...settings}>
           {
             items.map((item, i) => (
               <div key={i} className='h-[32rem] rounded-36 cur'>
