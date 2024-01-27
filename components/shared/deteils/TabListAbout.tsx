@@ -12,21 +12,22 @@ type Tab = {
     images?: string[];
   };
 }
-  interface TabsProps {
-    aboutData: Tab[];
-  }
+interface TabsProps {
+  aboutData: Tab[];
+}
   
-  const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
+const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
     const [childrenData, setChildrenData] = useState(aboutData.find(c => c.id === "1"))
     const [images, setImages] = useState<string | undefined>("");
     const hendelOpenData = (id:string)=>{
       // @ts-ignore
-        setChildrenData("")
-        if(id){
-            const fintData = aboutData.find(c => c.id === id)
-            setChildrenData(fintData);
-        }
+      setChildrenData("")
+      if(id){
+          const fintData = aboutData.find(c => c.id === id)
+          setChildrenData(fintData);
+      }
     }
+    console.log(childrenData);
    const allImages = childrenData?.client.images;
     return (
         <div>
