@@ -1,16 +1,22 @@
 import SectionContainer from '@/components/SectionContainer'
 import React from 'react'
-
-export default function AboutSection() {
+import {translate} from "@/utility/translate";
+// @ts-ignore
+export default function AboutSection({homeData}) {
   return (
     <SectionContainer>
       <div>
         <div>
           <div>
-            <h1 className='lg:text-6xl text-3xl font-semibold py-2'>Something to think about</h1>
+            <h1 className='lg:text-6xl text-3xl font-semibold py-2'>
+              
+            {translate(homeData, 'thinkAboutSectionTitle')}
+            </h1>
           </div>
           <div className='pt-4'>
-            <p className='text-xl font-medium'>Andersen keeps a close eye on the AI domain to shape the future of tech. Here is what we have to say.</p>
+            <p className='text-xl font-medium'>
+            {translate(homeData, 'thinkAboutSectionDescription')}
+            </p>
           </div>
         </div>
         <div>

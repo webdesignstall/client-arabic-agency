@@ -1,12 +1,16 @@
 "use client";
 import SectionContainer from "@/components/SectionContainer";
 import React, { useState } from "react";
-export default function OrderSection() {
+
+import {translate} from "@/utility/translate";
+
+// @ts-ignore
+export default function OrderSection({homeData}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [requirements, setRequirements] = useState("");
-
+  
   // @ts-ignore
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +23,8 @@ export default function OrderSection() {
           <div className="py-12">
             <div className="container mx-auto text-center">
               <h2 className="md:text-4xl font-heading font-bold mb-4 text-xl text-left">
-                Book a free IT consultation
+                
+              {translate(homeData, 'expertiseSectionTitle')}
               </h2>
               <p className="text-gray-600 mb-3 md:text-2xl text-lg text-left">
                 What happens next?

@@ -1,15 +1,18 @@
 import React from 'react'
 import TabList from '../TabList'
 import SectionContainer from '@/components/SectionContainer';
+import {translate} from "@/utility/translate";
 
-export default function ServicesSection() {
+
+// @ts-ignore
+export default function ServicesSection({homeData}) {
   return (
     <SectionContainer>
       <div id='services'>
         <div>
           <div className='w-full'>
             <h1 className='lg:text-6xl text-3xl font-bold py-6'>
-              Our AI Development Services
+            {translate(homeData, 'servicesSectionTitle')}
             </h1>
           </div>
           <div>

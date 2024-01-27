@@ -8,7 +8,7 @@ import { ChevronLeft } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
-
+import {translate} from "@/utility/translate";
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-16 z-30 cursor-pointer hidden lg:flex'
@@ -27,8 +27,8 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   </div>
 );
 
-
-const CompnarySection: React.FC = () => {
+// @ts-ignore
+const CompnarySection: React.FC<any> = ({homeData}) => {
 
   const settings: any = {
     dots: true,
@@ -57,11 +57,15 @@ const CompnarySection: React.FC = () => {
       <div id='technologies'>
         <div>
           <div className='py-2'>
-            <h1 className='lg:text-6xl text-3xl font-semibold'>AI technologies with Andersen</h1>
+            <h1 className='lg:text-6xl text-3xl font-semibold'>
+              
+            {translate(homeData, 'technologiesSectionTitle')}
+            </h1>
           </div>
           <div>
             <p className='pt-6 lg:text-xl text-lg font-medium '>
-              Engage Andersen's AI engineers for your software initiatives. Delegate the design of AI-driven IT solutions serving as the central business logic for complex systems. These systems will then be able to automate resolution processes for intricate tasks, including grouping, classification, regression, and clustering. The niches we work in include Natural Language Processing, Computer Vision, AI planning, and more.
+              
+            {translate(homeData, 'technologiesSectionDescription')}
             </p>
           </div>
         </div>
