@@ -14,7 +14,6 @@ import AboutSection from '@/components/shared/section/AboutSection';
 import ExpertiseSection from '@/components/shared/section/ExpertiseSection';
 import AdvantagesSection from '@/components/shared/section/AdvantagesSection';
 import OrderSection from '@/components/shared/section/OrderSection';
-import {appWithTranslation} from "next-i18next";
 import axios from "axios";
 
 const page = () => {

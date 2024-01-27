@@ -1,11 +1,11 @@
-import SectionContainer from "@/components/SectionContainer";
+import DeteilsSectionContainer from "@/components/DeteilsSectionContainer";
 
 export default function WhatHappens () {
     return (
-        <SectionContainer>
-            <div className="grid grid-cols-12 gap-5">
+        <DeteilsSectionContainer>
+            <div className="md:grid grid-cols-12 gap-5">
                 <div className="col-span-5">
-                    <h2 className="my-10 text-3xl text-black font-medium">Let's talk about your <br /> IT needs</h2>
+                    <h2 className="my-5 md:my-10 text-3xl text-black font-medium">Let's talk about your <br /> IT needs</h2>
                     <h2 className="text-xl text-black font-medium mb-5">What happens next?</h2>
                     <div className="flex items-center gap-3">
                         <h1 className="px-4 py-2 rounded-[50%] bg-[#EBEBEB] ">1</h1>
@@ -28,7 +28,7 @@ export default function WhatHappens () {
                 </div>
                 <div className="col-span-7"></div>
             </div>
-        </SectionContainer>
+        </DeteilsSectionContainer>
     );
 }
 

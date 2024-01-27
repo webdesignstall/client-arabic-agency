@@ -1,9 +1,9 @@
-import SectionContainer from "@/components/SectionContainer";
+import DeteilsSectionContainer from "@/components/DeteilsSectionContainer";
 
 export default function CustomerReview() {
     return (
-        <SectionContainer>
-            <h2 className="my-10 text-2xl text-black font-medium">Customer review</h2>
+        <DeteilsSectionContainer>
+            <h2 className="my-10 text-2xl text-black font-medium text-center md:text-start">Customer review</h2>
             <div  className="flex justify-between items-center">
                 <div className="flex gap-2">
                     <img className="w-[50px]" src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/testimonials/60x60/anonymous.png" alt="" />
@@ -19,7 +19,7 @@ export default function CustomerReview() {
           </div>
           <h2 className="my-5 text-xl">REVIEW VERIFIED BY CLUTCH AND MATCHES THE CUSTOMER’S WORDS</h2>
            <p>Presently, the app Andersen built boasts 60,000 users, 10,000 of whom are doctors and the remaining customers, with plans to expand. Along the way, Andersen's dedication to success, technical skill, and collaborative team set them apart. Customers can expect a successful partnership.</p>
-        </SectionContainer>
+        </DeteilsSectionContainer>
     );
 }
 

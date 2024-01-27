@@ -1,11 +1,11 @@
-import SectionContainer from "@/components/SectionContainer";
+import DeteilsSectionContainer from "@/components/DeteilsSectionContainer";
 
 export default  function Challenges() {
     return (
-        <SectionContainer>
-            <h1 className='text-4xl font-medium'>Challenges</h1>
+        <DeteilsSectionContainer>
+            <h1 className='text-4xl font-medium text-center md:text-start'>Challenges</h1>
             <h2 className="my-10 text-xl">This IT initiative posed a range of challenges that our team has successfully resolved, including:</h2>
-            <ul className='grid grid-cols-2 '>
+            <ul className='md:grid grid-cols-2 '>
                 <li className='flex gap-3 pb-3'>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4lYWyrh5v1ik0aDNEHA6RYW4PLHYtzgH3xg&usqp=CAU" alt="" className='w-[23px] h-[20px]'/>
                     <span>Ambitious global scale from the very beginning;</span>
@@ -23,6 +23,6 @@ export default  function Challenges() {
                     <span>Seamless integration with payment systems and communication channels.</span>
                 </li>
             </ul>
-        </SectionContainer>
+        </DeteilsSectionContainer>
     );
 }

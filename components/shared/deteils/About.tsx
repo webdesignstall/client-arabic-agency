@@ -1,10 +1,10 @@
-import SectionContainer from '@/components/SectionContainer';
 import TabListAbout from './TabListAbout';
+import DeteilsSectionContainer from '@/components/DeteilsSectionContainer';
 export default function About(){
   return (
-    <SectionContainer>
+    <DeteilsSectionContainer>
       <TabListAbout aboutData={aboutData} />
-    </SectionContainer>
+    </DeteilsSectionContainer>
   );
 };
 const aboutData= [
