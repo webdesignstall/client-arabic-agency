@@ -31,18 +31,18 @@ export default function ScopeSection({homeData}) {
             <div className='lg:grid grid-cols-3'>
               {
                 // ['Generate Ai', 'Nuture language processing', 'Advance data analice', 'computer version', 'Space recognation', 'Robotics']
-                homeSectionOne.map((item, index) => (
+                homeSectionOne?.map((item, index) => (
                   <div key={index} className='scrop h-44 m-3 bg-gray-50 hover:shadow-xl duration-300 cursor-pointer relative before:absolute before:bottom-0 before:border-b-4 before:w-0 before:border-[#23beec] before:hover:w-full before:duration-300 hover:bg-white before:left-0'>
                     <div className='duration-300 text-2xl font-semibold scrop-list absolute flex justify-center items-center w-full h-full'>
                     {
                     // @ts-ignore
-                        translate(item?.attributes,"title" )
+                        translate(item?.attributes, 'title')
                       }
                     </div>
                     <div className='duration-300 px-6 py-4 text-md overflow-hidden justify-normal absolute opacity-0 scrop-hidden'>
                     {
                       // @ts-ignore
-                        translate(item?.attributes,"description" )
+                        translate(item?.attributes, 'description')
                       }
                     </div>
                   </div>
