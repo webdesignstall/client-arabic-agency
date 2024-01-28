@@ -1,17 +1,20 @@
 import React from 'react'
 import SectionContainer from '@/components/SectionContainer'
-import { Star } from 'lucide-react';
-import {translate} from "@/utility/translate";
+import { useSelector } from 'react-redux'
+
 
 
 // @ts-ignore
 export default function RatingSection({homeData}) {
+  const translate = useSelector((state:any) =>state.translate.translate)
   return (
     <SectionContainer>
       <div>
         <div className=' grid grid-cols-12'>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
-            {translate(homeData, 'heroSectionDescription')}
+            <h3 className={`${translate === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
+              This is our rating section
+            </h3>
           </div>
           <div className='border-r'>
 
