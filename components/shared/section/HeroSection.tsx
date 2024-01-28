@@ -11,7 +11,7 @@ export default function HeroSection({homeData}) {
                 <div className='w-full lg:py-16 ml-12 max-w-7xl'>
                   <h1 className='text-3xl lg:text-7xl text-white lg:font-bold'>
                     {
-                      translate(homeData, 'heroSectionTitle')
+                      translate(homeData, 'homeSectionOneTitle')
                     }
                   </h1>
                 </div>

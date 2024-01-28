@@ -12,10 +12,10 @@ export default function ProjectSection({homeData}) {
         <div className=''>
           <div className='w-full'>
             <h1 className='lg:text-6xl font-bold py-4 text-3xl'>
-            {translate(homeData, 'projectSectionTittle')}
+            {translate(homeData, 'homeSectionFiveTitle')}
             </h1>
             <p className='text-xl pt-2 font-medium'>
-              {translate(homeData, 'projectSectionDescription')}
+              {translate(homeData, 'homeSectionFiveDescription')}
             </p>
           </div>
           <div className='grid lg:grid-cols-2 gap-12 pt-16'>
