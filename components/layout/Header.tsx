@@ -1,15 +1,29 @@
 "use client"
 
+<<<<<<< HEAD
 import React from 'react';
 import Link from 'next/link';
 import { AlignRight } from 'lucide-react';
 import { X } from 'lucide-react';
 import { Oswald } from 'next/font/google'
+=======
+import React from 'react'
+import Link from 'next/link';
+import { AlignRight } from 'lucide-react';
+import { X } from 'lucide-react';
+import MainLogo from '@/assets/img/mainLogo.jpg'
+import Image from 'next/image';
+import { useLocalization } from "@/context/LocalizeProvider";
+
+>>>>>>> 609c322 (translation process)
 import ModalCall from '../shared/slider-button/ModalCall';
 import { store } from '@/redux/store';
 import { setArabic, setEnglish } from '@/redux/slice/TranslateSlice';
 import { useSelector, useDispatch } from 'react-redux';
+<<<<<<< HEAD
 import {useLocalization} from "@/context/LocalizeProvider";
+=======
+>>>>>>> 609c322 (translation process)
 
 const oswald = Oswald({
     subsets: ['latin'],
@@ -27,8 +41,11 @@ export default function Header() {
     const dispatch = useDispatch()
 
     const translate = useSelector((state: any) => state.translate.translate)
+<<<<<<< HEAD
 
     const { locale, switchLocale } = useLocalization();
+=======
+>>>>>>> 609c322 (translation process)
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -92,11 +109,24 @@ export default function Header() {
                     <div className={`bg-white backdrop-blur-3xl   text-black absolute top-22 w-full px-16 m-auto duration-300 `}>
                         <div className='m-auto flex justify-between items-center'>
                             <div className="logo flex">
+<<<<<<< HEAD
 
                                     <Link href='/'>
                                        <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
                                     </Link>
 
+=======
+                                <div>
+                                    <Link href='/'>
+                                        <Image
+                                            src={MainLogo}
+                                            alt=''
+                                            width={90}
+                                            height={70}
+                                        />
+                                    </Link>
+                                </div>
+>>>>>>> 609c322 (translation process)
                             </div>
                             <div className="lg:flex space-x-6 hidden">
                                 <div className="">
@@ -148,6 +178,7 @@ export default function Header() {
                                 </div>
                                 <div className='flex items-center pl-3 gap-5'>
                                     <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded'>Testimonials</button>
+<<<<<<< HEAD
                                     {/*{
                                         translate === 'en' ?
                                             <button onClick={() => store.dispatch(setArabic('ar'))} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>Arabic</button>
@@ -160,6 +191,13 @@ export default function Header() {
                                             <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>Arabic</button>
                                             :
                                             <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
+=======
+                                    {
+                                        translate === 'en' ?
+                                            <button onClick={() => store.dispatch(setArabic('ar'))} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>Arabic</button>
+                                            :
+                                            <button onClick={() => store.dispatch(setEnglish('en'))} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
+>>>>>>> 609c322 (translation process)
                                     }
                                 </div>
                             </div>
