@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionContainer from '@/components/SectionContainer'
 import { useSelector } from 'react-redux'
-
+import { translate } from '@/utility/translate';
 
 
 // @ts-ignore
@@ -14,7 +14,7 @@ export default function RatingSection({homeData}) {
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
             <h3 className={`${translate === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
 
-            {translate(homeData, 'homeSectionTwoTitle')}
+            {/* {translate(homeData, 'homeSectionTwoTitle')} */}
             </h3>
           </div>
           <div className='border-r'>
