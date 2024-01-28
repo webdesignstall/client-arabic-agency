@@ -11,7 +11,7 @@ export default function ScopeSection({homeData}) {
           <div>
             <h1 className='text-2xl lg:text-6xl font-bold py-6'>
             {
-              translate(homeData, 'developmentScopeSectionTitle')
+              translate(homeData, 'homeSectionThreeTittle')
             }
             </h1>
           </div>
