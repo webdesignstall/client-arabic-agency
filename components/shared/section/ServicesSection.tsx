@@ -6,6 +6,7 @@ import {translate} from "@/utility/translate";
 
 // @ts-ignore
 export default function ServicesSection({homeData}) {
+  
   return (
     <SectionContainer>
       <div id='services'>

@@ -6,15 +6,15 @@ import { translate } from '@/utility/translate';
 
 // @ts-ignore
 export default function RatingSection({homeData}) {
-  const translate = useSelector((state:any) =>state.translate.translate)
+  const local = useSelector((state:any) =>state.translate.translate)
   return (
     <SectionContainer>
       <div>
         <div className=' grid grid-cols-12'>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
-            <h3 className={`${translate === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
+            <h3 className={`${local === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
 
-            {/* {translate(homeData, 'homeSectionTwoTitle')} */}
+            {translate(homeData, 'homeSectionTwoTitle')}
             </h3>
           </div>
           <div className='border-r'>
