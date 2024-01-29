@@ -236,7 +236,7 @@ function BookAFree() {
                 </label>
                 
               </div>
-                <h1 className='text-center text-xl mt-2 md:mt-5'>This site is protected by reCAPTCHA and the Google <span className='border-b text-black border-black hover:text-blue-700'>Privacy Policy</span> and <span className='border-b text-black border-black hover:text-blue-700'>Terms of Service</span> apply.</h1>
+                <h1 className='text-center text-sm md:text-xl mt-2 md:mt-5'>This site is protected by reCAPTCHA and the Google <span className='border-b text-black border-black hover:text-blue-700'>Privacy Policy</span> and <span className='border-b text-black border-black hover:text-blue-700'>Terms of Service</span> apply.</h1>
             </form>
           </div>
         </div>
