@@ -19,7 +19,6 @@ export default function ServicesSection({ homeData }) {
   const {} = useLocalization();
 
   useEffect(()=>{
-    // @ts-ignore
     ( async ()=>{
       const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-2s?populate=*`);
       setHomeSectionTwo(data?.data)

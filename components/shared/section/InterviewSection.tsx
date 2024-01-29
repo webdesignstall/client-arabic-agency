@@ -54,7 +54,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
   const { locale, switchLocale } = useLocalization();
 
   return (
-    <div className='lg:max-w-7xl m-auto lg:py-16 my-6 lg:px-20 py-12 px-4'>
+    <div className='lg:max-w-7xl m-auto'>
       <div>
         <div>
           <h1 className={`lg:text-6xl text-3xl font-semibold text-white ${locale === 'en' ? '' : 'rtl'}`}>
@@ -69,7 +69,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
       </div>
       <div className='mt-8'>
 
-        <Slider className='px-12' {...settings}>
+        <Slider className='lg:px-12' {...settings}>
           {
             items.map((item, i) => (
               <div key={i} className='h-[32rem] rounded-36 cur'>

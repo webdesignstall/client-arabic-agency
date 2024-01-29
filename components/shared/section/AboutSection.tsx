@@ -36,7 +36,7 @@ export default function AboutSection({ homeData }) {
                 </div>
               </div>
             </div>
-            <div className='col-span-2 pl-16'>
+            <div className='lg:col-span-2 col-span-5 lg:pl-16'>
               <div className='py-6'>
                 <p className='text-gray-700 text-lg font-semibold'>Latest updates</p>
               </div>

@@ -2,15 +2,15 @@
 import SectionContainer from "@/components/SectionContainer";
 import React, { useState } from "react";
 
-import {translate} from "@/utility/translate";
+import { translate } from "@/utility/translate";
 
 // @ts-ignore
-export default function OrderSection({homeData}) {
+export default function OrderSection({ homeData }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [requirements, setRequirements] = useState("");
-  
+
   // @ts-ignore
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,8 +23,8 @@ export default function OrderSection({homeData}) {
           <div className="">
             <div className="text-center">
               <h2 className="md:text-4xl font-heading font-bold mb-4 text-xl text-left">
-                
-              {translate(homeData, 'homeSectionTenTitle')}
+
+                {translate(homeData, 'homeSectionTenTitle')}
               </h2>
               <p className="text-gray-900 mb-3 md:text-2xl text-lg text-left">
                 What happens next?
@@ -134,92 +134,38 @@ export default function OrderSection({homeData}) {
           </div>
         </div>
 
-        <div className="w-full md:w-8/12  pl-24 mt-3">
+        <div className="w-full md:w-8/12  lg:pl-24 mt-3">
           <div className="w-full ">
             <form
-              className="grid grid-cols-1 gap-6 sm:grid-cols-2"
-              id="get-consultation"
-              name="get-consultation"
-              noValidate
+              className=""
             >
-              <div className="col-span-2">
-                <div className="mt-6">
-                  <div className="">
-                    <select
-                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-                      name="industry"
-                    >
-                      <option value="" disabled>
-                        Select your industry*
-                      </option>
-                      <option value="healthcare">Healthcare</option>
-                      <option value="financial-services">
-                        Financial Services
-                      </option>
-                      <option value="logistics-supply-chain">
-                        Logistics & Supply Chain
-                      </option>
-                      <option value="media-telecom">Media & Telecom</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
+
+              <div className="">
+                <div className="relative float-label-input">
+                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
+                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Name</label>
                 </div>
               </div>
 
-              <div className="sm:col-span-1">
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
+              <div className="">
+                <div className="relative float-label-input">
+                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
+                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Email Address</label>
                 </div>
               </div>
 
-              <div className="sm:col-span-1">
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Corporate E-mail*
-                  </label>
-                  <input
-                    type="email"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
+              <div className="">
+                <div className="relative float-label-input">
+                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
+                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Phone Number</label>
                 </div>
               </div>
 
-              <div className="sm:col-span-1">
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Phone*
-                  </label>
-                  <input
-                    type="tel"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                  <p className="mt-1 text-gray-600 text-sm">
-                    We will call you ASAP or you can{" "}
-                    <span className="font-bold">schedule a call</span>
-                  </p>
-                </div>
-              </div>
+
+
 
               <div className="col-span-2">
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Please describe your project requirements*
-                  </label>
-                  <textarea
-                    className="mt-1 p-2 w-full border rounded-md"
-                    maxLength={1000}
-                  ></textarea>
-                </div>
-              </div>
-
-              <div className="col-span-2">
-                <div className="mb-4">
+                <div className="lg:mb-4">
                   <label className="block text-sm font-medium text-gray-700">
                     <div className="flex items-center">
                       <svg
@@ -235,6 +181,13 @@ export default function OrderSection({homeData}) {
                     </div>
                   </label>
                   <input
+                  className="block w-full text-sm text-slate-500 py-2
+                  file:mr-4 file:py-2 file:px-4
+                  file:rounded-full file:border-0
+                  file:text-sm file:font-semibold
+                  file:bg-violet-50 file:text-violet-700
+                  hover:file:bg-violet-100
+                "
                     type="file"
                     name="files"
                     accept=".doc,.docx,.pdf,.ppt,.pptx"
@@ -254,11 +207,11 @@ export default function OrderSection({homeData}) {
                   </span>
                 </label>
               </div>
-              <div className="col-span-2">
+              <div className="col-span-2 py-3">
                 <div className="flex items-center">
                   <button
                     type="submit"
-                    className="w-full px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none focus:bg-blue-700"
+                    className="w-full px-4 py-2 bg-[#23beec] hover:bg-[#23beec] text-white rounded-md focus:outline-none focus:bg-blue-700"
                   >
                     Send request
                   </button>

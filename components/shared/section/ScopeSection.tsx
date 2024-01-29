@@ -4,6 +4,7 @@ import { translate } from '@/utility/translate';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
+
 // @ts-ignore
 
 export default function ScopeSection({ homeData }) {
@@ -26,7 +27,7 @@ export default function ScopeSection({ homeData }) {
       <div id='scope'>
         <div>
           <div>
-            <h1 className={`text-2xl lg:text-6xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
+            <h1 className={`text-4xl lg:text-6xl lg:font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
               {
                 translate(homeData, 'homeSectionOneTitle')
               }
@@ -52,14 +53,6 @@ export default function ScopeSection({ homeData }) {
               }
             </div>
           </div>
-          {/*<div className={`shadow-lg p-12 justify-between items-center flex mt-6 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-            <h1 className='text-2xl w-2/3 font-semibold'>
-              Select professional IT services for your software development project.
-            </h1>
-            <div className=''>
-              <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded'>Request services</button>
-            </div>
-          </div>*/}
         </div>
       </div>
     </SectionContainer>

@@ -1,13 +1,15 @@
 import SectionContainer from '@/components/SectionContainer'
+import { useLocalization } from '@/context/LocalizeProvider';
 import {translate} from "@/utility/translate";
 // @ts-ignore
 export default function AdvantagesSection({homeData}) {
+  const { locale, switchLocale } = useLocalization();
   return (
     <SectionContainer>
       <div>
         <div>
           <div>
-            <h1 className='lg:text-6xl text-3xl font-semibold py-10'>
+            <h1 className={`lg:text-6xl text-3xl font-semibold py-10 ${locale ==='en' ? '' : 'rtl'}`}>
               
             {translate(homeData, 'homeSectionNineTitle')}
             </h1>
