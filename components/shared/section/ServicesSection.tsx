@@ -1,35 +1,135 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import TabList from '../TabList'
 import SectionContainer from '@/components/SectionContainer';
 import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
 import { useLocalization } from '@/context/LocalizeProvider';
+import axios from "axios";
 
 
 // @ts-ignore
 export default function ServicesSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
-  return (
-    <SectionContainer>
-      <div id='services'>
-        <div>
-          <div className='w-full'>
-            <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
-              {translate(homeData, 'homeSectionOneTitle')}
-            </h1>
-          </div>
-          <div>
-            <TabList tabs={tabs} />
-          </div>
-        </div>
-      </div>
-    </SectionContainer>
 
-  )
+// @ts-ignore
+  const [activeTab, setActiveTab] = useState(0);
+
+  const [homeSectionTwo, setHomeSectionTwo] = useState([]);
+
+  const {} = useLocalization();
+
+  useEffect(()=>{
+    // @ts-ignore
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-2s?populate=*`);
+      setHomeSectionTwo(data?.data)
+      setActiveTab(data?.data[0]?.id)
+    })()
+
+  }, [])
+
+  // @ts-ignore
+  const tabs = homeSectionTwo?.reduce((previousValue, currentValue, currentIndex, array) => {
+
+    return [...previousValue, {
+      // @ts-ignore
+      id: currentValue?.id,
+      // @ts-ignore
+      label: translate(currentValue?.attributes, 'Title'),
+      // @ts-ignore
+      content: translate(currentValue?.attributes, 'Content')
+    }]
+  }, [])
+
+
+
+
+
+  const handleTabClick = (tabId: string) => {
+    // @ts-ignore
+    setActiveTab(tabId);
+  };
+
+  // @ts-ignore
+  console.log('id', tabs[0]?.id)
+
+
+  // @ts-ignore
+  if (tabs?.length > 0){
+    return (
+        <SectionContainer>
+          <div id='services'>
+            <div>
+              <div className='w-full'>
+                <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
+                  {translate(homeData, 'homeSectionTwoTitle')}
+                </h1>
+              </div>
+              <div>
+                {/*<TabList tabs={tabs} />*/}
+                <div className="grid lg:grid-cols-5 grid-cols-1 pt-8">
+                  <div className="col-span-2 flex-none">
+                    <ul className="">
+                      {
+                        // @ts-ignore
+                        tabs?.map((tab) => (
+                            <li
+                                key={tab?.id}
+                                className={`cursor-pointer w-full block text-xl py-4 px-8 hover:bg-gray-100 duration-300 ${
+                                    activeTab == tab?.id ? 'bg-gray-200 font-medium' : ''
+                                }`}
+                                onClick={() => handleTabClick(tab?.id)}
+                            >
+                              {tab?.label}
+                            </li>
+                        ))}
+                    </ul>
+                  </div>
+                  <div className="flex-grow col-span-3 pl-16">
+                    {
+                      // @ts-ignore
+                      tabs.map((tab) => (
+                          <div
+                              key={tab?.id}
+                              className={`${activeTab == tab?.id ? '' : 'hidden'}`}
+                          >
+                            <div>
+                              <p className='pb-6 text-lg' dangerouslySetInnerHTML={{__html: tab?.content}}></p>
+                              {/*<ul className='bg-gray-200 p-10 space-y-3'>
+                          <li>{tab.header}</li>
+                          {
+                            Array.from(tab.list).map((item:any, i)=>(
+                                <li className='flex gap-2 items-center px-3' key={i}>
+                                  <svg xmlns='http://www.w3.org/2000/svg' className='w-5 h-3' fill='none' viewBox='0 0 9 8'>
+                                    <path stroke='#556170' d='m.5 4 3 2.5L8 1'/>
+                                  </svg>
+                                  {item}
+                                </li>
+                            ))
+                          }
+                        </ul>*/}
+                            </div>
+                          </div>
+
+                      ))}
+                    {/* <WithOurTeam/> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SectionContainer>
+    )
+  }
+
+  return ""
+
+
 }
 
 
 
+/*
 const tabs = [
   {
     id: 'tab1',
@@ -109,4 +209,4 @@ const tabs = [
 
     ]
   },
-];
+];*/

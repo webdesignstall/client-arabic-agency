@@ -1,6 +1,6 @@
 'use client'
 // components/Carousel.tsx
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Slider from 'react-slick';
 import { ChevronRight } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
 import {translate} from "@/utility/translate";
 import { useLocalization } from '@/context/LocalizeProvider';
+import axios from "axios";
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-16 z-30 cursor-pointer hidden lg:flex'
@@ -55,6 +56,19 @@ const CompnarySection: React.FC<any> = ({homeData}) => {
 
   const { locale, switchLocale } = useLocalization();
 
+  const [homeSectionFour, setHomeSectionFour] = useState([]);
+
+  useEffect(()=>{
+    // @ts-ignore
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-fours?populate=*`);
+      setHomeSectionFour(data?.data)
+    })()
+
+  }, [])
+
+
+
   return (
     <SectionContainer>
       <div id='technologies'>
@@ -75,13 +89,19 @@ const CompnarySection: React.FC<any> = ({homeData}) => {
         <div className='mt-8'>
           <Slider className='lg:px-12' {...settings}>
             {
-              items.map((item, i) => (
+              homeSectionFour?.map((item, i) => (
                 <div key={i} className='p-12'>
                   <div>
-                    <img className='w-[100px] h-[50px]' src={item.icon} alt="" />
+                    <img className='w-[100px] h-[50px]' src={
+                      // @ts-ignore
+                      process.env.NEXT_PUBLIC_BACKED_BASE+item?.attributes?.technologies?.data[0]?.attributes?.url
+                    } alt="" />
                   </div>
                   <div className='pt-6 text-center'>
-                    <p>{item.title}</p>
+                    <p>{
+                      // @ts-ignore
+                      translate(item?.attributes, 'name')
+                    }</p>
                   </div>
                 </div>
               ))
