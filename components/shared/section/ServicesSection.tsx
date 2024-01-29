@@ -6,13 +6,14 @@ import {translate} from "@/utility/translate";
 
 // @ts-ignore
 export default function ServicesSection({homeData}) {
+  
   return (
     <SectionContainer>
       <div id='services'>
         <div>
           <div className='w-full'>
             <h1 className='lg:text-6xl text-3xl font-bold py-6'>
-            {translate(homeData, 'servicesSectionTitle')}
+            {translate(homeData, 'homeSectionFiveTitle')}
             </h1>
           </div>
           <div>

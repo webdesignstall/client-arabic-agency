@@ -1,18 +1,21 @@
 "use client"
 
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
 import { AlignRight } from 'lucide-react';
 import { X } from 'lucide-react';
-import MainLogo from '@/assets/img/mainLogo.jpg'
-import Image from 'next/image';
-import { useLocalization } from "@/context/LocalizeProvider";
-
+import { Oswald } from 'next/font/google'
 import ModalCall from '../shared/slider-button/ModalCall';
 import { store } from '@/redux/store';
 import { setArabic, setEnglish } from '@/redux/slice/TranslateSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
+const oswald = Oswald({
+    subsets: ['latin'],
+    weight: "600",
+    display: 'swap',
+    variable: '--font-oswald',
+})
 
 export default function Header() {
 
@@ -86,16 +89,11 @@ export default function Header() {
                     <div className={`bg-white backdrop-blur-3xl   text-black absolute top-22 w-full px-16 m-auto duration-300 `}>
                         <div className='m-auto flex justify-between items-center'>
                             <div className="logo flex">
-                                <div>
+
                                     <Link href='/'>
-                                        <Image
-                                            src={MainLogo}
-                                            alt=''
-                                            width={90}
-                                            height={70}
-                                        />
+                                       <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
                                     </Link>
-                                </div>
+
                             </div>
                             <div className="lg:flex space-x-6 hidden">
                                 <div className="">

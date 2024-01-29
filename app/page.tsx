@@ -27,7 +27,6 @@ const page = () => {
     })()
 
   }, [])
-console.log(homeData);
   return (
     <WidthContainer>
       <div>

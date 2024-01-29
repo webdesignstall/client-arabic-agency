@@ -1,9 +1,21 @@
 import SectionContainer from '@/components/SectionContainer'
 import { translate } from '@/utility/translate';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 // @ts-ignore
 
 export default function ScopeSection({homeData}) {
+  const [homeSectionOne, setHomeSectionOne] = useState([]);
+
+  useEffect(()=>{
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
+      setHomeSectionOne(data?.data)
+    })()
+
+  }, [])
+  console.log(homeSectionOne);
   return (
     <SectionContainer>
       <div id='scope'>
@@ -11,20 +23,27 @@ export default function ScopeSection({homeData}) {
           <div>
             <h1 className='text-2xl lg:text-6xl font-bold py-6'>
             {
-              translate(homeData, 'developmentScopeSectionTitle')
+              translate(homeData, 'homeSectionOneTitle')
             }
             </h1>
           </div>
           <div className='pt-10'>
             <div className='lg:grid grid-cols-3'>
               {
-                ['Generate Ai', 'Nuture language processing', 'Advance data analice', 'computer version', 'Space recognation', 'Robotics'].map((item, index) => (
+                // ['Generate Ai', 'Nuture language processing', 'Advance data analice', 'computer version', 'Space recognation', 'Robotics']
+                homeSectionOne?.map((item, index) => (
                   <div key={index} className='scrop h-44 m-3 bg-gray-50 hover:shadow-xl duration-300 cursor-pointer relative before:absolute before:bottom-0 before:border-b-4 before:w-0 before:border-[#23beec] before:hover:w-full before:duration-300 hover:bg-white before:left-0'>
                     <div className='duration-300 text-2xl font-semibold scrop-list absolute flex justify-center items-center w-full h-full'>
-                      {item}
+                    {
+                    // @ts-ignore
+                        translate(item?.attributes, 'title')
+                      }
                     </div>
                     <div className='duration-300 px-6 py-4 text-md overflow-hidden justify-normal absolute opacity-0 scrop-hidden'>
-                      Lorem ipsum dolor sit am quao libero quam us dolorem? Dolores incidunt similique eum distinctio tenetur illo veritatis doloremque laboriosam error nesciunt.
+                    {
+                      // @ts-ignore
+                        translate(item?.attributes, 'description')
+                      }
                     </div>
                   </div>
                 ))
