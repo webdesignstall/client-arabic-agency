@@ -14,7 +14,7 @@ export default function RatingSection({homeData}) {
   return (
     <SectionContainer>
       <div>
-        <div className=' grid grid-cols-12'>
+        <div className={`flex justify-between  ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
             <h3 className={`${ locale == 'en' ? 'direction-none' : 'rtl'}`}>
 
