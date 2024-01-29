@@ -2,17 +2,18 @@ import React from 'react'
 import TabList from '../TabList'
 import SectionContainer from '@/components/SectionContainer';
 import {translate} from "@/utility/translate";
+import { useSelector } from 'react-redux';
 
 
 // @ts-ignore
 export default function ServicesSection({homeData}) {
-  
+  const local = useSelector((state: any) => state.translate.locale)
   return (
     <SectionContainer>
       <div id='services'>
         <div>
           <div className='w-full'>
-            <h1 className='lg:text-6xl text-3xl font-bold py-6'>
+            <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${local === 'en' ? '' : 'rtl'}`}>
             {translate(homeData, 'homeSectionFiveTitle')}
             </h1>
           </div>

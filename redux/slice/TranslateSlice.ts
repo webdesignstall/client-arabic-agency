@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface TranslateState {
-    translate: any | null;
+    locale: any | null;
 }
 
 const initialState: TranslateState = {
-    translate: 'en'
+    locale: 'en'
 };
 
 
@@ -15,12 +15,12 @@ const TranslateSlice = createSlice({
     initialState,
     reducers: {
         setEnglish(state, action: PayloadAction<any>) {
-            state.translate = action.payload;
-            localStorage.setItem('translate', 'en');
+            state.locale = action.payload;
+            localStorage.setItem('locale', 'en');
         },
         setArabic(state, action: PayloadAction<any>) {
-            state.translate = action.payload;
-            localStorage.setItem('translate', 'ar');
+            state.locale = action.payload;
+            localStorage.setItem('locale', 'ar');
         }
     },
 });
