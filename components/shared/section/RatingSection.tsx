@@ -1,18 +1,25 @@
+'use client'
 import React from 'react'
 import SectionContainer from '@/components/SectionContainer'
 import { useSelector } from 'react-redux'
 import { translate } from '@/utility/translate';
+import {useLocalization} from "@/context/LocalizeProvider";
 
 
 // @ts-ignore
 export default function RatingSection({homeData}) {
-  const local = useSelector((state:any) =>state.translate.translate)
+  // @ts-ignore
+  const { locale, switchLocale } = useLocalization();
+
+  console.log('local 2', locale);
+
+
   return (
     <SectionContainer>
       <div>
         <div className=' grid grid-cols-12'>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
-            <h3 className={`${local === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
+            <h3 className={`${ locale == 'en' ? 'direction-none' : 'diraction-rtl'}`}>
 
             {translate(homeData, 'homeSectionTwoTitle')}
             </h3>

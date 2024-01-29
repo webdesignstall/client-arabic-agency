@@ -15,10 +15,13 @@ import ExpertiseSection from '@/components/shared/section/ExpertiseSection';
 import AdvantagesSection from '@/components/shared/section/AdvantagesSection';
 import OrderSection from '@/components/shared/section/OrderSection';
 import axios from "axios";
+import {useLocalization} from "@/context/LocalizeProvider";
 
 const page = () => {
 
   const [homeData, setHomeData] = useState([]);
+
+  const {} = useLocalization();
 
   useEffect(()=>{
     ( async ()=>{
@@ -28,24 +31,26 @@ const page = () => {
 
   }, [])
   return (
-    <WidthContainer>
-      <div>
-        <HeroSection homeData={homeData} />
-        <main>
-          <RatingSection homeData={homeData}/>
-          <ScopeSection homeData={homeData}/>
-          <ServicesSection homeData={homeData}/>
-          <ProjectSection homeData={homeData}/>
-          <CompnarySection homeData={homeData}/>
-          <TestimonialsSection homeData={homeData}/>
-          <InterviewSection homeData={homeData}/>
-          <AboutSection  homeData={homeData}/>
-          {/* <ExpertiseSection /> */}
-          <AdvantagesSection homeData={homeData}/>
-           <OrderSection homeData={homeData}/>
-        </main>
-      </div>
-    </WidthContainer>
+
+        <WidthContainer>
+          <div>
+            <HeroSection homeData={homeData} />
+            <main>
+              <RatingSection homeData={homeData}/>
+              <ScopeSection homeData={homeData}/>
+              <ServicesSection homeData={homeData}/>
+              <ProjectSection homeData={homeData}/>
+              <CompnarySection homeData={homeData}/>
+              <TestimonialsSection homeData={homeData}/>
+              <InterviewSection homeData={homeData}/>
+              <AboutSection  homeData={homeData}/>
+              {/* <ExpertiseSection /> */}
+              <AdvantagesSection homeData={homeData}/>
+               <OrderSection homeData={homeData}/>
+            </main>
+          </div>
+        </WidthContainer>
+
   )
 }
 
