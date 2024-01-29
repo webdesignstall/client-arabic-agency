@@ -1,26 +1,28 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import TabList from '../TabList'
 import SectionContainer from '@/components/SectionContainer';
 import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
 import { useLocalization } from '@/context/LocalizeProvider';
 import axios from "axios";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { cn } from '@/lib/utils';
 
 
 // @ts-ignore
 export default function ServicesSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
 
-// @ts-ignore
+  // @ts-ignore
   const [activeTab, setActiveTab] = useState(0);
 
   const [homeSectionTwo, setHomeSectionTwo] = useState([]);
 
-  const {} = useLocalization();
+  const { } = useLocalization();
 
-  useEffect(()=>{
-    ( async ()=>{
-      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-2s?populate=*`);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-2s?populate=*`);
       setHomeSectionTwo(data?.data)
       setActiveTab(data?.data[0]?.id)
     })()
@@ -54,47 +56,48 @@ export default function ServicesSection({ homeData }) {
 
 
   // @ts-ignore
-  if (tabs?.length > 0){
+  if (tabs?.length > 0) {
     return (
-        <SectionContainer>
-          <div id='services'>
+      <SectionContainer>
+        <div id='services'>
+          <div>
+            <div className='w-full'>
+              <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
+                {translate(homeData, 'homeSectionTwoTitle')}
+              </h1>
+            </div>
             <div>
-              <div className='w-full'>
-                <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
-                  {translate(homeData, 'homeSectionTwoTitle')}
-                </h1>
-              </div>
-              <div>
-                {/*<TabList tabs={tabs} />*/}
-                <div className="grid lg:grid-cols-5 grid-cols-1 pt-8">
-                  <div className="col-span-2 flex-none">
-                    <ul className="">
-                      {
-                        // @ts-ignore
-                        tabs?.map((tab) => (
-                            <li
-                                key={tab?.id}
-                                className={`cursor-pointer w-full block text-xl py-4 px-8 hover:bg-gray-100 duration-300 ${
-                                    activeTab == tab?.id ? 'bg-gray-200 font-medium' : ''
-                                }`}
-                                onClick={() => handleTabClick(tab?.id)}
-                            >
-                              {tab?.label}
-                            </li>
-                        ))}
-                    </ul>
-                  </div>
-                  <div className="flex-grow col-span-3 pl-16">
+              {/*<TabList tabs={tabs} />*/}
+              <div className={`lg:flex  pt-8 w-full hidden ${locale === 'en' ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div className="w-2/3">
+                  <ul className="">
                     {
                       // @ts-ignore
-                      tabs.map((tab) => (
-                          <div
-                              key={tab?.id}
-                              className={`${activeTab == tab?.id ? '' : 'hidden'}`}
-                          >
-                            <div>
-                              <p className='pb-6 text-lg' dangerouslySetInnerHTML={{__html: tab?.content}}></p>
-                              {/*<ul className='bg-gray-200 p-10 space-y-3'>
+                      tabs?.map((tab) => (
+                        <li
+                          key={tab?.id}
+                          className={`cursor-pointer w-full block text-xl py-4 px-8 hover:bg-gray-100 duration-300 ${activeTab == tab?.id ? 'bg-gray-200 font-medium' : ''
+
+                            } ${locale === 'en' ? '' : 'rtl text-right'
+                            }`}
+                          onClick={() => handleTabClick(tab?.id)}
+                        >
+                          {tab?.label}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+                <div className={`w-full ${locale === 'en' ? 'pl-16' : 'pr-16'}`}>
+                  {
+                    // @ts-ignore
+                    tabs.map((tab) => (
+                      <div
+                        key={tab?.id}
+                        className={`${activeTab == tab?.id ? '' : 'hidden'}`}
+                      >
+                        <div>
+                          <p className='pb-6 text-lg' dangerouslySetInnerHTML={{ __html: tab?.content }}></p>
+                          {/*<ul className='bg-gray-200 p-10 space-y-3'>
                           <li>{tab.header}</li>
                           {
                             Array.from(tab.list).map((item:any, i)=>(
@@ -107,17 +110,47 @@ export default function ServicesSection({ homeData }) {
                             ))
                           }
                         </ul>*/}
-                            </div>
-                          </div>
+                        </div>
+                      </div>
 
-                      ))}
-                    {/* <WithOurTeam/> */}
-                  </div>
+                    ))}
+                  {/* <WithOurTeam/> */}
                 </div>
               </div>
+              <Accordion type="single" collapsible className="w-full lg:hidden">
+                {
+                  // @ts-ignore
+                  tabs?.map((tab, index) => (
+                    <AccordionItem key={index} className={cn('border-none flex-row-reverse')} value={tab.id}>
+                      <AccordionTrigger className='text-xl px-4 border-none'>
+                        {tab.label}
+                      </AccordionTrigger>
+                      <AccordionContent className='py-6'>
+                        <div>
+                          <p className='pb-6 text-lg' dangerouslySetInnerHTML={{ __html: tab?.content }}></p>
+                          {/* <ul className='bg-gray-200 p-10 space-y-3'>
+                            <li>{tab.header}</li>
+                            {
+                              Array.from(tab.list).map((item: any, i) => (
+                                <li className='flex gap-2 items-center px-3' key={i}>
+                                  <svg xmlns='http://www.w3.org/2000/svg' className='w-5 h-3' fill='none' viewBox='0 0 9 8'>
+                                    <path stroke='#556170' d='m.5 4 3 2.5L8 1' />
+                                  </svg>
+                                  {item}
+                                </li>
+                              ))
+                            }
+                          </ul> */}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))
+                }
+              </Accordion>
             </div>
           </div>
-        </SectionContainer>
+        </div>
+      </SectionContainer>
     )
   }
 
