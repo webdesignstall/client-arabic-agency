@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 
 import { createContext, useContext, ReactNode, useState } from 'react';
 
@@ -20,6 +21,13 @@ export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ chil
         setLocale(newLocale);
         localStorage.setItem('local', newLocale)
     };
+
+    React.useEffect(() => {
+        const translate = localStorage.getItem('local');
+        if (translate === 'en') {
+            setLocale('en')
+        }
+    })
 
     return (
         <LocalizationContext.Provider value={{ locale, switchLocale }}>
