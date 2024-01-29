@@ -1,20 +1,21 @@
 import React from 'react'
 import TabList from '../TabList'
 import SectionContainer from '@/components/SectionContainer';
-import {translate} from "@/utility/translate";
+import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
+import { useLocalization } from '@/context/LocalizeProvider';
 
 
 // @ts-ignore
-export default function ServicesSection({homeData}) {
-  const local = useSelector((state: any) => state.translate.locale)
+export default function ServicesSection({ homeData }) {
+  const { locale, switchLocale } = useLocalization();
   return (
     <SectionContainer>
       <div id='services'>
         <div>
           <div className='w-full'>
-            <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${local === 'en' ? '' : 'rtl'}`}>
-            {translate(homeData, 'homeSectionFiveTitle')}
+            <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
+              {translate(homeData, 'homeSectionOneTitle')}
             </h1>
           </div>
           <div>
@@ -47,7 +48,7 @@ const tabs = [
   {
     id: 'tab2',
     label: 'Customer Service Center',
-    content:'Andersen is well-positioned to empower you to harness AI in service centers. Enhance client engagement, reduce service costs, obtain more valuable client data with added emotional nuances, and aggregate your offers on the fly through implicit fact processing.',
+    content: 'Andersen is well-positioned to empower you to harness AI in service centers. Enhance client engagement, reduce service costs, obtain more valuable client data with added emotional nuances, and aggregate your offers on the fly through implicit fact processing.',
     header: 'Andersen provides qualified assistance with:',
     list: [
 

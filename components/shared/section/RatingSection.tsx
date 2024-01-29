@@ -11,15 +11,12 @@ export default function RatingSection({homeData}) {
   // @ts-ignore
   const { locale, switchLocale } = useLocalization();
 
-  console.log('local 2', locale);
-
-
   return (
     <SectionContainer>
       <div>
         <div className=' grid grid-cols-12'>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
-            <h3 className={`${ locale == 'en' ? 'direction-none' : 'diraction-rtl'}`}>
+            <h3 className={`${ locale == 'en' ? 'direction-none' : 'rtl'}`}>
 
             {translate(homeData, 'homeSectionTwoTitle')}
             </h3>

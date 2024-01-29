@@ -9,7 +9,7 @@ import ModalCall from '../shared/slider-button/ModalCall';
 import { store } from '@/redux/store';
 import { setArabic, setEnglish } from '@/redux/slice/TranslateSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import {useLocalization} from "@/context/LocalizeProvider";
+import { useLocalization } from "@/context/LocalizeProvider";
 
 const oswald = Oswald({
     subsets: ['latin'],
@@ -61,10 +61,10 @@ export default function Header() {
     }, [prevScrollPos]);
 
     React.useEffect(() => {
-        const translate = localStorage.getItem('translate')
-        console.log(translate)
-        if (translate === 'ar') {
-            dispatch(setArabic('ar'))
+        const translate = localStorage.getItem('local')
+
+        if (translate === 'en') {
+            dispatch(setEnglish('en'))
         }
     }, [translate])
 
@@ -90,15 +90,15 @@ export default function Header() {
                     </div>
                     :
                     <div className={`bg-white backdrop-blur-3xl   text-black absolute top-22 w-full px-16 m-auto duration-300 `}>
-                        <div className='m-auto flex justify-between items-center'>
+                        <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                             <div className="logo flex">
 
-                                    <Link href='/'>
-                                       <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
-                                    </Link>
+                                <Link href='/'>
+                                    <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
+                                </Link>
 
                             </div>
-                            <div className="lg:flex space-x-6 hidden">
+                            <div className={`lg:flex space-x-6 hidden ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                 <div className="">
                                     <div className='menu'>
                                         <ul className='flex flex-row'>
@@ -146,18 +146,10 @@ export default function Header() {
                                         </ul>
                                     </div>
                                 </div>
-                                <div className='flex items-center pl-3 gap-5'>
-                                    <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded'>Testimonials</button>
-                                    {/*{
-                                        translate === 'en' ?
-                                            <button onClick={() => store.dispatch(setArabic('ar'))} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>Arabic</button>
-                                            :
-                                            <button onClick={() => store.dispatch(setEnglish('en'))} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
-                                    }*/}
-
+                                <div className={`flex items-center  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
                                     {
                                         locale === 'en' ?
-                                            <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>Arabic</button>
+                                            <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'> عربي </button>
                                             :
                                             <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
                                     }

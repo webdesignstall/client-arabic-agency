@@ -12,7 +12,7 @@ export const translate = (data: any, key: string):string =>{
 
     if (locale === 'ar'){
         // @ts-ignore
-        console.log('translate en',data[key])
+        // console.log('translate en',data[key])
         // @ts-ignore
         return data[key]
     }else if (locale === 'en'){

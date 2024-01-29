@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
 import {translate} from "@/utility/translate";
+import { useLocalization } from '@/context/LocalizeProvider';
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-16 z-30 cursor-pointer hidden lg:flex'
@@ -52,20 +53,22 @@ const CompnarySection: React.FC<any> = ({homeData}) => {
   };
 
 
+  const { locale, switchLocale } = useLocalization();
+
   return (
     <SectionContainer>
       <div id='technologies'>
         <div>
           <div className='py-2'>
-            <h1 className='lg:text-6xl text-3xl font-semibold'>
+            <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
               
-            {translate(homeData, 'technologiesSectionTitle')}
+            {translate(homeData, 'homeSectionFourTittle')}
             </h1>
           </div>
           <div>
-            <p className='pt-6 lg:text-xl text-lg font-medium '>
+            <p className={`pt-6 lg:text-xl text-lg font-medium ${locale === 'en' ? '' : 'rtl'} `}>
               
-            {translate(homeData, 'technologiesSectionDescription')}
+            {translate(homeData, 'homeSectionFourDescription')}
             </p>
           </div>
         </div>

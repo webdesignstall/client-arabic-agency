@@ -24,7 +24,7 @@ export default function OrderSection({homeData}) {
             <div className="text-center">
               <h2 className="md:text-4xl font-heading font-bold mb-4 text-xl text-left">
                 
-              {translate(homeData, 'expertiseSectionTitle')}
+              {translate(homeData, 'homeSectionTenTitle')}
               </h2>
               <p className="text-gray-900 mb-3 md:text-2xl text-lg text-left">
                 What happens next?

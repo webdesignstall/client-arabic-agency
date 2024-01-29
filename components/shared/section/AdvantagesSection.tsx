@@ -9,7 +9,7 @@ export default function AdvantagesSection({homeData}) {
           <div>
             <h1 className='lg:text-6xl text-3xl font-semibold py-10'>
               
-            {translate(homeData, 'advantagesSectionTitle')}
+            {translate(homeData, 'homeSectionNineTitle')}
             </h1>
           </div>
           <div>

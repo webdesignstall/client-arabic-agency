@@ -2,22 +2,24 @@ import SectionContainer from '@/components/SectionContainer'
 import Link from 'next/link'
 import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
+import { useLocalization } from '@/context/LocalizeProvider';
 
 
 // @ts-ignore
 
 export default function ProjectSection({ homeData }) {
-  const local = useSelector((state: any) => state.translate.locale)
+ 
+  const { locale, switchLocale } = useLocalization();
   return (
     <SectionContainer>
       <div id='project'>
         <div className=''>
           <div className='w-full'>
-            <h1 className={`lg:text-6xl font-bold py-4 text-3xl ${local === 'en' ? '' : 'rtl'}`}>
-              {translate(homeData, 'homeSectionFiveTitle')}
+            <h1 className={`lg:text-6xl font-bold py-4 text-3xl ${locale === 'en' ? '' : 'rtl'}`}>
+              {translate(homeData, 'homeSectionThreeTittle')}
             </h1>
-            <p className={`text-xl pt-2 font-medium ${local === 'en' ? '' : 'rtl'}`}>
-              {translate(homeData, 'homeSectionFiveDescription')}
+            <p className={`text-xl pt-2 font-medium ${locale === 'en' ? '' : 'rtl'}`}>
+              {translate(homeData, 'homeSectionThreeDescription')}
             </p>
           </div>
           <div className='grid lg:grid-cols-2 gap-12 pt-16'>
