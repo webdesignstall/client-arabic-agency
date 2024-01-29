@@ -25,7 +25,7 @@ export default function page() {
                     <p className="px-5 md:px-0 text-lg md:text-xl">The decisions doctors make are a question of life and death. They relate to everyone. To make correct decisions, medical care professionals need to process and analyze enormous volumes of data, with every detail taken into consideration. Unfortunately, human factors and human errors are always at play. People, even the most experienced and highly qualified ones, make mistakes. In this aspect, predictive modeling comes to the rescue. Indeed, predictive analytics in healthcare is already helping medical professionals mitigate risks. Available statistics corroborate this statement. As the experts employed by Acumen Research and Consulting stress, back in 2021, the global predictive analytics market in healthcare amounted to $9.5 million. Around 2030, it is projected to hit $87.5 billion. As for the current rates of use of predictive analytics in healthcare, per Statista, they are also impressive:</p>
                 </div>
             </DeteilsSectionContainer>
-            <div className="w-9/12 mx-auto mt-10 md:flex gap-5 flex-row-reverse">
+            <div className="md:max-w-7xl pl-20 mx-auto mt-10 md:flex gap-5 flex-row-reverse">
                 <div className="md:w-[30%]">
                     <img className="w-[300px] mt-8" src="https://images.ctfassets.net/96fo3urb6c1x/2wUDodOtUZZyhsh6koQ7uG/9f8db89222b2820875eed8a4ecc4da05/1_2x.png?w=956&h=831&q=100&fm=webp" alt="" />
                 </div>
