@@ -16,11 +16,11 @@ const TranslateSlice = createSlice({
     reducers: {
         setEnglish(state, action: PayloadAction<any>) {
             state.locale = action.payload;
-            localStorage.setItem('locale', 'en');
+            localStorage.setItem('local', 'en');
         },
         setArabic(state, action: PayloadAction<any>) {
             state.locale = action.payload;
-            localStorage.setItem('locale', 'ar');
+            localStorage.setItem('local', 'ar');
         }
     },
 });

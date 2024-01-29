@@ -10,8 +10,14 @@ export const translate = (data: any, key: string): string => {
 
     // console.log('locale', locale)
 
+<<<<<<< HEAD
     if (locale === 'ar') {
 
+=======
+    if (locale === 'ar'){
+        // @ts-ignore
+        // console.log('translate en',data[key])
+>>>>>>> 02ae990 (translator use)
         // @ts-ignore
         return data[key]
     } else if (locale === 'en') {
