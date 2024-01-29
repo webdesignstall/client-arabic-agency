@@ -1,21 +1,22 @@
 import SectionContainer from '@/components/SectionContainer'
 import React from 'react'
-import {translate} from "@/utility/translate";
+import { translate } from "@/utility/translate";
+import { useLocalization } from '@/context/LocalizeProvider';
 // @ts-ignore
-export default function AboutSection({homeData}) {
+export default function AboutSection({ homeData }) {
+  const { locale, switchLocale } = useLocalization();
   return (
     <SectionContainer>
       <div>
         <div>
           <div>
-            <h1 className='lg:text-6xl text-3xl font-semibold py-2'>
-              
-            {translate(homeData, 'thinkAboutSectionTitle')}
+            <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
+              {translate(homeData, 'homeSectionSevenTitle')}
             </h1>
           </div>
           <div className='pt-4'>
-            <p className='text-xl font-medium'>
-            {translate(homeData, 'thinkAboutSectionDescription')}
+            <p className={`pt-6 lg:text-xl text-lg font-medium ${locale === 'en' ? '' : 'rtl'} `}>
+              {translate(homeData, 'homeSectionSevenDescription')}
             </p>
           </div>
         </div>

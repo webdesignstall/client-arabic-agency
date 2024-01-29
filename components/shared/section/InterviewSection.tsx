@@ -8,7 +8,8 @@ import { ChevronLeft } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
-import {translate} from "@/utility/translate";
+import { translate } from "@/utility/translate";
+import { useLocalization } from '@/context/LocalizeProvider';
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-36  cursor-pointer  z-30 hidden lg:flex'
@@ -28,7 +29,7 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
 );
 
 // @ts-ignore
-const InterviewSection: React.FC<any> = ({homeData}) => {
+const InterviewSection: React.FC<any> = ({ homeData }) => {
 
   const settings: any = {
     dots: true,
@@ -50,24 +51,24 @@ const InterviewSection: React.FC<any> = ({homeData}) => {
     ]
 
   };
-
+  const { locale, switchLocale } = useLocalization();
 
   return (
     <div className='lg:max-w-7xl m-auto lg:py-16 my-6 lg:px-20 py-12 px-4'>
       <div>
         <div>
-          <h1 className='lg:text-6xl text-3xl font-bold  text-white'> 
-          {translate(homeData, 'videoInterviewsSectionTitle')}
+          <h1 className={`lg:text-6xl text-3xl font-semibold text-white ${locale === 'en' ? '' : 'rtl'}`}>
+            {translate(homeData, 'homeSectionSixTitle')}
           </h1>
         </div>
         <div>
-          <p className='pt-6 text-white lg:text-xl text-lg font-medium'>  
-          {translate(homeData, 'videoInterviewsSectionDescription')}
+          <p className={`pt-6 lg:text-xl text-lg font-medium text-gray-200 ${locale === 'en' ? '' : 'rtl'} `}>
+            {translate(homeData, 'homeSectionSixDescription')}
           </p>
         </div>
       </div>
       <div className='mt-8'>
-        
+
         <Slider className='px-12' {...settings}>
           {
             items.map((item, i) => (
