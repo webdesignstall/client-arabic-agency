@@ -75,7 +75,6 @@ const CompnarySection: React.FC<any> = ({homeData}) => {
         <div>
           <div className='py-2'>
             <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
-              
             {translate(homeData, 'homeSectionFourTittle')}
             </h1>
           </div>

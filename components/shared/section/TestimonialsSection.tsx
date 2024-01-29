@@ -1,6 +1,6 @@
 'use client'
 // components/Carousel.tsx
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Slider from 'react-slick';
 import { ChevronRight } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
 import {translate} from "@/utility/translate";
+import axios from "axios";
 
 
 
@@ -45,6 +46,18 @@ const TestimonialsSection: React.FC<any> = ({homeData}) => {
 
   };
 
+  const [homeSectionFive, setHomeSectionFive] = useState([]);
+
+  useEffect(()=>{
+    // @ts-ignore
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-5s?populate=*`);
+      setHomeSectionFive(data?.data)
+    })()
+
+  }, [])
+
+
 
   return (
     <SectionContainer>
@@ -52,38 +65,55 @@ const TestimonialsSection: React.FC<any> = ({homeData}) => {
         <div>
           <div className='py-2'>
             <h1 className='text-6xl font-semibold'>
-            {translate(homeData, 'testimonialsSectionTitle')}
+            {translate(homeData, 'homeSectionFiveTitle')}
             </h1>
           </div>
           <div>
             <p className='pt-6 text-xl font-medium'>
-             {translate(homeData, 'testimonialsSectionDescription')}
+              {translate(homeData, 'homeSectionFiveDescription')}
              </p>
           </div>
         </div>
         <div className='mt-8'>
           <Slider className='lg:px-12' {...settings}>
             {
-              items.map((item, i) => (
+              homeSectionFive?.map((item, i) => (
                 <div key={i} className='flex'>
                   <div className='lg:w-1/2 inline-block'>
                     <div>
                       <div>
                         <h3 className='text-2xl font-semibold'>
-                          {item.header}
+                          {
+                            // @ts-ignore
+                            translate(item?.attributes, 'title')
+                          }
                         </h3>
                         <p className='py-6 text-gray-600'>
-                          {item.desc}
+                          {
+                            // @ts-ignore
+                            translate(item?.attributes, 'details')
+                          }
                         </p>
                         <div className='flex'>
                           <div>
-                            <img width={60} src={item.avater} alt="" />
+                            <img width={60} src={
+                              // @ts-ignore
+                                process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.photo?.data?.attributes?.url
+                            } alt="" />
                           </div>
                           <div className='px-6'>
                             <p className=' font-semibold'>
-                              {item.name}
+                              {
+                                // @ts-ignore
+                                translate(item?.attributes, 'name')
+                              }
                             </p>
-                            <p className='text-gray-600'>Manager</p>
+                            <p className='text-gray-600'>
+                              {
+                                // @ts-ignore
+                                translate(item?.attributes, 'designation')
+                              }
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -94,20 +124,32 @@ const TestimonialsSection: React.FC<any> = ({homeData}) => {
                       <div className='p-12 bg-gray-100 ml-10'>
                         <div>
                           <div>
-                            <img width={100} src={item.companyLogo} alt="" />
+                            <img width={100} src={
+                              // @ts-ignore
+                                process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url
+                            } alt="" />
                           </div>
                           <div>
                             <p className='text-gray-600 text-md pt-4'>Project</p>
                             <p className='text-xl font-semibold py-3'>
                               {
-                                item.projectName
+                                // @ts-ignore
+                                translate(item?.attributes, 'ProjectName')
                               }
                             </p>
                           </div>
                           <div>
                             <p className='font-semibold'>Country</p>
-                            <p className='text-gray-600'>
-                              {item.country}
+
+                            <p className='text-gray-600 flex items-center gap-2'>
+                              <img width={20} src={
+                                // @ts-ignore
+                                  process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.countryFlag?.data?.attributes?.url
+                              } alt="" />
+                              {
+                                // @ts-ignore
+                                translate(item?.attributes, 'countryName')
+                              }
                             </p>
                           </div>
                         </div>
