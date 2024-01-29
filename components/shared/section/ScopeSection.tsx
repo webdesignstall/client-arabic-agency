@@ -1,28 +1,25 @@
-'use client'
-
 import SectionContainer from '@/components/SectionContainer'
 import { useLocalization } from '@/context/LocalizeProvider';
 import { translate } from '@/utility/translate';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 // @ts-ignore
 
 export default function ScopeSection({ homeData }) {
 
   const { locale, switchLocale } = useLocalization();
-  const [homeSectionOne, setHomeSectionOne] = useState<any>([]);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
+  const [homeSectionOne, setHomeSectionOne] = useState([]);
+
+  useEffect(()=>{
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
       setHomeSectionOne(data?.data)
-    })
+      console.log('data', data?.data[0]?.attributes)
+    })()
 
   }, [])
-
-
 
   return (
     <SectionContainer>
@@ -55,14 +52,14 @@ export default function ScopeSection({ homeData }) {
               }
             </div>
           </div>
-          <div className={`shadow-lg p-12 justify-between items-center flex mt-6 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          {/*<div className={`shadow-lg p-12 justify-between items-center flex mt-6 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
             <h1 className='text-2xl w-2/3 font-semibold'>
               Select professional IT services for your software development project.
             </h1>
             <div className=''>
               <button className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded'>Request services</button>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </SectionContainer>

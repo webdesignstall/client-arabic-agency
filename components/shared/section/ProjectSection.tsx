@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
 import { useLocalization } from '@/context/LocalizeProvider';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 
 // @ts-ignore
@@ -10,6 +12,22 @@ import { useLocalization } from '@/context/LocalizeProvider';
 export default function ProjectSection({ homeData }) {
  
   const { locale, switchLocale } = useLocalization();
+  const [homeSectionThree, setHomeSectionThree] = useState([]);
+  const [lastData, setLastData] = useState({});
+
+  useEffect(()=>{
+    // @ts-ignore
+    ( async ()=>{
+      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s?populate=*`);
+      const last = data?.data.pop();
+      setLastData(last);
+      setHomeSectionThree(data?.data)
+    })()
+
+  }, [])
+
+
+
   return (
     <SectionContainer>
       <div id='project'>
@@ -22,39 +40,38 @@ export default function ProjectSection({ homeData }) {
               {translate(homeData, 'homeSectionThreeDescription')}
             </p>
           </div>
-          <div className='grid lg:grid-cols-2 gap-12 pt-16'>
-            <div>
-              <Link href={'/project-cases/1'}>
-                <div className='overflow-hidden h-[330px]'>
-                  <img className='hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/universkin/preview-image/desktop.webp" alt="" />
-                </div>
-              </Link>
-              <div className='brightness-50 shrink-0 pt-6'>
-                <img className='w-12' src="https://d3jqtupnzefbtn.cloudfront.net/andersenlab/new-andersensite/customers/universkin-white.svg" alt="" />
-              </div>
-              <Link href={'/project-cases/1'}>
-                <p className='text-2xl font-semibold py-3'>
-                  A Data-Driven Medical Solution for a Skin-Care Provider
-                </p>
-              </Link>
-            </div>
-            <div>
-              <Link href={'/project-cases/1'}>
-                <div className='overflow-hidden h-[330px]'>
-                  <img className='hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/quantics/preview-shots/medium.webp" alt="" />
-                </div>
-              </Link>
-              <div className='brightness-50 shrink-0 pt-6'>
-                <img className='w-24' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/quantics/logo/ouantic-logo-color.svg" alt="" />
-              </div>
-              <Link href={'/project-cases/1'}>
-                <p className='text-2xl font-semibold py-3'>
-                  A Data-Driven Medical Solution for a Skin-Care Provider
-                </p>
-              </Link>
 
-            </div>
+          <div className='grid lg:grid-cols-2 gap-12 pt-16'>
+
+            {
+              // @ts-ignore
+              homeSectionThree?.map(item => (
+                  <div>
+                    <Link href={'/project-cases/1'}>
+                      <div className='overflow-hidden h-[330px]'>
+                        <img className='hover:scale-110 duration-300 cursor-pointer' src={
+                          // @ts-ignore
+                            process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
+                        } alt="" />
+                      </div>
+                    </Link>
+                    <div className='brightness-50 shrink-0 pt-6'>
+                      <img className='w-12' src={
+                        // @ts-ignore
+                        process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
+                    </div>
+                    <Link href={'/project-cases/1'}>
+                      <p className='text-2xl font-semibold py-3'>
+                        {
+                          // @ts-ignore
+                          translate(item?.attributes, 'title')}
+                      </p>
+                    </Link>
+                  </div>
+              ))
+            }
           </div>
+
           <div className='grid lg:grid-cols-6 pt-20'>
             <div className='flex justify-center col-span-2 flex-col pr-4'>
 
@@ -64,7 +81,13 @@ export default function ProjectSection({ homeData }) {
 
               <Link href={'/project-cases/1'}>
                 <div className='text-3xl font-semibold'>
-                  A Marketing Analytics Platform
+                  {
+                    Object.keys(lastData).length === 0 ?
+                        " "
+                        :
+                        // @ts-ignore
+                        translate(lastData?.attributes, 'title')
+                  }
                 </div>
               </Link>
             </div>
@@ -75,6 +98,7 @@ export default function ProjectSection({ homeData }) {
               </Link>
             </div>
           </div>
+
         </div>
       </div>
     </SectionContainer>
