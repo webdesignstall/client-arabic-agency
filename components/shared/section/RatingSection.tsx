@@ -1,19 +1,27 @@
+'use client'
 import React from 'react'
 import SectionContainer from '@/components/SectionContainer'
 import { useSelector } from 'react-redux'
 import { translate } from '@/utility/translate';
+import {useLocalization} from "@/context/LocalizeProvider";
 
 
 // @ts-ignore
-export default function RatingSection({ homeData }) {
-  const local = useSelector((state: any) => state.translate.locale)
+export default function RatingSection({homeData}) {
+  // @ts-ignore
+  const { locale, switchLocale } = useLocalization();
+
+  console.log('local 2', locale);
+
+
   return (
     <SectionContainer>
       <div>
-        <div className={`${local === 'en' ? '' : 'flex-row-reverse'} flex justify-between`}>
+        <div className=' grid grid-cols-12'>
           <div className='text-xl font-light lg:text-[2.25rem] lg:font-semibold col-span-7 lg:col-span-8 leading-[3rem] max-w-3xl'>
-            <h3 className={`${local === 'en' ? 'direction-none' : 'diraction-rtl'}`}>
-              {translate(homeData, 'homeSectionTwoTitle')}
+            <h3 className={`${ locale == 'en' ? 'direction-none' : 'diraction-rtl'}`}>
+
+            {translate(homeData, 'homeSectionTwoTitle')}
             </h3>
           </div>
           <div className='border-r'>
@@ -22,10 +30,10 @@ export default function RatingSection({ homeData }) {
           <div className='pl-6 lg:col-span-3 h-20 bg-cover bg-[url("https://static.andersenlab.com/andersenlab/new-andersensite/icons/logos/clutch-top-info-tech-white.svg")]'>
             <div className='flex justify-center items-center space-x-6'>
               <div className='brightness-50 shrink-0'>
-                <img className='w-24 h-24' src={`${process.env.NEXT_PUBLIC_BACKED_BASE}${homeData?.clutchTopInfo?.data?.attributes?.url}`} alt="" />
+                <img className='w-24 h-24' src={`${process.env.NEXT_PUBLIC_BACKED_BASE}${ homeData?.clutchTopInfo?.data?.attributes?.url}`} alt="" />
               </div>
               <div className='space-y-2'>
-                <img className='w-24 h-24' src={`${process.env.NEXT_PUBLIC_BACKED_BASE}${homeData?.clutchReviewStar?.data?.attributes?.url}`} alt="" />
+                <img className='w-24 h-24' src={`${process.env.NEXT_PUBLIC_BACKED_BASE}${ homeData?.clutchReviewStar?.data?.attributes?.url}`} alt="" />
                 {/*<div className='uppercase font-semibold'>49 on clutch</div>
                 <div className='flex'>
                   <Star />
