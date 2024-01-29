@@ -3,7 +3,13 @@ import {useSelector} from "react-redux";
 
 
 export const translate = (data: any, key: string):string =>{
+
+
     const { locale, switchLocale } = useLocalization();
+    // const locale = useSelector((state: any) => state.translate.translate)
+
+    // console.log('locale', locale)
+
     if (locale === 'ar'){
         // @ts-ignore
         // console.log('translate en',data[key])
