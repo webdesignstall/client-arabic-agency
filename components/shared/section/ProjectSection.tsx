@@ -3,29 +3,28 @@ import Link from 'next/link'
 import { translate } from "@/utility/translate";
 import { useSelector } from 'react-redux';
 import { useLocalization } from '@/context/LocalizeProvider';
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 
 // @ts-ignore
 
 export default function ProjectSection({ homeData }) {
- 
+
   const { locale, switchLocale } = useLocalization();
   const [homeSectionThree, setHomeSectionThree] = useState([]);
   const [lastData, setLastData] = useState({});
 
-  useEffect(()=>{
+  useEffect(() => {
     // @ts-ignore
-    ( async ()=>{
-      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s?populate=*`);
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s?populate=*`);
       const last = data?.data.pop();
       setLastData(last);
       setHomeSectionThree(data?.data)
     })()
 
   }, [])
-
 
 
   return (
@@ -41,33 +40,33 @@ export default function ProjectSection({ homeData }) {
             </p>
           </div>
 
-          <div className='grid lg:grid-cols-2 gap-12 pt-16'>
+          <div className='flex lg:flex-row flex-col'>
 
             {
               // @ts-ignore
               homeSectionThree?.map(item => (
-                  <div>
-                    <Link href={'/project-cases/1'}>
-                      <div className='overflow-hidden h-[330px]'>
-                        <img className='hover:scale-110 duration-300 cursor-pointer' src={
-                          // @ts-ignore
-                            process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
-                        } alt="" />
-                      </div>
-                    </Link>
-                    <div className='brightness-50 shrink-0 pt-6'>
-                      <img className='w-12' src={
+                <div className='lg:w-1/2 w-full'>
+                  <Link href={'/project-cases/1'}>
+                    <div className='overflow-hidden h-[330px]'>
+                      <img className='hover:scale-110 duration-300 cursor-pointer' src={
                         // @ts-ignore
-                        process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
+                        process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
+                      } alt="" />
                     </div>
-                    <Link href={'/project-cases/1'}>
-                      <p className='text-2xl font-semibold py-3'>
-                        {
-                          // @ts-ignore
-                          translate(item?.attributes, 'title')}
-                      </p>
-                    </Link>
+                  </Link>
+                  <div className='brightness-50 shrink-0 pt-6'>
+                    <img className='w-12' src={
+                      // @ts-ignore
+                      process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
                   </div>
+                  <Link href={'/project-cases/1'}>
+                    <p className={`text-2xl font-semibold py-3 ${locale === 'en' ? '': 'rtl'}`}>
+                      {
+                        // @ts-ignore
+                        translate(item?.attributes, 'title')}
+                    </p>
+                  </Link>
+                </div>
               ))
             }
           </div>
@@ -83,10 +82,10 @@ export default function ProjectSection({ homeData }) {
                 <div className='text-3xl font-semibold'>
                   {
                     Object.keys(lastData).length === 0 ?
-                        " "
-                        :
-                        // @ts-ignore
-                        translate(lastData?.attributes, 'title')
+                      " "
+                      :
+                      // @ts-ignore
+                      translate(lastData?.attributes, 'title')
                   }
                 </div>
               </Link>

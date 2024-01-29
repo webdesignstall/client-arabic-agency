@@ -111,7 +111,7 @@ export default function Header() {
                             <div className={`lg:flex space-x-6 hidden ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                 <div className="">
                                     <div className='menu'>
-                                        <ul className='flex flex-row'>
+                                        <ul className={`flex flex-row ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                             <li className='rotated_id' role='button'>
                                                 <Link href="#scope" className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
                                                     <div className='flex relative'>
