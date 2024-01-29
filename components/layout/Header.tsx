@@ -49,7 +49,7 @@ export default function Header() {
         const currentScrollPos = window.scrollY;
         const scrollingUp = currentScrollPos < prevScrollPos;
 
-        setVisible(scrollingUp || currentScrollPos < 10); // Show the header if scrolling up or at the top
+        setVisible(scrollingUp || currentScrollPos < 10); 
         setPrevScrollPos(currentScrollPos);
     };
 
