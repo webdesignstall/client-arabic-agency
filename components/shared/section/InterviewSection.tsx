@@ -1,6 +1,6 @@
 'use client'
 // components/Carousel.tsx
-import React, { useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Slider from 'react-slick';
 import { ChevronRight } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import SectionContainer from '@/components/SectionContainer';
 import { translate } from "@/utility/translate";
 import { useLocalization } from '@/context/LocalizeProvider';
+import axios from "axios";
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-36  cursor-pointer  z-30 hidden lg:flex'
@@ -53,6 +54,18 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
   };
   const { locale, switchLocale } = useLocalization();
 
+  const [homeSectionSix, setHomeSectionSix] = useState([]);
+
+  useEffect(() => {
+    // @ts-ignore
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-sixs?populate=*`);
+      setHomeSectionSix(data?.data)
+    })()
+
+  }, [])
+
+
   return (
     <div className='lg:max-w-7xl m-auto'>
       <div>
@@ -71,17 +84,29 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
 
         <Slider className='lg:px-12' {...settings}>
           {
-            items.map((item, i) => (
+            homeSectionSix?.map((item, i) => (
               <div key={i} className='h-[32rem] rounded-36 cur'>
                 <div className='mx-3'>
                   <div>
-                    <img className='w-full' src="https://cdn-useast1.kapwing.com/static/-y_-Convert-Image-to-Video-(1).webp" alt="" />
+                    <img className='w-full' src={
+                      // @ts-ignore
+                      process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.thumbnail?.url
+                    } alt="" />
                   </div>
                   <div className='p-6 bg-[#25303e]'>
                     <div>
-                      <h3 className='text-2xl font-semibold py-3 text-white'>{item.header}</h3>
-                      <p className='text-gray-400 text-md'>{item.desc}</p>
-                      <p className='pt-4 text-white'>{item.date}</p>
+                      <h3 className='text-2xl font-semibold py-3 text-white'>{
+                        // @ts-ignore
+                        translate(item?.attributes, 'title')
+                      }</h3>
+                      <p className='text-gray-400 text-md'>{
+                        // @ts-ignore
+                        translate(item?.attributes, 'description')
+                      }</p>
+                      <p className='pt-4 text-white'>{
+                        // @ts-ignore
+                        translate(item?.attributes, 'date')
+                      }</p>
                     </div>
                   </div>
                 </div>

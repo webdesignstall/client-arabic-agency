@@ -1,9 +1,26 @@
 import SectionContainer from '@/components/SectionContainer'
 import { useLocalization } from '@/context/LocalizeProvider';
 import {translate} from "@/utility/translate";
+import {useEffect, useState} from "react";
+import axios from "axios";
 // @ts-ignore
 export default function AdvantagesSection({homeData}) {
   const { locale, switchLocale } = useLocalization();
+
+  const [homeSectionNine, setHomeSectionNine] = useState([]);
+  const [feature, setFeature] = useState({});
+
+  useEffect(() => {
+    // @ts-ignore
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
+      setHomeSectionNine(data?.data)
+
+    })()
+
+  }, [])
+
+  // @ts-ignore
   return (
     <SectionContainer>
       <div>
@@ -16,30 +33,24 @@ export default function AdvantagesSection({homeData}) {
           </div>
           <div>
             <div className='grid lg:grid-cols-2 gap-12'>
-              <div>
-                <div className=''>
-                  <h3 className='text-2xl font-semibold py-4'>Multi-industry track record</h3>
-                  <p className='text-lg'>Andersen's portfolio of delivered IT projects includes over 1,000 successful tech initiatives in the most demanding and data-driven sectors.</p>
-                </div>
-              </div>
-              <div>
-                <div className=''>
-                  <h3 className='text-2xl font-semibold py-4'>Multi-industry track record</h3>
-                  <p className='text-lg'>Andersen's portfolio of delivered IT projects includes over 1,000 successful tech initiatives in the most demanding and data-driven sectors.</p>
-                </div>
-              </div>
-              <div>
-                <div className=''>
-                  <h3 className='text-2xl font-semibold py-4'>Multi-industry track record</h3>
-                  <p className='text-lg'>Andersen's portfolio of delivered IT projects includes over 1,000 successful tech initiatives in the most demanding and data-driven sectors.</p>
-                </div>
-              </div>
-              <div>
-                <div className=''>
-                  <h3 className='text-2xl font-semibold py-4'>Multi-industry track record</h3>
-                  <p className='text-lg'>Andersen's portfolio of delivered IT projects includes over 1,000 successful tech initiatives in the most demanding and data-driven sectors.</p>
-                </div>
-              </div>
+              {
+                homeSectionNine?.map(item => (
+                    <div>
+                      <div className=''>
+                        <h3 className='text-2xl font-semibold py-4'>{
+                          // @ts-ignore
+                          translate(item?.attributes, 'title')
+                        }</h3>
+                        <p className='text-lg'>{
+                          // @ts-ignore
+                          translate(item?.attributes, 'description')
+                        }</p>
+                      </div>
+                    </div>
+                ))
+              }
+
+
             </div>
           </div>
         </div>
