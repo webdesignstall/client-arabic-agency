@@ -44,7 +44,7 @@ const page = () => {
           <TestimonialsSection homeData={homeData} />
           <InterviewSection homeData={homeData} />
           <AboutSection homeData={homeData} />
-          {/* <ExpertiseSection /> */}
+          <ExpertiseSection />
           <AdvantagesSection homeData={homeData} />
           <OrderSection homeData={homeData} />
         </main>
