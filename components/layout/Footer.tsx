@@ -7,6 +7,11 @@ export default function Footer() {
 
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   const [office, setOffice] = useState([]);
+  const [quickLinks, setQuickLinks] = useState([]);
+  const [teckStacks, setTeckStacks] = useState([]);
+  const [services, setServices] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [contactUs, setContactUs] = useState({});
 
   useEffect(() => {
@@ -27,8 +32,22 @@ export default function Footer() {
       const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/top-down-footer-offices?populate=*`);
       setOffice(data?.data)
       const {data: contactUs} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/footer-contact-uses?populate=*`);
-
       setContactUs(contactUs?.data[0]?.attributes)
+
+      const {data: quickLinks} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/navigatin-links?populate=*`);
+      setQuickLinks(quickLinks?.data)
+
+      const {data: techStacks} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/top-footer-tech-stacks?populate=*`);
+      setTeckStacks(techStacks?.data)
+
+      const {data: services} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/top-footer-services?populate=*`);
+      setServices(services?.data)
+
+      const {data: projects} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/top-footer-projects?populate=*`);
+      setProjects(projects?.data)
+
+      const {data: companies} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/top-footer-companies?populate=*`);
+      setCompanies(companies?.data)
     })()
 
   }, [])
@@ -39,199 +58,145 @@ export default function Footer() {
         <div className="hidden md:block">
           <div className=" text-white px-4 py-8 flex flex-col justify-center items-center">
             <div className="grid grid-cols-5 gap-4 text-sm ">
-              <div>
-                <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
-                  Quick Link
-                </h3>
-                <ul
-                    className=" lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                >
-                  <li>
-                    <Link href="/">Back-end</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Front-end</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Android</Link>
-                  </li>
-                  <li>
-                    <Link href="/">iOS</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Java</Link>
-                  </li>
-                  <li>
-                    <Link href="/">PHP</Link>
-                  </li>
-                  <li>
-                    <Link href="/">React</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Python</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
-                  Industries
-                </h3>
-                <ul
-                    className=" lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                >
-                  <li>
-                    <Link href="/">Financial Services</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Healthcare</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Logistics</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Travel & Hospitality</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Telecom</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Automotive</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Media & Entertainment</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Manufacturing</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Real Estate</Link>
-                  </li>
-                  <li>
-                    <Link href="/">IGaming</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Retail</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Nonprofit</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2 lg:text-lg md:text-sm">Services</h3>
-                <ul
-                    className=" lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                >
-                  <li>
-                    <Link href="/">Mobile Development</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Web Development</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Quality Assurance</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Staff Augmentation</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Managed Delivery</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Dedicated Team</Link>
-                  </li>
-                  <li>
-                    <Link href="/">UI/UX Design</Link>
-                  </li>
-                  <li>
-                    <Link href="/">DevOps Service</Link>
-                  </li>
-                  <li>
-                    <Link href="/">DevOps Services</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Business Analysis</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Solution Architecture</Link>
-                  </li>
-                  <li>
-                    <Link href="/">IoT Development Services</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Startups & MVP Service</Link>
-                  </li>
-                  <li>
-                    <Link href="/">SaaS</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Database</Link>
-                  </li>
-                </ul>
-              </div>
 
-              <div>
-                <h3 className="font-bold mb-2 lg:text-lg md:text-sm">Project</h3>
-                <ul
-                    className=" lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                >
-                  <li>
-                    <Link href="/">Verivox</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Management Events</Link>
-                  </li>
-                  <li>
-                    <Link href="/">G Bank</Link>
-                  </li>
-                  <li>
-                    <Link href="/">TUI</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Exigo</Link>
-                  </li>
-                  <li>
-                    <Link href="/">FTI</Link>
-                  </li>
-                  <li>
-                    <Link href="/">Universkin</Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2 lg:text-lg md:text-sm">Company</h3>
-                <ul
-                    className=" lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                >
-                  <li>
-                    <Link href="/about-us">About Us</Link>
-                  </li>
-                  <li>
-                    <Link href="/insights">Insights</Link>
-                  </li>
-                  <li>
-                    <Link href="/testimonials">Testimonials</Link>
-                  </li>
-                  <li>
-                    <Link href="/gtc">GTC</Link>
-                  </li>
-                  <li>
-                    <Link href="/gtc-consultancy">
-                      GTC for Consultancy Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/gtc-consultancy-soft">
-                      GTC for Consultancy services of UAB «Andersen Soft»
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              {
+                quickLinks?.length > 0 ?
+                    (
+                        <div>
+                          <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
+                            Quick Link
+                          </h3>
+                          <ul
+                              className=" lg:text-base md:text-xs"
+                              style={{ lineHeight: "32px" }}
+                          >
+                            {
+                              quickLinks?.map(link => (
+                                  <li>
+                                    <Link href={link}>{
+                                      // @ts-ignore
+                                      translate(link?.attributes, 'title')
+                                    }</Link>
+                                  </li>
+                              ))
+                            }
+
+                          </ul>
+                        </div>
+                    )
+                    : ''
+              }
+
+              {
+                teckStacks?.length > 0 ?
+                    (
+                        <div>
+                          <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
+                            TECH STACK
+                          </h3>
+                          <ul
+                              className=" lg:text-base md:text-xs"
+                              style={{ lineHeight: "32px" }}
+                          >
+                            {
+                              teckStacks?.map(link => (
+                                  <li>
+                                    <Link href={link}>{
+                                      // @ts-ignore
+                                      translate(link?.attributes, 'title')
+                                    }</Link>
+                                  </li>
+                              ))
+                            }
+                          </ul>
+                        </div>
+                    )
+                    : ''
+              }
+
+              {
+                services?.length > 0 ?
+                    (
+                        <div>
+                          <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
+                            Services
+                          </h3>
+                          <ul
+                              className=" lg:text-base md:text-xs"
+                              style={{ lineHeight: "32px" }}
+                          >
+                            {
+                              services?.map(link => (
+                                  <li>
+                                    <Link href={link}>{
+                                      // @ts-ignore
+                                      translate(link?.attributes, 'title')
+                                    }</Link>
+                                  </li>
+                              ))
+                            }
+                          </ul>
+                        </div>
+                    )
+                    : ''
+              }
+
+              {
+                projects?.length > 0 ?
+                    (
+                        <div>
+                          <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
+                            Project
+                          </h3>
+                          <ul
+                              className=" lg:text-base md:text-xs"
+                              style={{ lineHeight: "32px" }}
+                          >
+                            {
+                              projects?.map(link => (
+                                  <li>
+                                    <Link href={link}>{
+                                      // @ts-ignore
+                                      translate(link?.attributes, 'title')
+                                    }</Link>
+                                  </li>
+                              ))
+                            }
+                          </ul>
+                        </div>
+                    )
+                    : ''
+              }
+
+              {
+                companies?.length > 0 ?
+                    (
+                        <div>
+                          <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
+                            Company
+                          </h3>
+                          <ul
+                              className=" lg:text-base md:text-xs"
+                              style={{ lineHeight: "32px" }}
+                          >
+                            {
+                              companies?.map(link => (
+                                  <li>
+                                    <Link href={link}>{
+                                      // @ts-ignore
+                                      translate(link?.attributes, 'title')
+                                    }</Link>
+                                  </li>
+                              ))
+                            }
+                          </ul>
+                        </div>
+                    )
+                    : ''
+              }
+
+
+
             </div>
           </div>
         </div>
