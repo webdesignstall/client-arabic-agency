@@ -2,6 +2,7 @@ import SectionContainer from '@/components/SectionContainer'
 import React from 'react'
 import { translate } from "@/utility/translate";
 import { useLocalization } from '@/context/LocalizeProvider';
+import Link from 'next/link';
 // @ts-ignore
 export default function AboutSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
@@ -47,7 +48,9 @@ export default function AboutSection({ homeData }) {
                       <p className='text-lg font-medium'>Predictive Analytics in Healthcare</p>
                       <div className='w-full flex justify-between'>
                         <p>627 views</p>
+                        <Link href={'/see-more/1'}>
                         <button className=' border-b items-end border-gray-800 font-semibold'>See more</button>
+                        </Link>
                       </div>
                     </div>
                   ))
