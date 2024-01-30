@@ -75,7 +75,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
 
   }, [])
 
-console.log(homeSectionSix);
+console.log(homeSectionSix.length);
   return (
     <div className='lg:max-w-7xl m-auto'>
       <div>
@@ -90,8 +90,9 @@ console.log(homeSectionSix);
           </p>
         </div>
       </div>
-      <div className='mt-8'>
+      <div className='mt-10'>
          <Swiper
+         slidesPerView={3}
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
@@ -103,35 +104,15 @@ console.log(homeSectionSix);
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper w-full"
+          className="mySwiper grid grid-cols-3 gap-2 w-full"
         >
           {
             items?.map((item, i) => (
-              <SwiperSlide key={i} className='h-[32rem] rounded-36 cur'>
-                <div className='mx-3'>
-                  <div>
-                    <img className='w-full' src={
-                      // @ts-ignore
-                      process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.thumbnail?.url
-                    } alt="" />
-                  </div>
-                  <div className='p-6 bg-[#25303e]'>
-                    <div>
-                      <h3 className='text-2xl font-semibold py-3 text-white'>{
-                        // @ts-ignore
-                        translate(item?.attributes, 'title')
-                      }</h3>
-                      {/* <p className='text-gray-400 text-md'>{
-                        // @ts-ignore
-                        translate(item?.attributes, 'description')
-                      }</p>
-                      <p className='pt-4 text-white'>{
-                        // @ts-ignore
-                        translate(item?.attributes, 'date')
-                      }</p> */}
-                    </div>
-                  </div>
-                </div>
+              <SwiperSlide key={i} className='h-auto pb-10 rounded-md bg-white'>
+                <img src={item?.img} alt="" className='w-full h-[300px] rounded-t-md'/>
+                <h1 className='text-2xl font-bold text-black px-5 pt-5'>{item.title}</h1>
+                <p  className='text-xl font-medium text-black px-5 mt-2'>{item.desc}</p>
+                <p  className='text-xl font-medium text-black px-5 mt-2'>{item.date}</p>
               </SwiperSlide>
             ))
           }
@@ -147,33 +128,39 @@ export default InterviewSection;
 
 
 const items = [
-  {
-    header: 'Wearable technologies and generative AI in healthcare',
+  { 
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyTjeJUaD3MswsasRaok9NP4VI9a6sWzTksQ&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
   {
-    header: 'Wearable technologies and generative AI in healthcare',
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvOahF3AwJw7wqvpndTkyZT2v6-3aG96HaIg&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
   {
-    header: 'Wearable technologies and generative AI in healthcare',
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXTPuiJmJPHb-4ES2ESNMTU61N2Y1-vANe2w&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
   {
-    header: 'Wearable technologies and generative AI in healthcare',
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmxK8XsddmYSJmtDL9YEkrxA0To4eAu_dgQA&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
   {
-    header: 'Wearable technologies and generative AI in healthcare',
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPYvs5arsp3PA8-XCi7bsP-Ms1eiikfBZzvQ&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
   {
-    header: 'Wearable technologies and generative AI in healthcare',
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmzejyuobeVmOAVHxb8FGAGjv0KuYriTDhVg&usqp=CAU',
+    title: 'Wearable technologies and generative AI in healthcare',
     desc: 'João Bocas, an expert in wearable technology, digital health influencer, globally recognized business thought leader, mentor, advisor, and entrepreneur.',
     date: 'Sep 11, 2023'
   },
