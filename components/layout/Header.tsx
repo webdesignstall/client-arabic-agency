@@ -69,16 +69,16 @@ export default function Header() {
     }, [translate])
 
     return (
-        <div className={`z-20 fixed w-full bg-white`}>
+        <div className={`z-40 fixed w-full bg-white`}>
             {
                 isScrolled ?
                     <div className={`bg-[#2b2a29bd] backdrop-blur-3xl hidden lg:flex  text-white py-4 absolute top-22 w-full duration-300 `}>
                         <div className='m-auto'>
-                            <div className='flex justify-between items-center'>
+                            <div className={`flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                 <Link href='/'>
                                     <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
                                 </Link>
-                                <ul className='flex'>
+                                <ul className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                     <Link href="#scope" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Areas of expertise</Link>
                                     <Link href="#services" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Services</Link>
                                     <Link href="#project" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Project</Link>

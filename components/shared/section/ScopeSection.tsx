@@ -17,7 +17,6 @@ export default function ScopeSection({ homeData }) {
     ( async ()=>{
       const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
       setHomeSectionOne(data?.data)
-      console.log('data', data?.data[0]?.attributes)
     })()
 
   }, [])
