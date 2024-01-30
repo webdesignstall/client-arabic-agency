@@ -1,7 +1,6 @@
 'use client'
 // components/Carousel.tsx
-import React, {useEffect, useRef, useState} from 'react';
-import Slider from 'react-slick';
+import  {useEffect,} from 'react';
 import { ChevronRight } from 'lucide-react';
 import { ChevronLeft } from 'lucide-react';
 
@@ -11,6 +10,15 @@ import SectionContainer from '@/components/SectionContainer';
 import { translate } from "@/utility/translate";
 import { useLocalization } from '@/context/LocalizeProvider';
 import axios from "axios";
+
+import { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 const SampleNextArrow: React.FC<any> = ({ className, style, onClick }) => (
   <div
     className='absolute right-0 top-36  cursor-pointer  z-30 hidden lg:flex'
@@ -29,6 +37,8 @@ const SamplePrevArrow: React.FC<any> = ({ className, style, onClick }) => (
   </div>
 );
 
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import './InterviewSection.css'
 // @ts-ignore
 const InterviewSection: React.FC<any> = ({ homeData }) => {
 
@@ -65,7 +75,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
 
   }, [])
 
-
+console.log(homeSectionSix);
   return (
     <div className='lg:max-w-7xl m-auto'>
       <div>
@@ -81,11 +91,23 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
         </div>
       </div>
       <div className='mt-8'>
-
-        <Slider className='lg:px-12' {...settings}>
+         <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper w-full"
+        >
           {
-            homeSectionSix?.map((item, i) => (
-              <div key={i} className='h-[32rem] rounded-36 cur'>
+            items?.map((item, i) => (
+              <SwiperSlide key={i} className='h-[32rem] rounded-36 cur'>
                 <div className='mx-3'>
                   <div>
                     <img className='w-full' src={
@@ -99,21 +121,21 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
                         // @ts-ignore
                         translate(item?.attributes, 'title')
                       }</h3>
-                      <p className='text-gray-400 text-md'>{
+                      {/* <p className='text-gray-400 text-md'>{
                         // @ts-ignore
                         translate(item?.attributes, 'description')
                       }</p>
                       <p className='pt-4 text-white'>{
                         // @ts-ignore
                         translate(item?.attributes, 'date')
-                      }</p>
+                      }</p> */}
                     </div>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ))
           }
-        </Slider>
+      </Swiper>
       </div>
     </div>
   );
@@ -156,3 +178,4 @@ const items = [
     date: 'Sep 11, 2023'
   },
 ]
+
