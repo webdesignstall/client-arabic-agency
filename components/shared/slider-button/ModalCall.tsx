@@ -1,12 +1,13 @@
 import React from 'react'
-
-export default function ModalCall() {
+// @ts-ignore
+export default function ModalCall({locale}) {
     const [drawer, setdrawer] = React.useState(false)
     return (
         <div className=''>
             <div className="flex items-center gap-3 top-24 z-30">
                 <svg className="BookingButton-module--phoneIcon--8bae7 Icon-module--icon--c95f8 w-4 " fill="none" viewBox="0 0 16 27"><path fill="#ffdb00" d="M13.68 0H2.32A1.965 1.965 0 00.355 1.967v23.068C.355 26.12 1.233 27 2.32 27h11.36c1.085 0 1.965-.88 1.965-1.965V1.967C15.645.882 14.765 0 13.68 0zM8 25.059a1.254 1.254 0 110-2.509 1.254 1.254 0 010 2.509zm6.173-4.299H1.828V3.32h12.345V20.76z"></path></svg>
-                <button onClick={()=>setdrawer(true)} className='hover:text-[#23beec] duration-200 font-semibold text-white'>Book a call</button>
+                <button onClick={()=>setdrawer(true)} className='hover:text-[#23beec] duration-200 font-semibold text-white'>
+                {locale === 'en' ? 'Book a call':'احجز مكالمة' }</button>
             </div>
             <div className={`fixed bg-[#000000c9] z-40 left-0 w-full min-h-screen duration-500 ${drawer ? 'top-0' : 'top-[-3333px]'}`}>
                 <div className='w-full max-w-6xl bg-white m-auto mt-10'>

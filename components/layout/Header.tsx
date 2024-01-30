@@ -1,20 +1,21 @@
 "use client"
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AlignRight } from 'lucide-react';
 import { X } from 'lucide-react';
 import { Oswald } from 'next/font/google'
 import ModalCall from '../shared/slider-button/ModalCall';
 import { store } from '@/redux/store';
+import {translate} from "@/utility/translate";
 import { setArabic, setEnglish } from '@/redux/slice/TranslateSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLocalization } from "@/context/LocalizeProvider";
+import axios from 'axios';
 
 const oswald = Oswald({
     subsets: ['latin'],
-    weight: "600",
     display: 'swap',
+    weight: "600",
     variable: '--font-oswald',
 })
 
@@ -26,7 +27,6 @@ export default function Header() {
     const [navber, setnavber] = React.useState(false)
     const dispatch = useDispatch()
 
-    const translate = useSelector((state: any) => state.translate.translate)
 
     const { locale, switchLocale } = useLocalization();
 
@@ -60,14 +60,23 @@ export default function Header() {
         };
     }, [prevScrollPos]);
 
-    React.useEffect(() => {
+/*     React.useEffect(() => {
         const translate = localStorage.getItem('local')
 
         if (translate === 'en') {
             dispatch(setEnglish('en'))
         }
-    }, [translate])
+    }, [translate]) */
 
+    const [headerManu, setHeaderManu] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
+      setHeaderManu(data?.data)
+    })()
+
+  }, [])
     return (
         <div className={`z-40 fixed w-full bg-white`}>
             {
@@ -79,14 +88,21 @@ export default function Header() {
                                     <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
                                 </Link>
                                 <ul className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                                    <Link href="#scope" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Areas of expertise</Link>
-                                    <Link href="#services" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Services</Link>
-                                    <Link href="#project" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Project</Link>
-                                    <Link href="#technologies" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Technologies</Link>
-                                    <Link href="#testimonials" className='text-gray-200 hover:text-white duration-300 px-4 py-2' >Testimonials</Link>
+                                {
+                                    headerManu?.map(menu => <Link href="" key={
+                                        // @ts-ignore
+                                        menu.id}
+                                        className='text-gray-200 hover:text-white duration-300 px-4 py-2'
+                                        >
+                                        {
+                                        // @ts-ignore
+                                        translate(menu?.attributes, 'name')
+                                        }
+                                        </Link>)
+                                } 
                                 </ul>
                                 <div className=''>
-                                    <ModalCall />
+                                    <ModalCall locale={locale}/>
                                 </div>
                                 <div className={`flex items-center justify-end ml-5  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
                                     {
@@ -122,47 +138,24 @@ export default function Header() {
                             <div className={`lg:flex space-x-6 hidden ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                 <div className="">
                                     <div className='menu'>
-                                        <ul className={`flex flex-row ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                                            <li className='rotated_id' role='button'>
-                                                <Link href="#scope" className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
+                                        <ul className={`flex flex-row  ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                                        {
+                                    headerManu?.map(menu => <li key={
+                                        // @ts-ignore
+                                        menu.id}
+                                        className='rotated_id' role='button'>
+                                             <Link href="#scope" className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
                                                     <div className='flex relative'>
-                                                        <button>Areas of expertise</button>
+                                                        <button>{
+                                        // @ts-ignore
+                                        translate(menu?.attributes, 'name')
+                                        }</button>
 
                                                     </div>
                                                 </Link>
-                                            </li>
-                                            <li className='rotated_id' role='button'>
-                                                <Link href="#services" className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
-                                                    <div className='flex relative'>
-                                                        <button>Services</button>
-
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className='rotated_id' role='button'>
-                                                <Link className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]' href="#project">
-                                                    <div className='flex relative'>
-                                                        <button>Project</button>
-
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className='rotated_id' role='button'>
-                                                <Link className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]' href="#technologies">
-                                                    <div className='flex relative'>
-                                                        <button>Technologies</button>
-
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li className='rotated_id' role='button'>
-                                                <Link className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]' href="#testimonials">
-                                                    <div className='flex relative'>
-                                                        <button>Testimonials</button>
-
-                                                    </div>
-                                                </Link>
-                                            </li>
+                                        
+                                        </li>)
+                                } 
 
                                         </ul>
                                     </div>
