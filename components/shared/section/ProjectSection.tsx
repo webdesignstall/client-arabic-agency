@@ -62,7 +62,7 @@ export default function ProjectSection({ homeData }) {
                       process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
                   </div>
                   <Link href={
-                    // @ts-ignore
+                        // @ts-ignore
                     '/project-cases/'+item?.id}>
                     <p className={`text-2xl font-semibold py-3 ${locale === 'en' ? '': 'rtl'}`}>
                       {
@@ -85,9 +85,7 @@ export default function ProjectSection({ homeData }) {
                 } alt="" />
               </div>
 
-              <Link href={
-                // @ts-ignore
-                '/project-cases/'+lastData?.id}>
+              <Link href={'/project-cases/3'}>
                 <div className='text-3xl font-semibold'>
                   {
                     Object.keys(lastData).length === 0 ?
@@ -101,13 +99,8 @@ export default function ProjectSection({ homeData }) {
             </div>
 
             <div className='overflow-hidden col-span-4'>
-              <Link href={
-                // @ts-ignore
-                '/project-cases/'+lastData?.id}>
-                <img className='m-right hover:scale-110 duration-300 cursor-pointer' src={
-                  // @ts-ignore
-                    process.env.NEXT_PUBLIC_BACKED_BASE + lastData?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
-                } alt="" />
+              <Link href={'/project-cases/4'}>
+                <img className='m-right hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp" alt="" />
               </Link>
             </div>
           </div>

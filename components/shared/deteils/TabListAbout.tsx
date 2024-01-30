@@ -1,5 +1,7 @@
 "use client";
-import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, Key, SetStateAction, useState } from "react";
+import axios from "axios";
+import { useParams } from "next/navigation";
+import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, Key, SetStateAction, useState, useEffect } from "react";
 
 type Tab = {
   id: string;
@@ -27,7 +29,7 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
           setChildrenData(fintData);
       }
     }
-   const allImages = childrenData?.client.images;
+  //  const allImages = childrenData?.client.images;
     return (
         <div>
             <div className="flex gap-5 ">
@@ -54,7 +56,7 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
             : <>
               <h1 className="text-4xl font-medium text-black">{childrenData?.client?.title}</h1>
               <p className="text-xl mt-2">{childrenData?.client?.discription}</p>
-              <div style={{width: '95%', margin: 'auto'}} className="pt-10 ">
+             {/*  <div style={{width: '95%', margin: 'auto'}} className="pt-10 ">
                 <img src={images?images: childrenData?.client?.location} alt="" className="h-[400px] w-full"/>
                 <div className="flex gap-2 mt-3 justify-center flex-wrap">
                     {
@@ -66,7 +68,7 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
                       }
                 </div>
 
-              </div>
+              </div> */}
             </>
         }
       </div>
