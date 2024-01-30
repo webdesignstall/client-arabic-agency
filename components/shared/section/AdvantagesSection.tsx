@@ -34,8 +34,8 @@ export default function AdvantagesSection({homeData}) {
           <div>
             <div className='grid lg:grid-cols-2 gap-12'>
               {
-                homeSectionNine?.map(item => (
-                    <div>
+                homeSectionNine?.map((item, index) => (
+                    <div key={index}>
                       <div className=''>
                         <h3 className='text-2xl font-semibold py-4'>{
                           // @ts-ignore

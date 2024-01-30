@@ -5,6 +5,7 @@ import axios from "axios";
 import {translate} from "@/utility/translate";
 import Image from 'next/image'
 import barCode from '../../assets/img/barcode.jpg';
+import { useLocalization } from "@/context/LocalizeProvider";
 
 export default function Footer() {
 
@@ -55,11 +56,13 @@ export default function Footer() {
 
   }, [])
 
+  const { locale, switchLocale } = useLocalization();
+
   // @ts-ignore
   return (
       <div className="md:my-16 md:mx-20 py-5 px-8">
         <div className="hidden md:block">
-          <div className=" text-white px-4 py-8 flex flex-col justify-center items-center">
+          <div className={`text-white px-4 py-8 flex flex-col justify-center items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
             <div className="grid grid-cols-5 gap-4 text-sm ">
 
               {
@@ -271,7 +274,7 @@ export default function Footer() {
 
             <div className="py-5">
               <details className="group">
-                <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                   <span>Industries</span>
                   <span className="transition group-open:rotate-180">
                   <svg
@@ -346,7 +349,7 @@ export default function Footer() {
 
             <div className="py-5">
               <details className="group">
-                <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                   <span>Services</span>
                   <span className="transition group-open:rotate-180">
                   <svg
@@ -430,7 +433,7 @@ export default function Footer() {
 
             <div className="py-5">
               <details className="group">
-                <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                   <span>Project</span>
                   <span className="transition group-open:rotate-180">
                   <svg
@@ -493,7 +496,7 @@ export default function Footer() {
 
             <div className="py-5">
               <details className="group">
-                <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                   <span>Company</span>
                   <span className="transition group-open:rotate-180">
                   <svg
@@ -555,7 +558,7 @@ export default function Footer() {
         </div>
 
 
-        <div className="text-white py-12 border-t  border-gray-700 flex justify-between">
+        <div className={`text-white py-12 border-t  border-gray-700 flex justify-between ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
           <div>
             <h2 className="text-xl font-bold mb-4">Our Offices</h2>
             <div className="flex gap-2">
@@ -650,14 +653,14 @@ export default function Footer() {
         </div>
         <div className="mt-8 text-center text-white">
           <div
-              className="lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base">
+              className={`lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
             <div className="flex items-center  ">
               <p className="font-medium">
                 ©2024 OMG ALTHAKAA Inc. All Rights Reserved.
               </p>
 
             </div>
-            <div className="flex items-center justify-center space-x-4 mt-5 lg:mt-0">
+            <div className={`flex items-center justify-center space-x-4 mt-5 lg:mt-0 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
               <a href="#">
                 <svg
                     width="25"

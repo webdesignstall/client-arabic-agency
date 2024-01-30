@@ -51,8 +51,7 @@ export default function ServicesSection({ homeData }) {
     setActiveTab(tabId);
   };
 
-  // @ts-ignore
-  console.log('id', tabs[0]?.id)
+
 
 
   // @ts-ignore
