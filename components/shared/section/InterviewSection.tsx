@@ -77,8 +77,8 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
 
 console.log(homeSectionSix.length);
   return (
-    <div className='lg:max-w-7xl m-auto'>
-      <div>
+    <div className='lg:max-w-7xl  m-auto'>
+      <div className='lg:px-20'>
         <div>
           <h1 className={`lg:text-6xl text-3xl font-semibold text-white ${locale === 'en' ? '' : 'rtl'}`}>
             {translate(homeData, 'homeSectionSixTitle')}
@@ -90,7 +90,7 @@ console.log(homeSectionSix.length);
           </p>
         </div>
       </div>
-      <div className='mt-10'>
+      <div className='mt-10 lg:px-20'>
          <Swiper
          slidesPerView={3}
           spaceBetween={30}
