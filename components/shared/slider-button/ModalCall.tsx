@@ -34,7 +34,7 @@ export default function ModalCall() {
                             </form>
                             <button className="py-2 px-10 rounded mb-5 bg-gray-200 duration-200 text-gray-800 hover:bg-[#23beec]">Book</button>
                         </div>
-                        <div className="w-[50%] bg-[#25303e] p-16 rounded-r-md hidden lg:flex">
+                        <div className="w-[50%] bg-[#25303e] p-16 rounded-r-md hidden lg:inline-block">
                             <h1 className="text-2xl text-white font-semibold">Reach out to Andersen to receive a free consultation and entrust your IT initiative to a company of software experts.</h1>
                             <div className="border-b my-10 border-white/60"></div>
                             <h1 className="text-2xl  text-white mb-5">Contact us</h1>

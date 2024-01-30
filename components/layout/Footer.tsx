@@ -68,8 +68,8 @@ export default function Footer() {
   return (
       <div className="md:my-16 md:mx-20 py-5 px-8">
         <div className="hidden md:block">
-          <div className={`text-white px-4 py-8 flex flex-col justify-center items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-            <div className="grid grid-cols-5 gap-4 text-sm ">
+          <div className={`text-white px-4 py-8 `}>
+            <div className={`flex flex-row justify-between ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
 
               {
                 quickLinks?.length > 0 ?
@@ -85,7 +85,7 @@ export default function Footer() {
                             {
                               quickLinks?.map(link => (
                                   <li>
-                                    <Link href={link}>{
+                                    <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                                       // @ts-ignore
                                       translate(link?.attributes, 'title')
                                     }</Link>
@@ -113,7 +113,7 @@ export default function Footer() {
                             {
                               teckStacks?.map(link => (
                                   <li>
-                                    <Link href={link}>{
+                                    <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                                       // @ts-ignore
                                       translate(link?.attributes, 'title')
                                     }</Link>
@@ -140,7 +140,7 @@ export default function Footer() {
                             {
                               services?.map(link => (
                                   <li>
-                                    <Link href={link}>{
+                                    <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                                       // @ts-ignore
                                       translate(link?.attributes, 'title')
                                     }</Link>
@@ -167,7 +167,7 @@ export default function Footer() {
                             {
                               projects?.map(link => (
                                   <li>
-                                    <Link href={link}>{
+                                    <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                                       // @ts-ignore
                                       translate(link?.attributes, 'title')
                                     }</Link>
@@ -194,7 +194,7 @@ export default function Footer() {
                             {
                               companies?.map(link => (
                                   <li>
-                                    <Link href={link}>{
+                                    <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                                       // @ts-ignore
                                       translate(link?.attributes, 'title')
                                     }</Link>
