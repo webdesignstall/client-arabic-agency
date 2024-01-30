@@ -14,8 +14,8 @@ export default function HeroSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
   return (
     <div>
-      <div>
-        <div className='relative'>
+      <div className='relative'>
+        <div className=''>
           <div className='overflow-hidden relative after:absolute min-h-[409px] lg:min-h-[596px] after:h-[510px] after:w-full after:bottom-0 after:bg-gradient-to-t from-[#020d1c] from-0.5%  via-transparent via-30% to-transparent to-90% after:z-10'>
             <div>
             <img
@@ -35,9 +35,9 @@ export default function HeroSection({ homeData }) {
             </div>
           </div>
         </div>
-        <div className='relative'>
-          <div className={`max-w-7xl w-full  flex m-auto  ${locale === 'en' ? 'justify-end' : 'justify-start'}`}>
-            <ModalCall />
+        <div>
+          <div className={`absolute top-24 flex m-auto  ${locale === 'en' ? 'right-28' : 'left-28'}`}>
+            <ModalCall locale={locale}/>
           </div>
         </div>
       </div>
