@@ -49,7 +49,7 @@ export default function Header() {
         const currentScrollPos = window.scrollY;
         const scrollingUp = currentScrollPos < prevScrollPos;
 
-        setVisible(scrollingUp || currentScrollPos < 10); 
+        setVisible(scrollingUp || currentScrollPos < 10);
         setPrevScrollPos(currentScrollPos);
     };
 
@@ -69,11 +69,11 @@ export default function Header() {
     }, [translate])
 
     return (
-        <div className={`fixed flex justify-center mx-auto z-50 lg:px-0 top-0 left-0 bg-white w-full`}>
+        <div className={`z-20 fixed w-full bg-white`}>
             {
                 isScrolled ?
                     <div className={`bg-[#2b2a29bd] backdrop-blur-3xl hidden lg:flex  text-white py-4 absolute top-22 w-full duration-300 `}>
-                        <div className='max-w-6xl m-auto'>
+                        <div className='m-auto'>
                             <div className='flex justify-between items-center'>
                                 <Link href='/'>
                                     <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
@@ -100,7 +100,7 @@ export default function Header() {
                         </div>
                     </div>
                     :
-                    <div className={`bg-white text-black absolute top-22 w-full lg:container px-4 m-auto duration-300 `}>
+                    <div className={`text-black relative max-w-7xl z-40 top-22 w-full px-4 m-auto duration-300`}>
                         <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                             <div className="logo flex">
 
@@ -111,13 +111,13 @@ export default function Header() {
                             </div>
 
                             <div className={`flex md:hidden items-center  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
-                                    {
-                                        locale === 'en' ?
-                                            <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'> عربي </button>
-                                            :
-                                            <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
-                                    }
-                                </div>
+                                {
+                                    locale === 'en' ?
+                                        <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'> عربي </button>
+                                        :
+                                        <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
+                                }
+                            </div>
 
                             <div className={`lg:flex space-x-6 hidden ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                                 <div className="">
