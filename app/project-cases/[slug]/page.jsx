@@ -1,4 +1,4 @@
-'use client'
+
 import About from "@/components/shared/deteils/About";
 import AboutProject from "@/components/shared/deteils/AboutProject";
 import AppFunctionality from "@/components/shared/deteils/AppFunctionality";
@@ -9,16 +9,17 @@ import TreatmentPlan from "@/components/shared/deteils/TreatmentPlan";
 import WhatHappens from "@/components/shared/deteils/WhatHappens ";
 
 const Deteils = () => {
+  
   return (
     <div className="bg-white">
       <DrivenMedical/>
-      {/*<TreatmentPlan/>
+      <TreatmentPlan/>
       <About/>
       <AboutProject/>
       <Challenges/>
       <AppFunctionality/>
       <CustomerReview/>
-      <WhatHappens/>*/}
+      <WhatHappens/>
     </div>
   );
 };
