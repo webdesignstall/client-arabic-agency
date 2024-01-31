@@ -80,8 +80,8 @@ export default function Footer() {
                       style={{ lineHeight: "32px" }}
                     >
                       {
-                        quickLinks?.map(link => (
-                          <li>
+                        quickLinks?.map((link:any, index:number) => (
+                          <li key={index}>
                             <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
@@ -108,8 +108,8 @@ export default function Footer() {
                       style={{ lineHeight: "32px" }}
                     >
                       {
-                        teckStacks?.map(link => (
-                          <li>
+                        teckStacks?.map((link:any, index:number) => (
+                          <li key={index}>
                             <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
@@ -135,8 +135,8 @@ export default function Footer() {
                       style={{ lineHeight: "32px" }}
                     >
                       {
-                        services?.map(link => (
-                          <li>
+                        services?.map((link:any, index:number) => (
+                          <li key={index}>
                             <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
@@ -162,8 +162,8 @@ export default function Footer() {
                       style={{ lineHeight: "32px" }}
                     >
                       {
-                        projects?.map(link => (
-                          <li>
+                        projects?.map((link:any, index:number) => (
+                          <li key={index}>
                             <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
@@ -189,8 +189,8 @@ export default function Footer() {
                       style={{ lineHeight: "32px" }}
                     >
                       {
-                        companies?.map(link => (
-                          <li>
+                        companies?.map((link:any, index:number) => (
+                          <li key={index}>
                             <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')

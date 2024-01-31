@@ -1,4 +1,5 @@
 
+import Footer from "@/components/layout/Footer";
 import PageHeader from "@/components/layout/PageHeader";
 import About from "@/components/shared/deteils/About";
 import AboutProject from "@/components/shared/deteils/AboutProject";
@@ -10,18 +11,19 @@ import TreatmentPlan from "@/components/shared/deteils/TreatmentPlan";
 import WhatHappens from "@/components/shared/deteils/WhatHappens ";
 
 const Deteils = () => {
-  
+
   return (
     <div className="bg-white">
       <PageHeader />
-      <DrivenMedical/>
-      <TreatmentPlan/>
-      <About/>
-      <AboutProject/>
-      <Challenges/>
-      <AppFunctionality/>
-      <CustomerReview/>
-      <WhatHappens/>
+      <DrivenMedical />
+      <TreatmentPlan />
+      <About />
+      <AboutProject />
+      <Challenges />
+      <AppFunctionality />
+      <CustomerReview />
+      <WhatHappens />
+      <Footer />
     </div>
   );
 };

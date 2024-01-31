@@ -2,14 +2,16 @@
 import DeteilsSectionContainer from "@/components/DeteilsSectionContainer";
 import BookAFree from "@/components/shared/seeMore/BookAFree";
 import SeeMoreHeroSection from "@/components/shared/seeMore/SeeMoreHeroSection";
-import {useParams} from "next/navigation";
-import React, {useEffect, useState} from "react";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {translate} from "@/utility/translate";
+import { translate } from "@/utility/translate";
+import PageHeader from "@/components/layout/PageHeader";
+import Footer from "@/components/layout/Footer";
 
 export default function page() {
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [detail, setDetail] = useState({});
 
@@ -24,7 +26,8 @@ export default function page() {
 
     return (
         <>
-            <SeeMoreHeroSection data={detail}/>
+            <PageHeader />
+            <SeeMoreHeroSection data={detail} />
             <DeteilsSectionContainer>
                 {/*<div>*/}
                 {/*    <div className="text-center  md:flex justify-between items-center mb-8 md:mb-14">*/}
@@ -45,12 +48,14 @@ export default function page() {
                 {/*</div>*/}
                 <div dangerouslySetInnerHTML={{
                     // @ts-ignore
-                    __html: translate(detail, 'content') }}></div>
+                    __html: translate(detail, 'content')
+                }}></div>
             </DeteilsSectionContainer>
 
             <DeteilsSectionContainer>
-                <BookAFree/>
+                <BookAFree />
             </DeteilsSectionContainer>
+            <Footer />
         </>
     );
 }
