@@ -212,291 +212,7 @@ export default function Footer() {
 
       <div className="start accordio">
         <div className="block md:hidden text-white divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                <span>Tech Stack</span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="grid grid-cols-2 gap-4 mt-3 group-open:animate-fadeIn">
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Back-end</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Java</Link>
-                    </li>
-                    <li>
-                      <Link href="/">PHP</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Android</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Front-end</Link>
-                    </li>
-                    <li>
-                      <Link href="/">React</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Python</Link>
-                    </li>
-                    <li>
-                      <Link href="/">iOS</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                <span>Industries</span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="grid grid-cols-2 gap-4 mt-3 group-open:animate-fadeIn">
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Financial Services</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Healthcare</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Logistics</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Travel & Hospitality</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Telecom</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Automotive</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Media & Entertainment</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Manufacturing</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Real Estate</Link>
-                    </li>
-                    <li>
-                      <Link href="/">IGaming</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Retail</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Nonprofit</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                <span>Services</span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="grid grid-cols-2 gap-4 mt-3 group-open:animate-fadeIn">
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Mobile Development</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Web Development</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Quality Assurance</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Staff Augmentation</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Managed Delivery</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Dedicated Team</Link>
-                    </li>
-                    <li>
-                      <Link href="/">UI/UX Design</Link>
-                    </li>
-                    <li>
-                      <Link href="/">DevOps Service</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">DevOps Services</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Business Analysis</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Solution Architecture</Link>
-                    </li>
-                    <li>
-                      <Link href="/">IoT Development Services</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Startups & MVP Service</Link>
-                    </li>
-                    <li>
-                      <Link href="/">SaaS</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Database</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                <span>Project</span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="grid grid-cols-2 gap-4 mt-3 group-open:animate-fadeIn">
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">Verivox</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Management Events</Link>
-                    </li>
-                    <li>
-                      <Link href="/">G Bank</Link>
-                    </li>
-                    <li>
-                      <Link href="/">TUI</Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul
-                    className="lg:text-base md:text-xs"
-                    style={{ lineHeight: "32px" }}
-                  >
-                    <li>
-                      <Link href="/">TUI</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Exigo</Link>
-                    </li>
-                    <li>
-                      <Link href="/">FTI</Link>
-                    </li>
-                    <li>
-                      <Link href="/">Universkin</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </details>
-          </div>
-
+          
           <div className="py-5">
             <details className="group">
               <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
@@ -517,44 +233,179 @@ export default function Footer() {
                   </svg>
                 </span>
               </summary>
-              <div className="grid grid-cols-2 gap-4 mt-3 group-open:animate-fadeIn">
-                <div>
+              <div className="mt-3 group-open:animate-fadeIn">
                   <ul
-                    className="lg:text-base md:text-xs"
+                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
                     style={{ lineHeight: "32px" }}
                   >
-                    <li>
-                      <Link href="/about-us">About Us</Link>
-                    </li>
-                    <li>
-                      <Link href="/insights">Insights</Link>
-                    </li>
-                    <li>
-                      <Link href="/testimonials">Testimonials</Link>
-                    </li>
-                    <li>
-                      <Link href="/gtc">GTC</Link>
-                    </li>
+                    {
+                        companies?.map((link:any, index:number) => (
+                          <li key={index}>
+                            <Link  href={link}>{
+                              // @ts-ignore
+                              translate(link?.attributes, 'title')
+                            }</Link>
+                          </li>
+                        ))
+                      }
                   </ul>
                 </div>
-                <div>
+            </details>
+          </div>
+          
+          <div className="py-5">
+            <details className="group">
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <span>Project</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div className="mt-3 group-open:animate-fadeIn">
                   <ul
-                    className="lg:text-base md:text-xs"
+                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
                     style={{ lineHeight: "32px" }}
                   >
-                    <li>
-                      <Link href="/gtc-consultancy">
-                        GTC for Consultancy Services
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/gtc-consultancy-soft">
-                        GTC for Consultancy services of UAB «Andersen Soft»
-                      </Link>
-                    </li>
+                    {
+                        projects?.map((link:any, index:number) => (
+                          <li key={index}>
+                            <Link href={link}>{
+                              // @ts-ignore
+                              translate(link?.attributes, 'title')
+                            }</Link>
+                          </li>
+                        ))
+                      }
                   </ul>
                 </div>
-              </div>
+            </details>
+          </div>
+          <div className="py-5 ">
+            <details className="group">
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <span>Services</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div className="mt-3 group-open:animate-fadeIn">
+                  <ul
+                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                    style={{ lineHeight: "32px" }}
+                  >{
+                    services?.map((link:any, index:number) => (
+                      <li key={index}>
+                        <Link href={link}>{
+                          // @ts-ignore
+                          translate(link?.attributes, 'title')
+                        }</Link>
+                      </li>
+                    ))
+                  }
+                  </ul>
+                </div>
+            </details>
+          </div>
+          <div className="py-5">
+            <details className="group">
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <span>Tech Stack</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div className="mt-3 group-open:animate-fadeIn">
+
+                  <ul
+                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                    style={{ lineHeight: "32px" }}
+                  >{
+                    teckStacks?.map((link:any, index:number) => (
+                      <li key={index}>
+                        <Link href={link}>{
+                          // @ts-ignore
+                          translate(link?.attributes, 'title')
+                        }</Link>
+                      </li>
+                    ))
+                  }
+                  </ul>
+                </div>
+            </details>
+          </div>
+          <div className="py-5">
+            <details className="group">
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <span>Quick Link</span>
+                <span className="transition group-open:rotate-180">
+                  <svg
+                    fill="none"
+                    height="24"
+                    shapeRendering="geometricPrecision"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </span>
+              </summary>
+              <div className="mt-3 group-open:animate-fadeIn">
+
+                  <ul
+                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                    style={{ lineHeight: "32px" }}
+                  >{
+                    quickLinks?.map((link:any, index:number) => (
+                      <li key={index}>
+                        <Link href={link}>{
+                          // @ts-ignore
+                          translate(link?.attributes, 'title')
+                        }</Link>
+                      </li>
+                    ))
+                  }
+                  </ul>
+                </div>
             </details>
           </div>
         </div>
