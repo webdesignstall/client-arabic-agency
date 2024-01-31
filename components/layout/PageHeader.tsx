@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -64,30 +64,39 @@ export default function PageHeader() {
     const handleLocaleSwitch = (newLocale: string) => {
         switchLocale(newLocale);
     };
-    const [headerManu, setHeaderManu] = React.useState([]);
+    const [headerManu, setHeaderManu] = useState([]);
+    const [headerLogo, setHeaderLogo] = useState({});
 
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
+      setHeaderManu(data?.data)
+      const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
+      console.log(logo);
+      setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
+    })()
 
-    useEffect(() => {
-        (async () => {
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
-            setHeaderManu(data?.data)
-        })()
-
-    }, [])
-
+  }, [])
+  // @ts-ignore
+  const logoUrl = headerLogo?.Url
+  console.log(logoUrl);
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white shadow-md`}>
             <div className='z-10 lg:max-w-7xl m-auto w-full px-4'>
                 <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                     <div className="logo flex">
                         <div className='px-4 py-6'>
-                            <Link href='/'>
-                                <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
-                            </Link>
+                        <Link href='/'>{
+                            logoUrl?<img
+                            className='w-12 h-10 rounded'
+                            src={// @ts-ignore
+                                process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl }
+                            alt='Hero image'
+                            />:
+                            <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
+                        }
+                        </Link>
                         </div>
-                        {/* <h1 className='lg:text-2xl font-semibold text-xl flex justify-center items-center'>
-                            Arabic
-                        </h1> */}
                     </div>
                     <div>
                         <div className={`flex items-center justify-end ml-5  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
