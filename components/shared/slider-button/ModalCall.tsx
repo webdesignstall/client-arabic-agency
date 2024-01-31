@@ -12,7 +12,7 @@ export default function ModalCall({locale}) {
                 {locale === 'en' ? 'Book a call':'احجز مكالمة' }</button>
             </div>
             <div className={`fixed bg-[#000000c9] z-40 left-0 w-full min-h-screen duration-500 ${drawer ? 'top-0' : 'top-[-3333px]'}`}>
-                <div className='w-full max-w-6xl bg-white m-auto mt-10'>
+                <div className='w-full max-w-6xl bg-white m-auto mt-10 rounded-md'>
                     <div className="relative flex justify-between">
                         <button onClick={()=>setdrawer(false)} className='absolute right-10 text-gray-400 top-7 text-2xl hover:bg-gray-700 px-2 py-2 rounded-full duration-300 hover:text-gray-200'>
                            <X />
