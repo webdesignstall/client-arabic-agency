@@ -1,5 +1,6 @@
 import React from 'react'
 import { X } from 'lucide-react';
+import BookFree from '../seeMore/BookFree';
 // @ts-ignore
 export default function ModalCall({locale}) {
     const [drawer, setdrawer] = React.useState(false)
@@ -18,23 +19,8 @@ export default function ModalCall({locale}) {
                         </button>
                         <div className="lg:w-[50%] rounded-l-md lg:p-16 p-8">
                             <h1 className="text-4xl font-medium mb-4 text-black">Booking a Call</h1>
-                            <p className='py-4 text-black'>Select an available slot to get in touch with Andersen so that one of our representatives can contact you and start a discussion</p>
-                            <form action="" className="my-5">
-                                <div className="flex flex-col lg:flex-row gap-5 w-full justify-between items-center my-4">
-                                    <input className="w-full py-1 px-3 border-b text-black text-lg outline-none" type="text" placeholder="Name" />
-                                    <input className="w-full py-1 px-3 border-b text-black text-lg outline-none" type="email" placeholder="Corporate E-mail*" />
-                                </div>
-                                <div className="flex gap-5 flex-col lg:flex-row w-full justify-between items-center my-4">
-                                    <input className="w-full py-1 px-3 border-b text-black text-lg outline-none" type="number" placeholder="Phone*" />
-                                    <input className="w-full py-1 px-3 border-b text-black text-lg outline-none" type="date" placeholder="Data & time" />
-                                </div>
-                                <input className="w-full py-1 px-3 text-black border-b text-lg outline-none" type="text" placeholder="Please describe your project requirements*" />
-                                <div className="w-full my-4 text-lg">
-                                    <input type="checkbox" />
-                                    <label htmlFor="" className="pl-3 text-black">I want to protect my data by signing an NDA </label>
-                                </div>
-                            </form>
-                            <button className="py-2 px-10 rounded mb-5 bg-gray-200 duration-200 text-gray-800 hover:bg-[#23beec]">Book</button>
+                            <p className='pb-4 pt-2 text-black'>Select an available slot to get in touch with Andersen so that one of our representatives can contact you and start a discussion</p>
+                            <BookFree/>
                         </div>
                         <div className="w-[50%] bg-[#25303e] p-16 rounded-r-md hidden lg:inline-block">
                             <h1 className="text-2xl text-white font-semibold">Reach out to Andersen to receive a free consultation and entrust your IT initiative to a company of software experts.</h1>
