@@ -3,6 +3,7 @@ import SectionContainer from "@/components/SectionContainer";
 import React, { useState } from "react";
 
 import { translate } from "@/utility/translate";
+import BookFree from "../seeMore/BookFree";
 
 // @ts-ignore
 export default function OrderSection({ homeData }) {
@@ -136,88 +137,7 @@ export default function OrderSection({ homeData }) {
 
         <div className="w-full md:w-8/12  lg:pl-24 mt-3">
           <div className="w-full ">
-            <form
-              className=""
-            >
-
-              <div className="">
-                <div className="relative float-label-input">
-                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
-                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Name</label>
-                </div>
-              </div>
-
-              <div className="">
-                <div className="relative float-label-input">
-                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
-                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Email Address</label>
-                </div>
-              </div>
-
-              <div className="">
-                <div className="relative float-label-input">
-                  <input type="text" id="name" placeholder=" " className="lg:block w-full bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-none border-t-0 border-l-0 border-r-0 py-3 px-3 block appearance-none leading-normal focus:border-blue-400" />
-                  <label className="absolute top-3 left-0 text-gray-400 pointer-events-none transition duration-200 ease-in-outbg-white px-2 text-grey-darker">Phone Number</label>
-                </div>
-              </div>
-
-
-
-
-              <div className="col-span-2">
-                <div className="lg:mb-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-4 h-4 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 19 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M12.921 0.5a6.087 6.087 0 0 1 4.299 1.77A5.996 5.996 0 0 1 19 6.542a6.001 6.001 0 0 1-1.78 4.273l-.002.001-8.01 7.924A4.334 4.334 0 0 1 6.148 20a4.336 4.336 0 0 1-4.012-2.684 4.265 4.265 0 0 1-.317-1.619 4.265 4.265 0 0 1 1.268-3.042L11.08 4.71a2.594 2.594 0 0 1 1.843-.759 2.61 2.61 0 0 1 2.414 1.616 2.577 2.577 0 0 1-.573 2.806l-7.368 7.323a.872.872 0 0 1-1.228 0 .86.86 0 0 1 0-1.22l7.368-7.324a.856.856 0 0 0 0-1.221.865.865 0 0 0-.614-.253c-.231 0-.45.09-.614.253l-7.992 7.944a2.552 2.552 0 0 0-.759 1.821c0 .688.27 1.335.76 1.822a2.58 2.58 0 0 0 1.832.755 2.58 2.58 0 0 0 1.832-.755l.002-.002 8.01-7.924a4.29 4.29 0 0 0 .953-4.675 4.282 4.282 0 0 0-.954-1.427 4.35 4.35 0 0 0-3.07-1.264 4.35 4.35 0 0 0-3.07 1.264L1.87 11.425a.872.872 0 0 1-1.228 0 .86.86 0 0 1 0-1.22L8.623 2.27A6.08 6.08 0 0 1 12.921 0.5Z"></path>
-                      </svg>
-                      Attach file
-                    </div>
-                  </label>
-                  <input
-                  className="block w-full text-sm text-slate-500 py-2
-                  file:mr-4 file:py-2 file:px-4
-                  file:rounded-full file:border-0
-                  file:text-sm file:font-semibold
-                  file:bg-violet-50 file:text-violet-700
-                  hover:file:bg-violet-100
-                "
-                    type="file"
-                    name="files"
-                    accept=".doc,.docx,.pdf,.ppt,.pptx"
-                    multiple
-                  />
-                  <p className="mt-1 text-gray-600 text-sm">
-                    No more than 3 files may be attached up to 3MB each.
-                    Formats: doc, docx, pdf, ppt, pptx.
-                  </p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center col-span-2">
-                <label className="flex items-center">
-                  <input type="checkbox" name="nda" className="form-checkbox" />
-                  <span className="ml-2 text-gray-700">
-                    I want to protect my data by signing an NDA.
-                  </span>
-                </label>
-              </div>
-              <div className="col-span-2 py-3">
-                <div className="flex items-center">
-                  <button
-                    type="submit"
-                    className="w-full px-4 py-2 bg-[#23beec] hover:bg-[#23beec] text-white rounded-md focus:outline-none focus:bg-blue-700"
-                  >
-                    Send request
-                  </button>
-                </div>
-              </div>
-            </form>
+            <BookFree/>
           </div>
         </div>
       </div>
