@@ -35,11 +35,6 @@ export default function HeroSection({ homeData }) {
             </div>
           </div>
         </div>
-        <div>
-          <div className={`absolute top-24 flex m-auto  ${locale === 'en' ? 'lg:right-28 right-10' : 'lg:left-28 left-10'}`}>
-            <ModalCall locale={locale} />
-          </div>
-        </div>
       </div>
     </div>
   )

@@ -40,15 +40,15 @@ export default function ProjectSection({ homeData }) {
             </p>
           </div>
 
-          <div className='flex lg:flex-row flex-col mt-16'>
+          <div className={`lg:flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
 
             {
               // @ts-ignore
               homeSectionThree?.map(item => (
-                <div className='lg:w-1/2 w-full'>
+                <div className='lg:w-1/2 mx-6 w-full'>
                   <Link href={
                     // @ts-ignore
-                    '/project-cases/'+item?.id}>
+                    '/project-cases/' + item?.id}>
                     <div className='overflow-hidden h-[330px]'>
                       <img className='hover:scale-110 duration-300 cursor-pointer' src={
                         // @ts-ignore
@@ -62,7 +62,7 @@ export default function ProjectSection({ homeData }) {
                       process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
                   </div>
                   <Link href={'/project-cases/2'}>
-                    <p className={`text-2xl font-semibold py-3 ${locale === 'en' ? '': 'rtl'}`}>
+                    <p className={`text-2xl font-semibold py-3 ${locale === 'en' ? '' : 'rtl'}`}>
                       {
                         // @ts-ignore
                         translate(item?.attributes, 'title')}
@@ -73,13 +73,12 @@ export default function ProjectSection({ homeData }) {
             }
           </div>
 
-          <div className='grid lg:grid-cols-6 pt-20'>
-            <div className='flex justify-center col-span-2 flex-col pr-4'>
-
+          <div className={`flex justify-between items-center mt-12 ${locale === 'en' ?  '' : 'flex-row-reverse'}`}>
+            <div className=''>
               <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
                 <img className='w-44' src={
                   // @ts-ignore
-                    process.env.NEXT_PUBLIC_BACKED_BASE + lastData?.attributes?.logo?.data?.attributes?.url
+                  process.env.NEXT_PUBLIC_BACKED_BASE + lastData?.attributes?.logo?.data?.attributes?.url
                 } alt="" />
               </div>
 
@@ -96,9 +95,11 @@ export default function ProjectSection({ homeData }) {
               </Link>
             </div>
 
-            <div className='overflow-hidden col-span-4'>
+            <div className='overflow-hidden w-2/3'>
               <Link href={'/project-cases/4'}>
-                <img className='m-right hover:scale-110 duration-300 cursor-pointer' src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp" alt="" />
+                <img className='m-right hover:scale-110 duration-300 cursor-pointer'
+                  src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp"
+                  alt="logo" />
               </Link>
             </div>
           </div>

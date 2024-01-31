@@ -80,7 +80,7 @@ export default function Header() {
             <div className='z-10 lg:max-w-7xl m-auto w-full px-4'>
                 <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                     <div className="logo flex">
-                        <div className='px-4 py-6'>
+                        <div className='px-4 py-4'>
                             <Link href='/'>
                                 <h1 className={`${oswald.className} uppercase text-2xl text-[#494F55]`}>Omg Althakaa</h1>
                             </Link>
@@ -89,7 +89,20 @@ export default function Header() {
                             Arabic
                         </h1> */}
                     </div>
-                    <div>
+                    <div className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                        <div className={`lg:flex hidden justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                            <ul className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                                {
+                                    headerManu?.map((item: any, index: number) => (
+                                        <li key={index}>
+                                            <Link href='/' className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
+                                                {translate(item?.attributes, 'name')}
+                                            </Link>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
                         <div className={`flex items-center justify-end ml-5  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
                             {
                                 locale === 'en' ?

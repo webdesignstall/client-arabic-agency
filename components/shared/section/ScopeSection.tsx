@@ -13,9 +13,9 @@ export default function ScopeSection({ homeData }) {
 
   const [homeSectionOne, setHomeSectionOne] = useState([]);
 
-  useEffect(()=>{
-    ( async ()=>{
-      const {data} = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-ones?populate=*`);
       setHomeSectionOne(data?.data)
     })()
 
@@ -28,7 +28,7 @@ export default function ScopeSection({ homeData }) {
           <div>
             <h1 className={`text-4xl lg:text-6xl lg:font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
               {
-                translate(homeData, 'homeSectionOneTitle')
+                translate(homeData, 'homeSectionTwoTitle')
               }
             </h1>
           </div>

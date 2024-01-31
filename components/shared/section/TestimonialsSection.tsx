@@ -79,7 +79,7 @@ const TestimonialsSection: React.FC<any> = ({ homeData }) => {
           <Slider className='lg:px-12' {...settings}>
             {
               homeSectionFive?.map((item, i) => (
-                <div key={i} className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <div style={{display: 'inline-flex !importent'}} key={i} className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                   <div className={`lg:w-1/2 inline-block`}>
                     <div>
                       <div>
