@@ -44,9 +44,9 @@ const DrivenMedical = () => {
 
 
 
-        <div dangerouslySetInnerHTML={{
+        {/* <div dangerouslySetInnerHTML={{
             // @ts-ignore
-            __html: translate(project, 'content') }}></div>
+            __html: translate(project, 'content') }}></div> */}
   </DeteilsSectionContainer>
     );
 };

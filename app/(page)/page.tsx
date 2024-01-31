@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import WidthContainer from '@/components/WidthContainer'
-import TabList from '@/components/shared/TabList'
 import RatingSection from '@/components/shared/section/RatingSection';
 import ScopeSection from '@/components/shared/section/ScopeSection';
 import ServicesSection from '@/components/shared/section/ServicesSection';
@@ -11,7 +10,6 @@ import CompnarySection from '@/components/shared/section/CompnarySection';
 import TestimonialsSection from '@/components/shared/section/TestimonialsSection';
 import InterviewSection from '@/components/shared/section/InterviewSection';
 import AboutSection from '@/components/shared/section/AboutSection';
-import ExpertiseSection from '@/components/shared/section/ExpertiseSection';
 import AdvantagesSection from '@/components/shared/section/AdvantagesSection';
 import OrderSection from '@/components/shared/section/OrderSection';
 import axios from "axios";
@@ -44,7 +42,6 @@ const page = () => {
           <TestimonialsSection homeData={homeData} />
           <InterviewSection homeData={homeData} />
           <AboutSection homeData={homeData} />
-          <ExpertiseSection />
           <AdvantagesSection homeData={homeData} />
           <OrderSection homeData={homeData} />
         </main>
