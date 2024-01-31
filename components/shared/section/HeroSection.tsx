@@ -18,9 +18,9 @@ export default function HeroSection({ homeData }) {
         <div className=''>
           <div className='overflow-hidden relative after:absolute min-h-[409px] lg:min-h-[596px] after:h-[510px] after:w-full after:bottom-0 after:bg-gradient-to-t from-[#020d1c] from-0.5%  via-transparent via-30% to-transparent to-90% after:z-10'>
             <div>
-            <img
+              <img
                 className='absolute w-full h-full object-cover'
-                src={ process.env.NEXT_PUBLIC_BACKED_BASE + homeData?.heroSectionBg?.data?.attributes?.formats?.large?.url}
+                src={process.env.NEXT_PUBLIC_BACKED_BASE + homeData?.heroSectionBg?.data?.attributes?.formats?.large?.url}
                 alt='Hero image'
               />
             </div>
@@ -36,8 +36,8 @@ export default function HeroSection({ homeData }) {
           </div>
         </div>
         <div>
-          <div className={`absolute top-24 flex m-auto  ${locale === 'en' ? 'right-28' : 'left-28'}`}>
-            <ModalCall locale={locale}/>
+          <div className={`absolute top-24 flex m-auto  ${locale === 'en' ? 'lg:right-28 right-10' : 'lg:left-28 left-10'}`}>
+            <ModalCall locale={locale} />
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ const oswald = Oswald({
     variable: '--font-oswald',
 })
 
-export default function Header() {
+export default function PageHeader() {
 
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [visible, setVisible] = React.useState(true);
@@ -76,7 +76,7 @@ export default function Header() {
     }, [])
 
     return (
-        <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white ${styles.header} ${visible ? `${styles.visible}` : ''}`}>
+        <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white shadow-md`}>
             <div className='z-10 lg:max-w-7xl m-auto w-full px-4'>
                 <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                     <div className="logo flex">
@@ -98,28 +98,6 @@ export default function Header() {
                                     <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
                             }
                         </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className={`bg-[#2b2a29bd] backdrop-blur-3xl hidden text-white py-4 absolute top-22 w-full duration-300 ${isScrolled ? 'opacity-100 lg:inline-block' : 'opacity-0 hidden'}`}>
-                <div className='max-w-7xl m-auto px-4'>
-                    <div className={`flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                        <ul className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                            {
-                                headerManu?.map((item: any, index: number) => (
-                                    <li>
-                                        <Link className={`duration-200 hover:text-[#23beec] py-6 ${locale === 'en' ? 'pr-6' : 'pl-6 font-semibold'}`} href={`#${translate(item?.attributes, 'link')}`}>
-                                            {translate(item?.attributes, 'name')}
-                                        </Link>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        <ul>
-                            <ModalCall locale={locale} />
-                        </ul>
                     </div>
                 </div>
             </div>

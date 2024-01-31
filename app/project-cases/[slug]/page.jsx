@@ -1,4 +1,5 @@
 
+import PageHeader from "@/components/layout/PageHeader";
 import About from "@/components/shared/deteils/About";
 import AboutProject from "@/components/shared/deteils/AboutProject";
 import AppFunctionality from "@/components/shared/deteils/AppFunctionality";
@@ -12,6 +13,7 @@ const Deteils = () => {
   
   return (
     <div className="bg-white">
+      <PageHeader />
       <DrivenMedical/>
       <TreatmentPlan/>
       <About/>

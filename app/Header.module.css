@@ -8,7 +8,7 @@
 }
 
 .header:not(.visible) {
-    top: -90px
+    top: -80px
 }
 
 .menu {
