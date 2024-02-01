@@ -10,7 +10,6 @@ import SectionContainer from '@/components/SectionContainer';
 import { translate } from "@/utility/translate";
 import { useLocalization } from '@/context/LocalizeProvider';
 import axios from "axios";
-
 import { useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -64,20 +63,20 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
   };
   const { locale, switchLocale } = useLocalization();
 
-  const [homeSectionSix, setHomeSectionSix] = useState([]);
+  const [interviews, setInterviews] = useState([]);
 
   useEffect(() => {
     // @ts-ignore
     (async () => {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-sixs?populate=*`);
-      setHomeSectionSix(data?.data)
+      setInterviews(data?.data)
     })()
 
   }, [])
-
+  interviews.map(interview => console.log(interview));
   return (
     <div className='lg:max-w-7xl  m-auto'>
-      <div className='lg:px-20'>
+      <div className='px-5 lg:px-20'>
         <div>
           <h1 className={`lg:text-6xl text-3xl font-semibold text-white ${locale === 'en' ? '' : 'rtl'}`}>
             {translate(homeData, 'homeSectionSixTitle')}
@@ -89,7 +88,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
           </p>
         </div>
       </div>
-      <div className='mt-10 px-6 lg:px-20'>
+      <div className='mt-5 px-6 lg:px-20'>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -101,7 +100,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
             },
           }}
           autoplay={{
-            delay: 2500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
 
@@ -110,6 +109,24 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
           className="px-6"
         >
           {
+            interviews?.map(interview => (
+              <SwiperSlide key={// @ts-ignore
+                interview?.id}>
+                <div className='bg-white p-5 rounded'>
+                    <h1 className={`${locale === 'en' ? 'pr-6 text-left' : 'pl-6 font-semibold text-right'}`}>
+                      {// @ts-ignore
+                        interview?.attributes?.title
+                      }
+                    </h1>
+                    
+                      {// @ts-ignore
+                      interview?.attributes?.description
+                      }
+                </div>
+              </SwiperSlide>
+            ))
+          }
+          {/* {
             items?.map((item, i) => (
               <SwiperSlide key={i} className='h-auto pb-10 rounded-md bg-white'>
                 <img  src={item?.img} alt="" className='w-full h-52 object-cover bg-cover rounded-t-md' />
@@ -118,7 +135,7 @@ const InterviewSection: React.FC<any> = ({ homeData }) => {
                 <p className='text-md font-medium text-gray-800 px-5 mt-2'>{item.date}</p>
               </SwiperSlide>
             ))
-          }
+          } */}
         </Swiper>
       </div>
     </div>
