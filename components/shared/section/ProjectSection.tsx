@@ -40,12 +40,12 @@ export default function ProjectSection({ homeData }) {
             </p>
           </div>
 
-          <div className={`lg:flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          <div className={`lg:flex`}>
 
             {
               // @ts-ignore
               homeSectionThree?.map(item => (
-                <div className='lg:w-1/2 mx-6 w-full'>
+                <div className='lg:w-1/2 lg:mx-6 w-full mt-12'>
                   <Link href={
                     // @ts-ignore
                     '/project-cases/' + item?.id}>
@@ -73,7 +73,7 @@ export default function ProjectSection({ homeData }) {
             }
           </div>
 
-          <div className={`flex justify-between items-center mt-12 ${locale === 'en' ?  '' : 'flex-row-reverse'}`}>
+          <div className={`lg:flex justify-between items-center mt-12 ${locale === 'en' ?  '' : 'flex-row-reverse'}`}>
             <div className=''>
               <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
                 <img className='w-44' src={
@@ -95,7 +95,7 @@ export default function ProjectSection({ homeData }) {
               </Link>
             </div>
 
-            <div className='overflow-hidden w-2/3'>
+            <div className='overflow-hidden lg:w-2/3 mt-8 lg:mt-0'>
               <Link href={'/project-cases/4'}>
                 <img className='m-right hover:scale-110 duration-300 cursor-pointer'
                   src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp"

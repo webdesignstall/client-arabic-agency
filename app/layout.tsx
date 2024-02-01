@@ -33,6 +33,7 @@ export default function RootLayout({
         <LocalizationProvider>
           <Providers>
             {children}
+            <Footer />
           </Providers>
         </LocalizationProvider>
       </body>

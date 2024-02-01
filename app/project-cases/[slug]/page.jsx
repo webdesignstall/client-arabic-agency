@@ -23,7 +23,6 @@ const Deteils = () => {
       <AppFunctionality />
       <CustomerReview />
       <WhatHappens />
-      <Footer />
     </div>
   );
 };
