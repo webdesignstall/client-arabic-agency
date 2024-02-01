@@ -4,14 +4,14 @@ import {useLocalization} from "@/context/LocalizeProvider";
 
 // @ts-ignore
 function SeeMoreHeroSection({data}) {
-    const {locale, switchLocale} = useLocalization();
+    
     return (
         <div>
             <div
                 className={`relative m-auto bg-cover lg:h-[70vh] md:h-[50vh] h-[40vh] bg-[url("https://cdn.images.express.co.uk/img/dynamic/151/750x445/1360742.jpg")]`}>
                 <div
                     className='h-full flex w-full justify-center items-end bg-gradient-to-t from-[#020d1c] from-0.5%  via-transparent via-30% to-transparent to-90%'>
-                    <div className={`w-full lg:py-16 mx-12 max-w-6xl ${locale !== 'en' ? "rtl" : ""}`}>
+                    <div className={`w-full lg:py-16 mx-12 max-w-6xl`}>
                         <h1 className='text-2xl lg:text-6xl text-white lg:font-bold'>
                             {
                                 translate(data, 'title')
