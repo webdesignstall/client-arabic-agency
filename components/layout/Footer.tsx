@@ -54,8 +54,8 @@ export default function Footer() {
       const { data: socialIcons } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/fotter-social-medias?populate=*`);
       setSocialIcons(socialIcons?.data)
 
-      const { data: general } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
-      setGeneral(general?.data?.attributes)
+      const { data: general } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/generals?populate=*`);
+      setGeneral(general?.data[0]?.attributes)
     })()
 
   }, [])
@@ -552,7 +552,7 @@ export default function Footer() {
           className={`lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base`}>
           <div className="flex items-center  ">
             <p className="font-medium">
-              © {new Date().getFullYear()} {translate(general, 'footerCopyRight')}
+             {translate(general, 'footerCopyRight')}
             </p>
 
           </div>

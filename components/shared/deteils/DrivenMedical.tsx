@@ -6,9 +6,11 @@ import axios from "axios";
 
 import { useParams } from "next/navigation";
 import { translate } from "@/utility/translate";
+import { useLocalization } from "@/context/LocalizeProvider";
 const DrivenMedical = () => {
   const {slug} = useParams()
   const [deteilsData, setDeteilsData] = useState([]);
+  const {locale } = useLocalization();
 
   useEffect(() => {
     (async () => {
@@ -19,13 +21,17 @@ const DrivenMedical = () => {
 
   }, [])
 
-  console.log(deteilsData);
+  
     return (
     <DeteilsSectionContainer>
      <div className="flex justify-between items-center mt-10">
         <Link href="/" className="flex gap-3 items-center hover:text-[#23beec]">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr-66pXYMF_TjwcBWkHm-ERItMCEiePt2CRQ&usqp=CAU" className="w-7 h-5" alt="" />
-          <button>Back to previous page</button>
+          <button>
+            {
+              locale !== 'en' ? 'العودة إلى الصفحة السابقة' : 'Back to previous page'
+            }
+            </button>
           </Link>
       </div>
     <div className="md:grid grid-cols-12 justify-between mt-6 pt-10 md:mt-7 items-end">

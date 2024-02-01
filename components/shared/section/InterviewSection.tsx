@@ -80,7 +80,7 @@ const CompnarySection: React.FC<any> = ({ homeData }) => {
 
 
   return (
-    <div className='lg:max-w-7xl m-auto'>
+    <div id="section6" className='lg:max-w-7xl m-auto'>
       <div id='technologies'>
         <div>
           <div className='py-2'>

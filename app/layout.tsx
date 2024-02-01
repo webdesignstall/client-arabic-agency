@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang={'en'} className={`${inter.variable}`}>
+    <html lang={'ar'} className={`${inter.variable}`}>
       <head>
         <title>Aqlea Tech</title>
       </head>
