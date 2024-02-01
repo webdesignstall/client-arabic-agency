@@ -28,7 +28,7 @@ export default function ScopeSection({ homeData }) {
           <div>
             <h1 className={`text-4xl lg:text-6xl lg:font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
               {
-                translate(homeData, 'homeSectionTwoTitle')
+                translate(homeData, 'homeSectionOneTitle')
               }
             </h1>
           </div>

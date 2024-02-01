@@ -23,7 +23,7 @@ export default function AdvantagesSection({homeData}) {
   // @ts-ignore
   return (
     <SectionContainer>
-      <div>
+      <div id='section8'>
         <div>
           <div>
             <h1 className={`lg:text-6xl text-3xl font-semibold py-10 ${locale ==='en' ? '' : 'rtl'}`}>

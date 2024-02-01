@@ -48,11 +48,11 @@ export default function ProjectSection({ homeData }) {
                 <div className='lg:w-1/2 lg:mx-6 w-full mt-12'>
                   <Link href={
                     // @ts-ignore
-                    '/project-cases/' + item?.id}>
+                    '/project-cases/' + item?.id} >
                     <div className='overflow-hidden h-[310px]'>
                       <img className='hover:scale-110 duration-300 cursor-pointer object-cover bg-cover' src={
                         // @ts-ignore
-                        process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
+                        process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.url
                       } alt="" />
                     </div>
                   </Link>
@@ -61,7 +61,11 @@ export default function ProjectSection({ homeData }) {
                       // @ts-ignore
                       process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.logo?.data?.attributes?.url} alt="" />
                   </div>
-                  <Link href={'/project-cases/2'}>
+                  <Link href={`/project-cases/${
+                 // @ts-ignore
+                item?.id
+                
+                }`}>
                     <p className={`text-2xl font-semibold py-3 ${locale === 'en' ? '' : 'rtl'}`}>
                       {
                         // @ts-ignore
@@ -82,7 +86,11 @@ export default function ProjectSection({ homeData }) {
                 } alt="" />
               </div>
 
-              <Link href={'/project-cases/3'}>
+              <Link href={`/project-cases/${
+                 // @ts-ignore
+                lastData?.id
+                
+                }`}>
                 <div className='text-3xl font-semibold'>
                   {
                     Object.keys(lastData).length === 0 ?
@@ -96,9 +104,16 @@ export default function ProjectSection({ homeData }) {
             </div>
 
             <div className='overflow-hidden lg:w-2/3 mt-8 lg:mt-0'>
-              <Link href={'/project-cases/4'}>
+              <Link href={`/project-cases/${
+                 // @ts-ignore
+                lastData?.id
+                
+                }`}>
                 <img className='m-right hover:scale-110 duration-300 cursor-pointer'
-                  src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/parabellum/preview-shots/medium.webp"
+                  src={
+                        // @ts-ignore
+                        process.env.NEXT_PUBLIC_BACKED_BASE + lastData?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
+                  }
                   alt="logo" />
               </Link>
             </div>

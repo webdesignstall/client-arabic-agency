@@ -69,21 +69,24 @@ export default function Header() {
     const [headerManu, setHeaderManu] = useState([]);
     const [headerLogo, setHeaderLogo] = useState({});
     const [navber, setnavber] = useState(false)
+    const [general, setGeneral] = useState('')
 
 
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
             setHeaderManu(data?.data)
-            const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
+            const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/generals?populate=*`);
+            setHeaderLogo(logo?.data?.data[0]?.attributes?.logo?.data?.attributes);
+            setGeneral(logo?.data?.data[0]?.attributes);
+           
 
-            setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
         })()
 
     }, [])
     // @ts-ignore
     const logoUrl = headerLogo?.url
-
+   
 
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white ${styles.header} ${visible ? `${styles.visible}` : ''}`}>
@@ -92,17 +95,13 @@ export default function Header() {
                     <div className="logo flex">
                         <div className='px-4 py-4'>
 
-                            <Link href='/'>{
-                                logoUrl ? <img
-                                    className='w-12 h-10 rounded object-cover bg-cover'
-                                    src={// @ts-ignore
-                                        process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl}
-                                    alt='Hero image'
-                                /> :
-                                    <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
-                            }
-                            </Link>
 
+                        <Link href='/'>
+                          
+                            <h1 className={`${oswald.className} uppercase text-2xl mr-10`}>{
+                                translate(general, 'logoName')
+                            }</h1>
+                        </Link>
                         </div>
                     </div>
                     <div className={`flex`}>
@@ -137,16 +136,12 @@ export default function Header() {
                                     <div className={`m-auto flex justify-between items-center px-6 border-b`}>
                                         <div className='px-2 py-4'>
 
-                                            <Link href='/'>{
-                                                logoUrl ? <img
-                                                    className='w-12 h-10 rounded object-cover bg-cover'
-                                                    src={// @ts-ignore
-                                                        process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl}
-                                                    alt='Hero image'
-                                                /> :
-                                                    <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
-                                            }
-                                            </Link>
+                                        <Link href='/'>
+                                            
+                                            <h1 className={`${oswald.className} uppercase text-2xl mr-10`}>{
+                                                translate(general, 'logoName')
+                                            }</h1>
+                                        </Link>
 
                                         </div>
                                         <button className='p-2 duration-200' onClick={() => setnavber(false)}>
@@ -183,7 +178,7 @@ export default function Header() {
                             {
                                 headerManu?.map((item: any, index: number) => (
                                     <li>
-                                        <Link className={`duration-200 hover:text-[#23beec] py-6 ${locale === 'en' ? 'pr-6' : 'pl-6 font-semibold'}`} href={`#${translate(item?.attributes, 'link')}`}>
+                                        <Link className={`duration-200 hover:text-[#23beec] py-6 ${locale === 'en' ? 'pr-6' : 'pl-6 font-semibold'}`} href={`${translate(item?.attributes, 'link')}`}>
                                             {translate(item?.attributes, 'name')}
                                         </Link>
                                     </li>

@@ -28,7 +28,7 @@ export default function AboutSection({ homeData }) {
   // @ts-ignore
   return (
     <SectionContainer>
-      <div>
+      <div id="section7">
         <div>
           <div>
             <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>

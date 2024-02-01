@@ -26,6 +26,7 @@ export default function PageHeader() {
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [visible, setVisible] = React.useState(true);
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [general, setGeneral] = useState('')
 
 
     React.useEffect(() => {
@@ -71,9 +72,9 @@ export default function PageHeader() {
     (async () => {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
       setHeaderManu(data?.data)
-      const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
-      console.log(logo);
-      setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
+      const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/generals?populate=*`);
+      setHeaderLogo(logo?.data?.data[0]?.attributes?.logo?.data?.attributes);
+      setGeneral(logo?.data?.data[0]?.attributes);
     })()
 
   }, [])
@@ -85,16 +86,16 @@ export default function PageHeader() {
                 <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
                     <div className="logo flex">
                         <div className='px-4 py-6'>
-                        <Link href='/'>{
-                            logoUrl?<img
-                            className='w-12 h-10 rounded'
-                            src={// @ts-ignore
-                                process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl }
-                            alt='Hero image'
-                            />:
-                            <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
-                        }
+                    
+
+                        <Link href='/'>
+                          
+                            <h1 className={`${oswald.className} uppercase text-2xl mr-10`}>{
+                                translate(general, 'logoName')
+                            }</h1>
+                        
                         </Link>
+
                         </div>
                     </div>
                     <div>

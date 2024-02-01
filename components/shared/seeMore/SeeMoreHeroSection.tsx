@@ -6,7 +6,7 @@ import {useLocalization} from "@/context/LocalizeProvider";
 function SeeMoreHeroSection({data}) {
     
     return (
-        <div>
+       
             <div
                 className={`relative m-auto bg-cover lg:h-[70vh] md:h-[50vh] h-[40vh] bg-[url("https://cdn.images.express.co.uk/img/dynamic/151/750x445/1360742.jpg")]`}>
                 <div
@@ -37,7 +37,7 @@ function SeeMoreHeroSection({data}) {
                 <ModalCall/>
                 </div>*/}
             </div>
-        </div>
+       
     );
 }
 

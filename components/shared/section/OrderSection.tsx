@@ -19,7 +19,7 @@ export default function OrderSection({ homeData }) {
   };
   return (
     <SectionContainer>
-      <div className="flex flex-col md:flex-row">
+      <div id="section9" className="flex flex-col md:flex-row">
         <div className="w-full md:w-2/5">
           <div className="">
             <div className="text-center">
