@@ -3,7 +3,7 @@ import '@/app/globals.css'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { LocalizationProvider } from "@/context/LocalizeProvider";
+import {LocalizationProvider, useLocalization} from "@/context/LocalizeProvider";
 import { Providers } from './Provider'
 
 const inter = Inter({
@@ -18,8 +18,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang={'en'} className={`${inter.variable}`}>
       <head>
         <title>Aqlea Tech</title>
       </head>
@@ -31,7 +32,7 @@ export default function RootLayout({
       >
         <LocalizationProvider>
           <Providers>
-            <div>{children}</div>
+            {children}
           </Providers>
         </LocalizationProvider>
       </body>
