@@ -65,7 +65,7 @@ const TestimonialsSection: React.FC<any> = ({ homeData }) => {
       <div id='testimonials'>
         <div>
           <div className='py-2'>
-            <h1 className={`text-6xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
+            <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
               {translate(homeData, 'homeSectionFiveTitle')}
             </h1>
           </div>

@@ -9,9 +9,8 @@ export default function RootLayout({
 }) {
     return (
         <section>
-            <Header/>
+            <Header />
             {children}
-            <Footer />
         </section>
     )
 }

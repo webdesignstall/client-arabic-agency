@@ -13,6 +13,8 @@ import { Oswald } from 'next/font/google';
 import axios from 'axios';
 import { translate } from '@/utility/translate';
 import ModalCall from '../shared/slider-button/ModalCall';
+import { AlignJustify } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const oswald = Oswald({
     subsets: ['latin'],
@@ -66,19 +68,20 @@ export default function Header() {
     };
     const [headerManu, setHeaderManu] = useState([]);
     const [headerLogo, setHeaderLogo] = useState({});
+    const [navber, setnavber] = useState(false)
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
-      setHeaderManu(data?.data)
-      const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
-   
-      setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
-    })()
+    useEffect(() => {
+        (async () => {
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
+            setHeaderManu(data?.data)
+            const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
 
-  }, [])
-  // @ts-ignore
-  const logoUrl = headerLogo?.url
+            setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
+        })()
+
+    }, [])
+    // @ts-ignore
+    const logoUrl = headerLogo?.url
 
 
     return (
@@ -87,17 +90,17 @@ export default function Header() {
                 <div className={`m-auto flex justify-between items-center`}>
                     <div className="logo flex">
                         <div className='px-4 py-4'>
-                            
-                                <Link href='/'>{
-                                    logoUrl?<img
-                                    className='w-12 h-10 rounded'
+
+                            <Link href='/'>{
+                                logoUrl ? <img
+                                    className='w-12 h-10 rounded object-cover bg-cover'
                                     src={// @ts-ignore
-                                        process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl }
+                                        process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl}
                                     alt='Hero image'
-                                  />:
+                                /> :
                                     <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
-                                }
-                                </Link>
+                            }
+                            </Link>
 
                         </div>
                     </div>
@@ -107,7 +110,7 @@ export default function Header() {
                                 {
                                     headerManu?.map((item: any, index: number) => (
                                         <li key={index}>
-                                            <Link href='/' className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
+                                            <Link href={`#${item?.attributes.link}`} className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
                                                 {translate(item?.attributes, 'name')}
                                             </Link>
                                         </li>
@@ -115,12 +118,56 @@ export default function Header() {
                                 }
                             </ul>
                         </div>
-                        <div className={`flex items-center justify-end ml-5  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
+                        <div className='flex'>
+                            <div className={`flex items-center justify-end ml-5  gap-5 ${locale === 'en' ? 'pr-3' : 'pr-3'}`}>
+                                {
+                                    locale === 'en' ?
+                                        <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'> عربي </button>
+                                        :
+                                        <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
+                                }
+                            </div>
+                            <button onClick={() => setnavber(true)} className='p-4 inline-block lg:hidden duration-200'>
+                                < AlignJustify size={40}/>
+                            </button>
+
                             {
-                                locale === 'en' ?
-                                    <button onClick={() => switchLocale('ar')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'> عربي </button>
-                                    :
-                                    <button onClick={() => switchLocale('en')} className='text-white px-5 py-2 bg-[#23beec] hover:bg-[#23beec] text-md font-bold rounded pointer'>English</button>
+                                navber && <div className='fixed top-0 left-0 w-full min-h-screen bg-white z-[9999]'>
+                                    <div className={`m-auto flex justify-between items-center px-6 border-b`}>
+                                        <div className='px-2 py-4'>
+
+                                            <Link href='/'>{
+                                                logoUrl ? <img
+                                                    className='w-12 h-10 rounded object-cover bg-cover'
+                                                    src={// @ts-ignore
+                                                        process.env.NEXT_PUBLIC_BACKED_BASE + logoUrl}
+                                                    alt='Hero image'
+                                                /> :
+                                                    <h1 className={`${oswald.className} uppercase text-2xl text-white mr-10`}>Omg Althakaa</h1>
+                                            }
+                                            </Link>
+
+                                        </div>
+                                        <button className='p-2 duration-200' onClick={() => setnavber(false)}>
+                                            <X size={40} />
+                                        </button>
+                                    </div>
+                                    <div className='menu'>
+                                        <div >
+                                            <ul>
+                                                {
+                                                    headerManu?.map((item: any, index: number) => (
+                                                        <li key={index}>
+                                                            <Link onClick={()=>setnavber(false)} href={`#${item?.attributes.link}`} className='text-xl px-12 py-6 block w-full hover:text-blue-800 hover:border-b border-b text-gray-700'>
+                                                                {translate(item?.attributes, 'name')}
+                                                            </Link>
+                                                        </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         </div>
                     </div>

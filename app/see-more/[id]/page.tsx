@@ -55,7 +55,6 @@ export default function page() {
             <DeteilsSectionContainer>
                 <BookAFree />
             </DeteilsSectionContainer>
-            <Footer />
         </>
     );
 }

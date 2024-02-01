@@ -42,9 +42,17 @@ const CompnarySection: React.FC<any> = ({ homeData }) => {
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 600,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
         }
