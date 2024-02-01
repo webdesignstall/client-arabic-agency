@@ -45,7 +45,13 @@ export default function AboutSection({ homeData }) {
           <div className='grid lg:grid-cols-5'>
             <div className='col-span-3'>
               <div className='py-6'>
-                <p className='text-gray-700'>Featured</p>
+                <p className='text-gray-700'>Featured
+                    
+                {
+                  locale !== 'en' ? 'متميز' : 'Featured'
+                }
+                
+                </p>
               </div>
               {
                 // @ts-ignore
@@ -75,7 +81,13 @@ export default function AboutSection({ homeData }) {
             </div>
             <div className='lg:col-span-2 col-span-5 lg:pl-16'>
               <div className='py-6'>
-                <p className='text-gray-700 text-lg font-semibold'>Latest updates</p>
+                <p className='text-gray-700 text-lg font-semibold'>
+                
+                {
+                  locale !== 'en' ? 'آخر التحديثات' : 'Latest updates'
+                }
+                
+                </p>
               </div>
               <div className='overflow-y-auto h-[25rem]'>
                 {
@@ -91,7 +103,11 @@ export default function AboutSection({ homeData }) {
                         <Link href={`/see-more/${
                             // @ts-ignore
                           item?.id}`}>
-                          <button className=' border-b items-end border-gray-800 font-semibold'>See more</button>
+                          <button className=' border-b items-end border-gray-800 font-semibold'>
+                          {
+                  locale !== 'en' ? 'شاهد المزيد' : 'See more'
+                }
+                            </button>
                         </Link>
                       </div>
                     </div>

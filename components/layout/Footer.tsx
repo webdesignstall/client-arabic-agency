@@ -16,6 +16,7 @@ export default function Footer() {
   const [socialIcons, setSocialIcons] = useState([]);
   const [contactUs, setContactUs] = useState({});
   const [general, setGeneral] = useState({});
+  const {locale} = useLocalization();
 
   useEffect(() => {
     const handleResize = () => {
@@ -72,7 +73,10 @@ export default function Footer() {
                 (
                   <div>
                     <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
-                      Quick Link
+                    {
+                        locale !== 'en' ? "رابط سريع" : "Quick Link"
+                      }
+
                     </h3>
                     <ul
                       className=" lg:text-base md:text-xs"
@@ -101,7 +105,9 @@ export default function Footer() {
                 (
                   <div>
                     <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                      TECH STACK
+                    {
+                        locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"
+                      }
                     </h3>
                     <ul
                       className=" lg:text-base md:text-xs"
@@ -131,7 +137,9 @@ export default function Footer() {
                 (
                   <div>
                     <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                      Services
+                    {
+                        locale !== 'en' ? "خدمات" : "SERVICES"
+                      }
                     </h3>
                     <ul
                       className=" lg:text-base md:text-xs"
@@ -160,7 +168,9 @@ export default function Footer() {
                 (
                   <div>
                     <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                      Project
+                      {
+                        locale !== 'en' ? "مشروع" : "PROJECT"
+                      }
                     </h3>
                     <ul
                       className=" lg:text-base md:text-xs"
@@ -187,7 +197,9 @@ export default function Footer() {
                 (
                   <div>
                     <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                      Company
+                    {
+                locale !== 'en' ? "شركة" : "COMPANY"
+              }   
                     </h3>
                     <ul
                       className=" lg:text-base md:text-xs"
@@ -224,7 +236,12 @@ export default function Footer() {
               
                
               `}>
-                <span>Company</span>
+                <span>
+                {
+                locale !== 'en' ? "شركة" : "COMPANY"
+              }  
+
+                </span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -264,7 +281,12 @@ export default function Footer() {
           <div className="py-5">
             <details className="group">
               <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
-                <span>Project</span>
+                <span>
+                {
+                locale !== 'en' ? "مشروع" : "PROJECT"
+              }  
+
+                </span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -302,7 +324,12 @@ export default function Footer() {
           <div className="py-5 ">
             <details className="group">
               <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
-                <span>Services</span>
+                <span>
+
+                {
+                        locale !== 'en' ? "خدمات" : "SERVICES"
+                      }
+                </span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -340,7 +367,12 @@ export default function Footer() {
           <div className="py-5">
             <details className="group">
               <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
-                <span>Tech Stack</span>
+                <span>
+                {
+                        locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"
+                      }
+
+                </span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -379,7 +411,12 @@ export default function Footer() {
           <div className="py-5">
             <details className="group">
               <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
-                <span>Quick Link</span>
+                <span>
+                {
+                        locale !== 'en' ? "رابط سريع" : "Quick Link"
+                      }
+
+                </span>
                 <span className="transition group-open:rotate-180">
                   <svg
                     fill="none"
@@ -419,9 +456,14 @@ export default function Footer() {
       </div>
 
 
-      <div className={`text-white py-12 border-t  border-gray-700 flex justify-between `}>
+      <div className={`text-white py-12 border-t  border-gray-700 flex flex-col md:flex-row gap-7 justify-between  `}>
         <div>
-          <h2 className="text-xl font-bold mb-4">Our Offices</h2>
+          <h2 className="text-xl font-bold mb-4">
+          {
+                locale !== 'en' ? "مكاتبنا" : "Our Office"
+              }   
+          
+          </h2>
           <div className="flex gap-2">
 
             <div
@@ -439,7 +481,13 @@ export default function Footer() {
 
         </div>
         <div>
-          <h2 className="text-lg font-bold mb-4">CONTACT US</h2>
+          <h2 className="text-lg font-bold mb-4">
+
+              {
+                locale !== 'en' ? "اتصل بنا" : "CONTACT US"
+              }    
+            
+          </h2>
 
 
           <div>
@@ -504,13 +552,13 @@ export default function Footer() {
           className={`lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base`}>
           <div className="flex items-center  ">
             <p className="font-medium">
-              ©{new Date().getFullYear()} {translate(general, 'footerCopyRight')}
+              © {new Date().getFullYear()} {translate(general, 'footerCopyRight')}
             </p>
 
           </div>
 
 
-          <div className={`flex items-center justify-center space-x-4 mt-5 lg:mt-0`}>
+          <div className={`flex items-center justify-center gap-3 mt-5 lg:mt-0`}>
 
             {
               socialIcons?.map(icon => (
