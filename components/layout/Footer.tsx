@@ -59,14 +59,13 @@ export default function Footer() {
 
   }, [])
 
-  const { locale, switchLocale } = useLocalization();
 
   // @ts-ignore
   return (
     <div className="md:my-16 md:mx-20 py-5 px-8">
       <div className="hidden md:block">
         <div className={`text-white px-4 py-8 `}>
-          <div className={`flex flex-row justify-between ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          <div className={`flex flex-row justify-between`}>
 
             {
               quickLinks?.length > 0 ?
@@ -82,7 +81,8 @@ export default function Footer() {
                       {
                         quickLinks?.map((link:any, index:number) => (
                           <li key={index}>
-                            <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
+                            <Link 
+                            href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
                             }</Link>
@@ -110,7 +110,10 @@ export default function Footer() {
                       {
                         teckStacks?.map((link:any, index:number) => (
                           <li key={index}>
-                            <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
+                            <Link 
+                            
+                          
+                            href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
                             }</Link>
@@ -137,7 +140,9 @@ export default function Footer() {
                       {
                         services?.map((link:any, index:number) => (
                           <li key={index}>
-                            <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
+                            <Link 
+                            
+                            href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
                             }</Link>
@@ -164,7 +169,7 @@ export default function Footer() {
                       {
                         projects?.map((link:any, index:number) => (
                           <li key={index}>
-                            <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
+                            <Link href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
                             }</Link>
@@ -191,7 +196,7 @@ export default function Footer() {
                       {
                         companies?.map((link:any, index:number) => (
                           <li key={index}>
-                            <Link className={`${locale === 'en' ? '' : 'rtl text-right'}`} href={link}>{
+                            <Link href={link}>{
                               // @ts-ignore
                               translate(link?.attributes, 'title')
                             }</Link>
@@ -215,7 +220,10 @@ export default function Footer() {
           
           <div className="py-5">
             <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none 
+              
+               
+              `}>
                 <span>Company</span>
                 <span className="transition group-open:rotate-180">
                   <svg
@@ -235,7 +243,7 @@ export default function Footer() {
               </summary>
               <div className="mt-3 group-open:animate-fadeIn">
                   <ul
-                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                     
                     style={{ lineHeight: "32px" }}
                   >
                     {
@@ -255,7 +263,7 @@ export default function Footer() {
           
           <div className="py-5">
             <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
                 <span>Project</span>
                 <span className="transition group-open:rotate-180">
                   <svg
@@ -275,7 +283,6 @@ export default function Footer() {
               </summary>
               <div className="mt-3 group-open:animate-fadeIn">
                   <ul
-                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
                     style={{ lineHeight: "32px" }}
                   >
                     {
@@ -294,7 +301,7 @@ export default function Footer() {
           </div>
           <div className="py-5 ">
             <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
                 <span>Services</span>
                 <span className="transition group-open:rotate-180">
                   <svg
@@ -314,7 +321,7 @@ export default function Footer() {
               </summary>
               <div className="mt-3 group-open:animate-fadeIn">
                   <ul
-                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                     
                     style={{ lineHeight: "32px" }}
                   >{
                     services?.map((link:any, index:number) => (
@@ -332,7 +339,7 @@ export default function Footer() {
           </div>
           <div className="py-5">
             <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
                 <span>Tech Stack</span>
                 <span className="transition group-open:rotate-180">
                   <svg
@@ -353,7 +360,7 @@ export default function Footer() {
               <div className="mt-3 group-open:animate-fadeIn">
 
                   <ul
-                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                  
                     style={{ lineHeight: "32px" }}
                   >{
                     teckStacks?.map((link:any, index:number) => (
@@ -371,7 +378,7 @@ export default function Footer() {
           </div>
           <div className="py-5">
             <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
                 <span>Quick Link</span>
                 <span className="transition group-open:rotate-180">
                   <svg
@@ -392,7 +399,7 @@ export default function Footer() {
               <div className="mt-3 group-open:animate-fadeIn">
 
                   <ul
-                     className={`${locale === 'en' ? '' : 'rtl text-right'}`}
+                     
                     style={{ lineHeight: "32px" }}
                   >{
                     quickLinks?.map((link:any, index:number) => (
@@ -412,7 +419,7 @@ export default function Footer() {
       </div>
 
 
-      <div className={`text-white py-12 border-t  border-gray-700 flex justify-between ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+      <div className={`text-white py-12 border-t  border-gray-700 flex justify-between `}>
         <div>
           <h2 className="text-xl font-bold mb-4">Our Offices</h2>
           <div className="flex gap-2">
@@ -494,7 +501,7 @@ export default function Footer() {
       </div>
       <div className="mt-8 text-center text-white">
         <div
-          className={`lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          className={`lg:flex items-center justify-between px-4 py-6 text-gray-500 border-t border-gray-200 md:grid text-xs lg:text-base md:text-base`}>
           <div className="flex items-center  ">
             <p className="font-medium">
               ©{new Date().getFullYear()} {translate(general, 'footerCopyRight')}
@@ -503,7 +510,7 @@ export default function Footer() {
           </div>
 
 
-          <div className={`flex items-center justify-center space-x-4 mt-5 lg:mt-0 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          <div className={`flex items-center justify-center space-x-4 mt-5 lg:mt-0`}>
 
             {
               socialIcons?.map(icon => (

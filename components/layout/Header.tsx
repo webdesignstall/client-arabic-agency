@@ -84,7 +84,7 @@ export default function Header() {
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white ${styles.header} ${visible ? `${styles.visible}` : ''}`}>
             <div className='z-10 lg:max-w-7xl m-auto w-full px-4'>
-                <div className={`m-auto flex justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                <div className={`m-auto flex justify-between items-center`}>
                     <div className="logo flex">
                         <div className='px-4 py-4'>
                             
@@ -101,9 +101,9 @@ export default function Header() {
 
                         </div>
                     </div>
-                    <div className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                        <div className={`lg:flex hidden justify-between items-center ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
-                            <ul className={`flex ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+                    <div className={`flex`}>
+                        <div className={`lg:flex hidden justify-between items-center `}>
+                            <ul className={`flex`}>
                                 {
                                     headerManu?.map((item: any, index: number) => (
                                         <li key={index}>
