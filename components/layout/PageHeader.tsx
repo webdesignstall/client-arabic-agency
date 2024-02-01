@@ -79,7 +79,6 @@ export default function PageHeader() {
   }, [])
   // @ts-ignore
   const logoUrl = headerLogo?.Url
-  console.log(logoUrl);
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white shadow-md`}>
             <div className='z-10 lg:max-w-7xl m-auto w-full px-4'>
