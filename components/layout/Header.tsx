@@ -72,14 +72,14 @@ export default function Header() {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
       setHeaderManu(data?.data)
       const logo = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/general?populate=*`);
-      console.log(logo);
+   
       setHeaderLogo(logo?.data?.data?.attributes?.logo?.data?.attributes);
     })()
 
   }, [])
   // @ts-ignore
   const logoUrl = headerLogo?.url
-  console.log(logoUrl);
+
 
     return (
         <div className={`fixed w-full z-50 lg:px-0 top-0 left-0 bg-white ${styles.header} ${visible ? `${styles.visible}` : ''}`}>

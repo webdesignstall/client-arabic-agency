@@ -13,6 +13,9 @@ import { cn } from '@/lib/utils';
 export default function ServicesSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
 
+  console.log('services locale', locale);
+  
+
   // @ts-ignore
   const [activeTab, setActiveTab] = useState(0);
 
@@ -61,15 +64,15 @@ export default function ServicesSection({ homeData }) {
         <div id='services'>
           <div>
             <div className='w-full'>
-              <h1 className={`lg:text-6xl text-3xl font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>
+              <h1 className={`lg:text-6xl text-3xl font-bold py-6`}>
                 {translate(homeData, 'homeSectionTwoTitle')}
               </h1>
             </div>
             <div>
               {/*<TabList tabs={tabs} />*/}
-              <div className={`lg:flex  pt-8 w-full hidden ${locale === 'en' ? 'flex-row' : 'flex-row-reverse'}`}>
+              <div className={`lg:flex  pt-8 w-full hidden flex-row `}>
                 <div className="w-2/3">
-                  <ul className="">
+                  <ul>
                     {
                       // @ts-ignore
                       tabs?.map((tab) => (
