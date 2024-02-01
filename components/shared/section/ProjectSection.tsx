@@ -29,7 +29,7 @@ export default function ProjectSection({ homeData }) {
 
   return (
     <SectionContainer>
-      <div id='project'>
+      <div id='section3'>
         <div className=''>
           <div className='w-full'>
             <h1 className={`lg:text-6xl font-bold py-4 text-3xl ${locale === 'en' ? '' : 'rtl'}`}>
@@ -49,8 +49,8 @@ export default function ProjectSection({ homeData }) {
                   <Link href={
                     // @ts-ignore
                     '/project-cases/' + item?.id}>
-                    <div className='overflow-hidden h-[330px]'>
-                      <img className='hover:scale-110 duration-300 cursor-pointer' src={
+                    <div className='overflow-hidden h-[310px]'>
+                      <img className='hover:scale-110 duration-300 cursor-pointer object-cover bg-cover' src={
                         // @ts-ignore
                         process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.formats?.large?.url
                       } alt="" />
@@ -73,7 +73,7 @@ export default function ProjectSection({ homeData }) {
             }
           </div>
 
-          <div className={`lg:flex justify-between items-center mt-12 ${locale === 'en' ?  '' : 'flex-row-reverse'}`}>
+          <div className={`lg:flex justify-between items-center mt-12 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
             <div className=''>
               <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
                 <img className='w-44' src={

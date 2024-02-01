@@ -70,6 +70,7 @@ export default function Header() {
     const [headerLogo, setHeaderLogo] = useState({});
     const [navber, setnavber] = useState(false)
 
+
     useEffect(() => {
         (async () => {
             const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/header-menus?populate=*`);
@@ -110,7 +111,7 @@ export default function Header() {
                                 {
                                     headerManu?.map((item: any, index: number) => (
                                         <li key={index}>
-                                            <Link href={`#${item?.attributes.link}`} className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
+                                            <Link href={`${item?.attributes.link}`} className='px-4 block text-md font-normal py-6 relative before:absolute before:hover:border before:bottom-0 before:w-0 before:hover:w-full before:left-0 before:duration-300 before:border-[#23beec]'>
                                                 {translate(item?.attributes, 'name')}
                                             </Link>
                                         </li>
@@ -158,7 +159,7 @@ export default function Header() {
                                                 {
                                                     headerManu?.map((item: any, index: number) => (
                                                         <li key={index}>
-                                                            <Link onClick={()=>setnavber(false)} href={`#${item?.attributes.link}`} className='text-xl px-12 py-6 block w-full hover:text-blue-800 hover:border-b border-b text-gray-700'>
+                                                            <Link onClick={()=>setnavber(false)} href={`${item?.attributes.link}`} className='text-xl px-12 py-6 block w-full hover:text-blue-800 hover:border-b border-b text-gray-700'>
                                                                 {translate(item?.attributes, 'name')}
                                                             </Link>
                                                         </li>

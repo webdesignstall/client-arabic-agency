@@ -79,7 +79,7 @@ const CompnarySection: React.FC<any> = ({ homeData }) => {
 
   return (
     <SectionContainer>
-      <div id='technologies'>
+      <div id='section4'>
         <div>
           <div className='py-2'>
             <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
