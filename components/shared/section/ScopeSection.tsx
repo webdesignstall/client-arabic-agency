@@ -23,7 +23,7 @@ export default function ScopeSection({ homeData }) {
 
   return (
     <SectionContainer>
-      <div id='scope'>
+      <div id='section1'>
         <div>
           <div>
             <h1 className={`text-4xl lg:text-6xl lg:font-bold py-6 ${locale === 'en' ? '' : 'rtl'}`}>

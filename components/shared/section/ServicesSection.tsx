@@ -12,10 +12,7 @@ import { cn } from '@/lib/utils';
 // @ts-ignore
 export default function ServicesSection({ homeData }) {
   const { locale, switchLocale } = useLocalization();
-
-  console.log('services locale', locale);
   
-
   // @ts-ignore
   const [activeTab, setActiveTab] = useState(0);
 
@@ -61,7 +58,7 @@ export default function ServicesSection({ homeData }) {
   if (tabs?.length > 0) {
     return (
       <SectionContainer>
-        <div id='services'>
+        <div id='section2'>
           <div>
             <div className='w-full'>
               <h1 className={`lg:text-6xl text-3xl font-bold py-6`}>

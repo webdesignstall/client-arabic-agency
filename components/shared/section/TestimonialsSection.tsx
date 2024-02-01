@@ -62,7 +62,7 @@ const TestimonialsSection: React.FC<any> = ({ homeData }) => {
   const { locale, switchLocale } = useLocalization();
   return (
     <SectionContainer>
-      <div id='testimonials'>
+      <div id='section5'>
         <div>
           <div className='py-2'>
             <h1 className={`lg:text-6xl text-3xl font-semibold ${locale === 'en' ? '' : 'rtl'}`}>
