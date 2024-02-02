@@ -152,7 +152,7 @@ export default function BookFree() {
                                 categories?.map(category => (
                                     <option value={
                                         // @ts-ignore
-                                        category?.attributes?.name}>{
+                                        translate(category?.attributes, 'name')}>{
                                         // @ts-ignore
                                         translate(category?.attributes, 'name')}</option>
                                 ))
