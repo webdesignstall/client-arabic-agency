@@ -58,7 +58,10 @@ export default function AboutSection({ homeData }) {
                 Object?.keys(feature)?.length === 0 ? '' :
                     <div>
                       <div className='overflow-hidden w-full'>
-                        <img className='hover:scale-110 duration-300 cursor-pointer' src="https://images.ctfassets.net/96fo3urb6c1x/43YeIB1s8jWoELHtBTiH4W/09995f84f69957cff8d393106404710c/covid-and-health-it_2x.jpg?w=1640&h=680&q=100&fm=webp" alt="" />
+                        <img className='hover:scale-110 duration-300 cursor-pointer' src={
+                          // @ts-ignore
+                          process.env.NEXT_PUBLIC_BACKED_BASE + homeSectionSeven[0]?.attributes?.photo?.data?.attributes?.url
+                        } alt="" />
                       </div>
                       <div>
                         <Link href={`/see-more/${

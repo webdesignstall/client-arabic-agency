@@ -13,6 +13,7 @@ import WhatHappens from "@/components/shared/deteils/WhatHappens ";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import OrderSection from "../../../components/shared/section/OrderSection";
 
 const Deteils = () => {
 
@@ -20,17 +21,24 @@ const Deteils = () => {
 
 
   return (
-    <div className="bg-white">
-      <PageHeader />
-      <DrivenMedical />
-      {/*<TreatmentPlan />*/}
-      {/*<About />
-      <AboutProject />
-      <Challenges />
-      <AppFunctionality />
-      <CustomerReview />
-      <WhatHappens />*/}
-    </div>
+      <>
+          <div className="bg-white">
+              <PageHeader />
+              <DrivenMedical />
+              {/*<TreatmentPlan />*/}
+              {/*<About />
+              <AboutProject />
+              <Challenges />
+              <AppFunctionality />
+              <CustomerReview />
+              <WhatHappens />*/}
+          </div>
+          <div className="bg-white">
+              <OrderSection/>
+          </div>
+
+      </>
+
   );
 };
 
