@@ -16,31 +16,31 @@ import axios from "axios";
 
 const Deteils = () => {
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const [detail, setDetail] = useState({});
 
   useEffect(() => {
       // @ts-ignore
       (async () => {
-          const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-sevens/${id}?populate=*`);
+          const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s/${slug}?populate=*`);
           setDetail(data?.data?.attributes)
       })()
 
-  }, [id])
+  }, [slug])
 
 
   return (
     <div className="bg-white">
       <PageHeader />
-      <DrivenMedical />
-      <TreatmentPlan />
-      <About />
+      <DrivenMedical detail={detail} />
+      {/*<TreatmentPlan />*/}
+      {/*<About />
       <AboutProject />
       <Challenges />
       <AppFunctionality />
       <CustomerReview />
-      <WhatHappens />
+      <WhatHappens />*/}
     </div>
   );
 };
