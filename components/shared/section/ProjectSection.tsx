@@ -19,8 +19,8 @@ export default function ProjectSection({ homeData }) {
     // @ts-ignore
     (async () => {
       const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s?populate=*`);
-      const last = data?.data.pop();
-      setLastData(last);
+      /*const last = data?.data.pop();
+      setLastData(last);*/
       setHomeSectionThree(data?.data)
     })()
 
@@ -40,17 +40,17 @@ export default function ProjectSection({ homeData }) {
             </p>
           </div>
 
-          <div className={`lg:flex`}>
+          <div className={`grid grid-cols-1 lg:grid-cols-3 gap-4`}>
 
             {
               // @ts-ignore
               homeSectionThree?.map(item => (
-                <div className='lg:w-1/2 lg:mx-6 w-full mt-12'>
+                <div className='lg:mx-6 mt-12'>
                   <Link href={
                     // @ts-ignore
                     '/project-cases/' + item?.id} >
                     <div className='overflow-hidden h-[310px]'>
-                      <img className='hover:scale-110 duration-300 cursor-pointer object-cover bg-cover' src={
+                      <img className='hover:scale-110 duration-300 cursor-pointer object-fill w-full h-full bg-cover' src={
                         // @ts-ignore
                         process.env.NEXT_PUBLIC_BACKED_BASE + item?.attributes?.thumbnail?.data?.attributes?.url
                       } alt="" />
@@ -77,7 +77,7 @@ export default function ProjectSection({ homeData }) {
             }
           </div>
 
-          <div className={`lg:flex justify-between items-center mt-12 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
+          {/*<div className={`lg:flex justify-between items-center mt-12 ${locale === 'en' ? '' : 'flex-row-reverse'}`}>
             <div className=''>
               <div className='py-8 text-2xl font-semibold text-gray-500 hover:text-gray-900 duration-300 cursor-pointer'>
                 <img className='w-44' src={
@@ -117,7 +117,7 @@ export default function ProjectSection({ homeData }) {
                   alt="logo" />
               </Link>
             </div>
-          </div>
+          </div>*/}
 
         </div>
       </div>

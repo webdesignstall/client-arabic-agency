@@ -48,17 +48,17 @@ const DrivenMedical: React.FC<TabsProps> = () => {
           </Link>
       </div>
 
-    <div className="md:grid grid-cols-12 justify-between mt-6 pt-10 md:mt-7 items-end mb-12">
-      <div className="col-span-12 flex flex-col justify-center md:justify-start mb-5 md:mb-0">
-        <h1 className="text-2xl text-center md:text-start md:text-3xl lg:text-5xl font-medium">
-          {
-            // @ts-ignore
-            translate(detail, 'title')
-          }
-        </h1>
+      <div className="md:grid grid-cols-12 justify-between mt-6 pt-10 md:mt-7 items-end mb-12">
+        <div className="col-span-12 flex flex-col justify-center md:justify-start mb-5 md:mb-0">
+          <h1 className="text-2xl text-center md:text-start md:text-3xl lg:text-5xl font-medium">
+            {
+              // @ts-ignore
+              translate(detail, 'title')
+            }
+          </h1>
 
+        </div>
       </div>
-    </div>
 
       <img src={
         // @ts-ignore
@@ -69,14 +69,14 @@ const DrivenMedical: React.FC<TabsProps> = () => {
         // @ts-ignore
         detail?.tab?.length && (
 
-              <Tabs.Root defaultValue={
+              <Tabs.Root className={`${locale !== 'en'? 'rtl' : ''} mt-14`} defaultValue={
                 // @ts-ignore
                 detail?.tab[0]['id']?.toString()} activationMode={'automatic'} orientation="vertical">
                 <Tabs.List className='flex gap-6'>
                   {
                     // @ts-ignore
                     detail?.tab?.map((tab)=> (
-                        <Tabs.Trigger onClick={(value)=> setActiveTab(tab?.id?.toString())} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${ activeTab == tab?.id ? 'border-[#23beec]':'border-white'}`} value={tab?.id?.toString()}>{tab?.tabName}</Tabs.Trigger>
+                        <Tabs.Trigger onClick={(value)=> setActiveTab(tab?.id?.toString())} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${ activeTab == tab?.id ? 'border-[#23beec]':'border-white'}`} value={tab?.id?.toString()}>{ locale == 'ar' ? tab?.tabNameArabic : tab?.tabNameEnglish}</Tabs.Trigger>
                     ))
                   }
                 </Tabs.List>
@@ -87,7 +87,7 @@ const DrivenMedical: React.FC<TabsProps> = () => {
                       <Tabs.Content className='mt-14' value={tab?.id?.toString()}>
                         <div dangerouslySetInnerHTML={{
                           // @ts-ignore
-                          __html: tab?.content}}></div>
+                          __html: locale == 'ar' ? tab?.arabicContent : tab?.englishContent}}></div>
                       </Tabs.Content>
                   ))
                 }
