@@ -46,29 +46,19 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
                 <div className="md:grid grid-cols-2">
                   <div className="col-span-1">
                       <h1 className="text-2xl text-center md:text-start lg:text-4xl font-medium text-black">{childrenData?.client?.title}</h1>
+                  {/*     <div dangerouslySetInnerHTML={{
+            // @ts-ignore
+            __html: translate(aboutData, 'content') }}></div>*/}
                       <p className="text-sm md:text-lg mt-2">{childrenData?.client?.discription}</p>
                       <h1 className="text-xl text-[#B2B2B2] my-5 lg:mt-10">LOCATION: <span className="pl-4 text-black">France</span></h1>
                   </div>
-                  <div className="col-span-1">
+                  {/*<div className="col-span-1">
                       <img src={childrenData?.client?.location} alt="" />
-                  </div>
+                  </div>*/}
                 </div>
             : <>
               <h1 className="text-4xl font-medium text-black">{childrenData?.client?.title}</h1>
               <p className="text-xl mt-2">{childrenData?.client?.discription}</p>
-             {/*  <div style={{width: '95%', margin: 'auto'}} className="pt-10 ">
-                <img src={images?images: childrenData?.client?.location} alt="" className="h-[400px] w-full"/>
-                <div className="flex gap-2 mt-3 justify-center flex-wrap">
-                    {
-                        allImages?.map((img:string , index: Key | null | undefined)=>
-                        <div onClick={()=>setImages(img)} key={index} className="border rounded p-1 bg-[#FAFAFA]">
-                            <img src={img} alt="" className="w-[30px] h-[20px] md:w-[130px] md:h-[50px] rounded"/>
-                        </div>
-                        )
-                      }
-                </div>
-
-              </div> */}
             </>
         }
       </div>
