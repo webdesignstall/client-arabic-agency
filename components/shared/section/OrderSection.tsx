@@ -1,22 +1,29 @@
 "use client";
 import SectionContainer from "@/components/SectionContainer";
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import { translate } from "@/utility/translate";
 import BookFree from "../seeMore/BookFree";
+import axios from "axios";
+import {useLocalization} from "@/context/LocalizeProvider";
 
 // @ts-ignore
-export default function OrderSection({ homeData }) {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [requirements, setRequirements] = useState("");
+export default function OrderSection() {
 
-  // @ts-ignore
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-  };
+  const {locale} = useLocalization();
+
+  const [formInfo, setFormInfo] = useState({});
+
+  useEffect(() => {
+    // @ts-ignore
+    (async () => {
+      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/contact-us-form-texts?populate=*`);
+      setFormInfo(data?.data[0]?.attributes)
+    })()
+
+  }, [])
+
+
   return (
     <SectionContainer>
       <div id="section9" className="flex flex-col md:flex-row">
@@ -24,15 +31,18 @@ export default function OrderSection({ homeData }) {
           <div className="">
             <div className="text-center">
               <h2 className="md:text-4xl font-heading font-bold mb-4 text-xl text-left">
-
-                {translate(homeData, 'homeSectionTenTitle')}
+                {
+                  // @ts-ignore
+                  translate(formInfo, 'title')}
               </h2>
               <p className="text-gray-900 mb-3 md:text-2xl text-lg text-left">
-                What happens next?
+                {
+                  // @ts-ignore
+                  translate(formInfo, 'subTitle')}
               </p>
               <div className="flex justify-center pt-7">
                 <div className=" w-full">
-                  <div className="">
+                  {/*<div className="">
                     <ul className="space-y-8">
                       <li className="flex items-center space-x-4 text-left md:text-base text-sm">
                         <div className="rounded-full bg-blue-500 p-3 text-white">
@@ -104,38 +114,51 @@ export default function OrderSection({ homeData }) {
                         </div>
                       </li>
                     </ul>
-                  </div>
+                  </div>*/}
+
+                  <div dangerouslySetInnerHTML={{
+                    // @ts-ignore
+                    __html: translate(formInfo, 'body')}}></div>
+
                 </div>
               </div>
-              <div>
-                <h3 className="text-gray-600 mb-3 text-left md:text-2xl text-lg mt-8">
-                  Customer who trust us
-                </h3>
-                <div className=" flex justify-space-between w-full">
-                  <img
-                    src="https://static.andersenlab.com/andersenlab/new-andersensite/cases/samsung/logo/samsung-gray.svg"
-                    alt="Customers who trust us"
-                    className="w-4/12 mr-2"
-                  />
+              {
+                // @ts-ignore
+                formInfo?.CustomerWhoTrustUs?.data?.length && (
+                      <div>
+                        <h3 className="text-gray-600 mb-3 text-left md:text-2xl text-lg mt-8">
+                          {
+                            locale !== 'en' ? 'العميل الذي يثق بنا' : 'Customer who trust us'
+                          }
 
-                  <img
-                    src="https://static.andersenlab.com/andersenlab/new-andersensite/customers/verivox-gmbh.svg"
-                    alt="SAMSUNG VeriVOX TUI"
-                    className="w-4/12 mr-2"
-                  />
+                        </h3>
+                        <div className=" flex justify-space-between w-full">
+                          {
+                            // @ts-ignore
+                            formInfo?.CustomerWhoTrustUs?.data?.map(image => (
+                                <img
+                                    src={
+                                      // @ts-ignore
+                                        process.env.NEXT_PUBLIC_BACKED_BASE + image?.attributes?.url
+                                    }
+                                    alt="Customers who trust us"
+                                    style={{width: '40px '}}
+                                    className="w-4/12 mr-2"
+                                />
+                            ))
+                          }
 
-                  <img
-                    src=" https://static.andersenlab.com/andersenlab/new-andersensite/customers/tui.svg"
-                    alt="SAMSUNG VeriVOX TUI"
-                    className="w-4/12"
-                  />
-                </div>
-              </div>
+
+                        </div>
+                      </div>
+                  )
+              }
+
             </div>
           </div>
         </div>
 
-        <div className="w-full md:w-8/12  lg:pl-24 mt-3">
+        <div className="w-full md:w-8/12  lg:pl-24 lg:pr-24 mt-3">
           <div className="w-full ">
             <BookFree/>
           </div>
