@@ -43,7 +43,7 @@ const page = () => {
           <InterviewSection homeData={homeData} />
           <AboutSection homeData={homeData} />
           <AdvantagesSection homeData={homeData} />
-          <OrderSection homeData={homeData} />
+          <OrderSection />
         </main>
       </div>
     </WidthContainer>
