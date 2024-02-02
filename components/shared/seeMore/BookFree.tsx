@@ -11,9 +11,7 @@ export default function BookFree() {
             name: '',
             email: '',
             phone: '',
-            projectDescription: '',
-            file: '',
-            nda: false,
+            projectDescription: ''
         });
 
     const [formErrors, setFormErrors] = useState({
@@ -152,7 +150,9 @@ export default function BookFree() {
 
                             {
                                 categories?.map(category => (
-                                    <option value="healthcare">{
+                                    <option value={
+                                        // @ts-ignore
+                                        category?.attributes?.name}>{
                                         // @ts-ignore
                                         translate(category?.attributes, 'name')}</option>
                                 ))
