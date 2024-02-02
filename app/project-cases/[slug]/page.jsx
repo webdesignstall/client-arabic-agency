@@ -16,24 +16,13 @@ import axios from "axios";
 
 const Deteils = () => {
 
-  const { slug } = useParams();
 
-  const [detail, setDetail] = useState({});
-
-  useEffect(() => {
-      // @ts-ignore
-      (async () => {
-          const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE}/home-section-3s/${slug}?populate=*`);
-          setDetail(data?.data?.attributes)
-      })()
-
-  }, [slug])
 
 
   return (
     <div className="bg-white">
       <PageHeader />
-      <DrivenMedical detail={detail} />
+      <DrivenMedical />
       {/*<TreatmentPlan />*/}
       {/*<About />
       <AboutProject />
