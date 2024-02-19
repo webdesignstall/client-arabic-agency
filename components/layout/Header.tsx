@@ -98,7 +98,9 @@ export default function Header() {
 
                         <Link href='/'>
                           
-                            <h1 className={`${oswald.className} uppercase text-2xl mr-10`}>{
+                            <h1
+                                style={{color: '#3c3c9e'}}
+                                className={`${oswald.className} uppercase text-2xl mr-10`}>{
                                 translate(general, 'logoName')
                             }</h1>
                         </Link>

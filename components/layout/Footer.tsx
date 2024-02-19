@@ -64,423 +64,707 @@ export default function Footer() {
   // @ts-ignore
   return (
     <div className="md:my-16 md:mx-20 py-5 px-8">
-      <div className="hidden md:block">
-        <div className={`text-white px-4 py-8 `}>
-          <div className={`flex flex-row justify-between`}>
+      {/*<div className="hidden md:block">*/}
+      {/*  <div className={`text-white px-4 py-8 `}>*/}
+      {/*    <div className={`flex flex-row justify-between`}>*/}
 
-            {
-              quickLinks?.length > 0 ?
-                (
-                  <div>
-                    <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
-                    {
-                        locale !== 'en' ? "رابط سريع" : "Quick Link"
-                      }
+            {/*{*/}
+            {/*  quickLinks?.length > 0 ?*/}
+            {/*    (*/}
+            {/*      <div>*/}
+            {/*        <h3 className="font-bold mb-2 lg:text-lg md:text-sm">*/}
+            {/*        {*/}
+            {/*            locale !== 'en' ? "رابط سريع" : "Quick Link"*/}
+            {/*          }*/}
 
-                    </h3>
-                    <ul
-                      className=" lg:text-base md:text-xs"
-                      style={{ lineHeight: "32px" }}
-                    >
-                      {
-                        quickLinks?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link 
-                            href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
+            {/*        </h3>*/}
+            {/*        <ul*/}
+            {/*          className=" lg:text-base md:text-xs"*/}
+            {/*          style={{ lineHeight: "32px" }}*/}
+            {/*        >*/}
+            {/*          {*/}
+            {/*            quickLinks?.map((link:any, index:number) => (*/}
+            {/*              <li key={index}>*/}
+            {/*                <Link */}
+            {/*                href={link}>{*/}
+            {/*                  // @ts-ignore*/}
+            {/*                  translate(link?.attributes, 'title')*/}
+            {/*                }</Link>*/}
+            {/*              </li>*/}
+            {/*            ))*/}
+            {/*          }*/}
 
-                    </ul>
-                  </div>
-                )
-                : ''
-            }
+            {/*        </ul>*/}
+            {/*      </div>*/}
+            {/*    )*/}
+            {/*    : ''*/}
+            {/*}*/}
 
-            {
-              teckStacks?.length > 0 ?
-                (
-                  <div>
-                    <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                    {
-                        locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"
-                      }
-                    </h3>
-                    <ul
-                      className=" lg:text-base md:text-xs"
-                      style={{ lineHeight: "32px" }}
-                    >
-                      {
-                        teckStacks?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link 
-                            
-                          
-                            href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </div>
-                )
-                : ''
-            }
+            {/*{*/}
+            {/*  teckStacks?.length > 0 ?*/}
+            {/*    (*/}
+            {/*      <div>*/}
+            {/*        <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">*/}
+            {/*        {*/}
+            {/*            locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"*/}
+            {/*          }*/}
+            {/*        </h3>*/}
+            {/*        <ul*/}
+            {/*          className=" lg:text-base md:text-xs"*/}
+            {/*          style={{ lineHeight: "32px" }}*/}
+            {/*        >*/}
+            {/*          {*/}
+            {/*            teckStacks?.map((link:any, index:number) => (*/}
+            {/*              <li key={index}>*/}
+            {/*                <Link */}
+            {/*                */}
+            {/*              */}
+            {/*                href={link}>{*/}
+            {/*                  // @ts-ignore*/}
+            {/*                  translate(link?.attributes, 'title')*/}
+            {/*                }</Link>*/}
+            {/*              </li>*/}
+            {/*            ))*/}
+            {/*          }*/}
+            {/*        </ul>*/}
+            {/*      </div>*/}
+            {/*    )*/}
+            {/*    : ''*/}
+            {/*}*/}
 
-            {
-              services?.length > 0 ?
-                (
-                  <div>
-                    <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                    {
-                        locale !== 'en' ? "خدمات" : "SERVICES"
-                      }
-                    </h3>
-                    <ul
-                      className=" lg:text-base md:text-xs"
-                      style={{ lineHeight: "32px" }}
-                    >
-                      {
-                        services?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link 
-                            
-                            href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </div>
-                )
-                : ''
-            }
+            {/*{*/}
+            {/*  services?.length > 0 ?*/}
+            {/*    (*/}
+            {/*      <div>*/}
+            {/*        <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">*/}
+            {/*        {*/}
+            {/*            locale !== 'en' ? "خدمات" : "SERVICES"*/}
+            {/*          }*/}
+            {/*        </h3>*/}
+            {/*        <ul*/}
+            {/*          className=" lg:text-base md:text-xs"*/}
+            {/*          style={{ lineHeight: "32px" }}*/}
+            {/*        >*/}
+            {/*          {*/}
+            {/*            services?.map((link:any, index:number) => (*/}
+            {/*              <li key={index}>*/}
+            {/*                <Link */}
+            {/*                */}
+            {/*                href={link}>{*/}
+            {/*                  // @ts-ignore*/}
+            {/*                  translate(link?.attributes, 'title')*/}
+            {/*                }</Link>*/}
+            {/*              </li>*/}
+            {/*            ))*/}
+            {/*          }*/}
+            {/*        </ul>*/}
+            {/*      </div>*/}
+            {/*    )*/}
+            {/*    : ''*/}
+            {/*}*/}
 
-            {
-              projects?.length > 0 ?
-                (
-                  <div>
-                    <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                      {
-                        locale !== 'en' ? "مشروع" : "PROJECT"
-                      }
-                    </h3>
-                    <ul
-                      className=" lg:text-base md:text-xs"
-                      style={{ lineHeight: "32px" }}
-                    >
-                      {
-                        projects?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </div>
-                )
-                : ''
-            }
+            {/*{*/}
+            {/*  projects?.length > 0 ?*/}
+            {/*    (*/}
+            {/*      <div>*/}
+            {/*        <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">*/}
+            {/*          {*/}
+            {/*            locale !== 'en' ? "مشروع" : "PROJECT"*/}
+            {/*          }*/}
+            {/*        </h3>*/}
+            {/*        <ul*/}
+            {/*          className=" lg:text-base md:text-xs"*/}
+            {/*          style={{ lineHeight: "32px" }}*/}
+            {/*        >*/}
+            {/*          {*/}
+            {/*            projects?.map((link:any, index:number) => (*/}
+            {/*              <li key={index}>*/}
+            {/*                <Link href={link}>{*/}
+            {/*                  // @ts-ignore*/}
+            {/*                  translate(link?.attributes, 'title')*/}
+            {/*                }</Link>*/}
+            {/*              </li>*/}
+            {/*            ))*/}
+            {/*          }*/}
+            {/*        </ul>*/}
+            {/*      </div>*/}
+            {/*    )*/}
+            {/*    : ''*/}
+            {/*}*/}
 
-            {
-              companies?.length > 0 ?
-                (
-                  <div>
-                    <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">
-                    {
-                locale !== 'en' ? "شركة" : "COMPANY"
-              }   
-                    </h3>
-                    <ul
-                      className=" lg:text-base md:text-xs"
-                      style={{ lineHeight: "32px" }}
-                    >
-                      {
-                        companies?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </div>
-                )
-                : ''
-            }
-
-
-
-          </div>
-        </div>
-      </div>
-
-      <div className="start accordio">
-        <div className="block md:hidden text-white divide-y divide-neutral-200 max-w-xl mx-auto mt-8">
-          
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none 
-              
-               
-              `}>
-                <span>
-                {
-                locale !== 'en' ? "شركة" : "COMPANY"
-              }  
-
-                </span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-3 group-open:animate-fadeIn">
-                  <ul
-                     
-                    style={{ lineHeight: "32px" }}
-                  >
-                    {
-                        companies?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link  href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                  </ul>
-                </div>
-            </details>
-          </div>
-          
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
-                <span>
-                {
-                locale !== 'en' ? "مشروع" : "PROJECT"
-              }  
-
-                </span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-3 group-open:animate-fadeIn">
-                  <ul
-                    style={{ lineHeight: "32px" }}
-                  >
-                    {
-                        projects?.map((link:any, index:number) => (
-                          <li key={index}>
-                            <Link href={link}>{
-                              // @ts-ignore
-                              translate(link?.attributes, 'title')
-                            }</Link>
-                          </li>
-                        ))
-                      }
-                  </ul>
-                </div>
-            </details>
-          </div>
-          <div className="py-5 ">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
-                <span>
-
-                {
-                        locale !== 'en' ? "خدمات" : "SERVICES"
-                      }
-                </span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-3 group-open:animate-fadeIn">
-                  <ul
-                     
-                    style={{ lineHeight: "32px" }}
-                  >{
-                    services?.map((link:any, index:number) => (
-                      <li key={index}>
-                        <Link href={link}>{
-                          // @ts-ignore
-                          translate(link?.attributes, 'title')
-                        }</Link>
-                      </li>
-                    ))
-                  }
-                  </ul>
-                </div>
-            </details>
-          </div>
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>
-                <span>
-                {
-                        locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"
-                      }
-
-                </span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-3 group-open:animate-fadeIn">
-
-                  <ul
-                  
-                    style={{ lineHeight: "32px" }}
-                  >{
-                    teckStacks?.map((link:any, index:number) => (
-                      <li key={index}>
-                        <Link href={link}>{
-                          // @ts-ignore
-                          translate(link?.attributes, 'title')
-                        }</Link>
-                      </li>
-                    ))
-                  }
-                  </ul>
-                </div>
-            </details>
-          </div>
-          <div className="py-5">
-            <details className="group">
-              <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>
-                <span>
-                {
-                        locale !== 'en' ? "رابط سريع" : "Quick Link"
-                      }
-
-                </span>
-                <span className="transition group-open:rotate-180">
-                  <svg
-                    fill="none"
-                    height="24"
-                    shapeRendering="geometricPrecision"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                  >
-                    <path d="M6 9l6 6 6-6"></path>
-                  </svg>
-                </span>
-              </summary>
-              <div className="mt-3 group-open:animate-fadeIn">
-
-                  <ul
-                     
-                    style={{ lineHeight: "32px" }}
-                  >{
-                    quickLinks?.map((link:any, index:number) => (
-                      <li key={index}>
-                        <Link href={link}>{
-                          // @ts-ignore
-                          translate(link?.attributes, 'title')
-                        }</Link>
-                      </li>
-                    ))
-                  }
-                  </ul>
-                </div>
-            </details>
-          </div>
-        </div>
-      </div>
+            {/*{*/}
+            {/*  companies?.length > 0 ?*/}
+            {/*    (*/}
+            {/*      <div>*/}
+            {/*        <h3 className="font-bold mb-2 lg:text-lg md:text-sm uppercase">*/}
+            {/*        {*/}
+            {/*    locale !== 'en' ? "شركة" : "COMPANY"*/}
+            {/*  }   */}
+            {/*        </h3>*/}
+            {/*        <ul*/}
+            {/*          className=" lg:text-base md:text-xs"*/}
+            {/*          style={{ lineHeight: "32px" }}*/}
+            {/*        >*/}
+            {/*          {*/}
+            {/*            companies?.map((link:any, index:number) => (*/}
+            {/*              <li key={index}>*/}
+            {/*                <Link href={link}>{*/}
+            {/*                  // @ts-ignore*/}
+            {/*                  translate(link?.attributes, 'title')*/}
+            {/*                }</Link>*/}
+            {/*              </li>*/}
+            {/*            ))*/}
+            {/*          }*/}
+            {/*        </ul>*/}
+            {/*      </div>*/}
+            {/*    )*/}
+            {/*    : ''*/}
+            {/*}*/}
 
 
-      <div className={`text-white py-12 border-t  border-gray-700 flex flex-col md:flex-row gap-7 justify-between  `}>
+
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+
+      {/*<div className="start accordio">*/}
+      {/*  <div className="block md:hidden text-white divide-y divide-neutral-200 max-w-xl mx-auto mt-8">*/}
+      {/*    */}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none */}
+      {/*        */}
+      {/*         */}
+      {/*        `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*          locale !== 'en' ? "شركة" : "COMPANY"*/}
+      {/*        }  */}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >*/}
+      {/*              {*/}
+      {/*                  companies?.map((link:any, index:number) => (*/}
+      {/*                    <li key={index}>*/}
+      {/*                      <Link  href={link}>{*/}
+      {/*                        // @ts-ignore*/}
+      {/*                        translate(link?.attributes, 'title')*/}
+      {/*                      }</Link>*/}
+      {/*                    </li>*/}
+      {/*                  ))*/}
+      {/*                }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    */}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*          locale !== 'en' ? "مشروع" : "PROJECT"*/}
+      {/*        }  */}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >*/}
+      {/*              {*/}
+      {/*                  projects?.map((link:any, index:number) => (*/}
+      {/*                    <li key={index}>*/}
+      {/*                      <Link href={link}>{*/}
+      {/*                        // @ts-ignore*/}
+      {/*                        translate(link?.attributes, 'title')*/}
+      {/*                      }</Link>*/}
+      {/*                    </li>*/}
+      {/*                  ))*/}
+      {/*                }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5 ">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>*/}
+      {/*          <span>*/}
+
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "خدمات" : "SERVICES"*/}
+      {/*                }*/}
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              services?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"*/}
+      {/*                }*/}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+
+      {/*            <ul*/}
+      {/*            */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              teckStacks?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "رابط سريع" : "Quick Link"*/}
+      {/*                }*/}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              quickLinks?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>      {/*<div className="start accordio">*/}
+      {/*  <div className="block md:hidden text-white divide-y divide-neutral-200 max-w-xl mx-auto mt-8">*/}
+      {/*    */}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none */}
+      {/*        */}
+      {/*         */}
+      {/*        `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*          locale !== 'en' ? "شركة" : "COMPANY"*/}
+      {/*        }  */}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >*/}
+      {/*              {*/}
+      {/*                  companies?.map((link:any, index:number) => (*/}
+      {/*                    <li key={index}>*/}
+      {/*                      <Link  href={link}>{*/}
+      {/*                        // @ts-ignore*/}
+      {/*                        translate(link?.attributes, 'title')*/}
+      {/*                      }</Link>*/}
+      {/*                    </li>*/}
+      {/*                  ))*/}
+      {/*                }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    */}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*          locale !== 'en' ? "مشروع" : "PROJECT"*/}
+      {/*        }  */}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >*/}
+      {/*              {*/}
+      {/*                  projects?.map((link:any, index:number) => (*/}
+      {/*                    <li key={index}>*/}
+      {/*                      <Link href={link}>{*/}
+      {/*                        // @ts-ignore*/}
+      {/*                        translate(link?.attributes, 'title')*/}
+      {/*                      }</Link>*/}
+      {/*                    </li>*/}
+      {/*                  ))*/}
+      {/*                }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5 ">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>*/}
+      {/*          <span>*/}
+
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "خدمات" : "SERVICES"*/}
+      {/*                }*/}
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              services?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none`}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "مكدس التكنولوجيا" : "TECH STACK"*/}
+      {/*                }*/}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+
+      {/*            <ul*/}
+      {/*            */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              teckStacks?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*    <div className="py-5">*/}
+      {/*      <details className="group">*/}
+      {/*        <summary className={`flex justify-between items-center font-medium cursor-pointer list-none `}>*/}
+      {/*          <span>*/}
+      {/*          {*/}
+      {/*                  locale !== 'en' ? "رابط سريع" : "Quick Link"*/}
+      {/*                }*/}
+
+      {/*          </span>*/}
+      {/*          <span className="transition group-open:rotate-180">*/}
+      {/*            <svg*/}
+      {/*              fill="none"*/}
+      {/*              height="24"*/}
+      {/*              shapeRendering="geometricPrecision"*/}
+      {/*              stroke="currentColor"*/}
+      {/*              strokeLinecap="round"*/}
+      {/*              strokeLinejoin="round"*/}
+      {/*              strokeWidth="1.5"*/}
+      {/*              viewBox="0 0 24 24"*/}
+      {/*              width="24"*/}
+      {/*            >*/}
+      {/*              <path d="M6 9l6 6 6-6"></path>*/}
+      {/*            </svg>*/}
+      {/*          </span>*/}
+      {/*        </summary>*/}
+      {/*        <div className="mt-3 group-open:animate-fadeIn">*/}
+
+      {/*            <ul*/}
+      {/*               */}
+      {/*              style={{ lineHeight: "32px" }}*/}
+      {/*            >{*/}
+      {/*              quickLinks?.map((link:any, index:number) => (*/}
+      {/*                <li key={index}>*/}
+      {/*                  <Link href={link}>{*/}
+      {/*                    // @ts-ignore*/}
+      {/*                    translate(link?.attributes, 'title')*/}
+      {/*                  }</Link>*/}
+      {/*                </li>*/}
+      {/*              ))*/}
+      {/*            }*/}
+      {/*            </ul>*/}
+      {/*          </div>*/}
+      {/*      </details>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
+
+
+      <div className={`text-white py-12  flex flex-col md:flex-row gap-7 justify-between  `}>
         <div>
-          <h2 className="text-xl font-bold mb-4">
-          {
-                locale !== 'en' ? "مكاتبنا" : "Our Office"
-              }   
+          {/*<h2 className="text-xl font-bold mb-4">*/}
+          {/*{*/}
+          {/*      locale !== 'en' ? "مكاتبنا" : "Our Office"*/}
+          {/*    }   */}
           
-          </h2>
-          <div className="flex gap-2">
+          {/*</h2>*/}
+          {/*<div className="flex gap-2">*/}
 
-            <div
-            >
-              <div className="text-xs lg:text-base md:text-sm">
-                <p>{
-                  // @ts-ignore
-                  translate(contactUs, 'physicalAddress')}
-                </p>
+          {/*  <div*/}
+          {/*  >*/}
+          {/*    <div className="text-xs lg:text-base md:text-sm">*/}
+          {/*      <p>{*/}
+          {/*        // @ts-ignore*/}
+          {/*        translate(contactUs, 'physicalAddress')}*/}
+          {/*      </p>*/}
 
+          {/*    </div>*/}
+          {/*  </div>*/}
+
+          {/*</div>*/}
+          {
+            quickLinks?.length > 0 ?
+                (
+                    <div>
+                      <h3 className="font-bold mb-2 lg:text-lg md:text-sm">
+                        {
+                          locale !== 'en' ? "رابط سريع" : "Quick Link"
+                        }
+
+                      </h3>
+                      <ul
+                          className=" lg:text-base md:text-xs"
+                          style={{ lineHeight: "32px" }}
+                      >
+                        {
+                          quickLinks?.map((link:any, index:number) => (
+                              <li key={index}>
+                                <Link
+                                    href={link}>{
+                                  // @ts-ignore
+                                  translate(link?.attributes, 'title')
+                                }</Link>
+                              </li>
+                          ))
+                        }
+
+                      </ul>
+                    </div>
+                )
+                : ''
+          }
+
+
+        </div>
+        <div>
+
+          <div className={'mb-5'}>
+            <h2 className="text-xl font-bold mb-4">
+              {
+                locale !== 'en' ? "مكاتبنا" : "Our Office"
+              }
+
+            </h2>
+            <div className="flex gap-2">
+
+              <div
+              >
+                <div className="text-xs lg:text-base md:text-sm">
+                  <p>{
+                    // @ts-ignore
+                    translate(contactUs, 'physicalAddress')}
+                  </p>
+
+                </div>
               </div>
+
+            </div>
             </div>
 
-          </div>
 
-        </div>
-        <div>
+
           <h2 className="text-lg font-bold mb-4">
 
               {
