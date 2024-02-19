@@ -826,7 +826,7 @@ export default function Footer() {
         <div>
           <img src={
             // @ts-ignore
-            process.env.NEXT_PUBLIC_BACKED_BASE + contactUs?.qrcode?.data?.attributes?.formats?.thumbnail?.url} width={150} height={150} alt={'OMG ALTHAKAA'} />
+            process.env.NEXT_PUBLIC_BACKED_BASE + contactUs?.qrcode?.data?.attributes?.formats?.thumbnail?.url} width={240} height={240} alt={'OMG ALTHAKAA'} />
         </div>
 
 
