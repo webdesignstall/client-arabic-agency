@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import { JSXElementConstructor, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, Key, SetStateAction, useState, useEffect } from "react";
+import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, Key, SetStateAction, useState, useEffect } from "react";
 
 type Tab = {
   id: string;
@@ -34,7 +34,7 @@ const TabListAbout: React.FC<TabsProps> = ({ aboutData }) => {
         <div>
             <div className="flex gap-5 ">
             {
-                aboutData.map((title: { id: string; label: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }) => <div key={title.id}>
+                aboutData.map((title: { id: string; label: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => <div key={title.id}>
                 <button onClick={()=>hendelOpenData(title?.id)} className={` border-b-2 pb-2 text-lg md:text-xl lg:text-2xl font-bold ${childrenData?.id===title.id? 'border-[#23beec]':'border-white'}`}>{title.label}</button>
                 </div>)
             }
